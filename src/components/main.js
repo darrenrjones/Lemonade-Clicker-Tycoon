@@ -1,8 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import ClickScreen from './clickScreen'
-import Header from './header'
-import './clickScreen.css'
+import PlayScreen from './playScreen/playScreen'
+import Header from './header/header'
 
 
 
@@ -15,7 +14,7 @@ export class Main extends React.Component{
 
         <Header />  
 
-        <ClickScreen/>
+        <PlayScreen/>
 
       </div>
     );

@@ -1,0 +1,21 @@
+.playScreen-container {
+  background-color: yellowgreen;
+  display: flex;
+  flex-direction: column;
+  background-image: url('../../images/commerce.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 400px 400px;
+  height: 500px;
+}
+
+.menu-button{
+  color:red;
+  padding: 15px;
+  width:105px;  
+}
+
+.menu-container, .intro-container {
+  margin-left: auto;
+  margin-right: auto;
+}
