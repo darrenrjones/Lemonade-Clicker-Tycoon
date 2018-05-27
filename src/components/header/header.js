@@ -18,7 +18,7 @@ export class Header extends React.Component{
     
         <div className='currentCashHeader'>        
           <h1>Lemonade Clicker Tycoon!</h1>
-          <span className='currentCashDisplay'>${this.props.currentCash}</span>
+          <span className='currentCashDisplay'>${this.props.currentCash.toLocaleString('en')}</span>
         </div>
         
         <span> <strong>Signed in: {this.props.signedIn.toString()}</strong> </span>        

@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 // import commerce from '../../images/commerce.png'
-import MenuButton from './menu-button'
+import { clickMenu } from '../../actions'
+
 import Menu from './menu'
 // import Intro from './intro'
 import Play from './play'
@@ -9,6 +10,11 @@ import './playScreen.css'
 
 
 export class PlayScreen extends React.Component{
+
+  handleMenuClick(){
+    // console.log('click clicked');
+    this.props.dispatch(clickMenu());
+  }
 
   render(){
 
@@ -34,6 +40,8 @@ export class PlayScreen extends React.Component{
           {menuRender}
 
           {playScreenRender}
+
+          <button className='menu-button' onClick={() => this.handleMenuClick()}>MENU</button>
 
         </div>  
       );

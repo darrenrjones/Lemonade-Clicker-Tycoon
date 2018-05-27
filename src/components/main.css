@@ -12,3 +12,9 @@
   left: 880px; */
 
 }
+
+@media screen and (min-width: 1024px) and (orientation: portrait) {
+  body {
+  background-color: black;
+  }
+  }

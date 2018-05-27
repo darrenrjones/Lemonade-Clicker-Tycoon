@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import MenuButton from './menu-button'
 import { clickMain } from '../../actions'
 
 
