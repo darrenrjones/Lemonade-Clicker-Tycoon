@@ -6,6 +6,7 @@ const initialState = {
   currentCash: 0,
   menuState: false,
   clickValue: 1,
+  signedIn: false
   
 }
 

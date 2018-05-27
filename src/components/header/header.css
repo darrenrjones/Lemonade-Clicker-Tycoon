@@ -5,8 +5,8 @@
   height: 200px;
   background-color: red;
   display: flex;
+  justify-content: space-between;
 }
-
 
 
 .currentCashDisplay {  
@@ -20,8 +20,11 @@
   background-color: purple;
   max-width: 150px;
   max-height: 90px;
-  /* display: flex; */
-  /* justify-content: flex-start; */
-  /* flex-direction: row; */
-  align-items: stretch;
+
 }
+
+/* .employees-container{
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: space-around;
+} */

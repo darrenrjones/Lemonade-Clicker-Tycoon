@@ -7,13 +7,9 @@
   background-position: center;
   background-size: 400px 400px;
   height: 500px;
+  border: 5px solid black;
 }
 
-.menu-button{
-  color:red;
-  padding: 15px;
-  width:105px;  
-}
 
 .menu-container, .intro-container {
   margin-left: auto;

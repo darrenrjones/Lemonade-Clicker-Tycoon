@@ -1,27 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import commerce from '../../images/commerce.png'
+// import commerce from '../../images/commerce.png'
 import MenuButton from './menu-button'
 import Menu from './menu'
-import Intro from './intro'
-import { clickMenu, clickMain } from '../../actions'
+// import Intro from './intro'
+import Play from './play'
 import './playScreen.css'
 
 
-
-
 export class PlayScreen extends React.Component{
-
-
-  handleMenuClick(){
-    // console.log('click clicked');
-    this.props.dispatch(clickMenu());
-  }
-
-  handleMainClick(){
-    console.log('screen clicked!'); 
-    this.props.dispatch(clickMain());   
-  }
 
   render(){
 
@@ -29,40 +16,34 @@ export class PlayScreen extends React.Component{
     if(this.props.menuState){
       menuRender = (
         <div className='menu-screen'>
-          <Menu />
-          <MenuButton handleMenuClick={() => this.handleMenuClick()}/> 
+          <Menu />           
         </div>
       )     
     }  
-
     let playScreenRender;
     if(!this.props.menuState){
       playScreenRender = (
-                <div className='playScreen-container' onClick={() => this.handleMainClick()}>
-
-            {/* <div className='lemonadeStand-image'>
-              <img src={commerce} className="lemonadeStand-picture" alt="a lemonade stand"/>
-            </div> */}
-
-            <Intro/>
-
-            <MenuButton handleMenuClick={() => this.handleMenuClick()}/>
-          </div>
+              <div>
+                <Play />
+              </div>
       )
     }
       return(
-        <div>
-             {menuRender}
-        {playScreenRender}
+        <div>    
+
+          {menuRender}
+
+          {playScreenRender}
+
         </div>  
       );
-
 
   }  
 
 }
 
 const mapStateToProps = state => ({
-  menuState: state.mainReducer.menuState
+  menuState: state.mainReducer.menuState,
+  signedIn: state.mainReducer.signedIn
 })
 export default connect(mapStateToProps)(PlayScreen)
