@@ -6,12 +6,35 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: 400px 400px;
-  height: 500px;
+  height: 770px;
   border: 5px solid black;
 }
+
+/* .playScreen {
+  background-color: yellowgreen;
+  display: flex;
+  flex-direction: column;
+  background-image: url('../../images/commerce.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 400px 400px;
+  height: 770px;
+  border: 5px solid black;
+} */
 
 
 .menu-container, .intro-container {
   margin-left: auto;
   margin-right: auto;
+}
+
+.menu-button{
+  color:red;
+  padding: 15px;
+  width:105px;
+  position: fixed;
+  display: inline-block;
+  left: 570px;
+  bottom: 0px;
+
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { clickMain } from '../../actions'
+import { clickMain, fetchUser } from '../../actions'
 
 
 export class Play extends React.Component{
@@ -10,14 +10,21 @@ export class Play extends React.Component{
     this.props.dispatch(clickMain());   
   }
 
+  componentDidMount(){
+    this.props.dispatch(fetchUser())
+  }
+
+
 render(){
+
+  let user = this.props.currentUser.map((user,i) => <li key={i}>userName: {user.userName} <br/> cash: $ {user.currentCash.toLocaleString('en')}</li>)
   return(
     <div className='playScreen-container' onClick={() => this.handleMainClick()}>
+    
+    <ul>
+      {user}
+    </ul>
 
-    {/* <div className='lemonadeStand-image'>
-      <img src={commerce} className="lemonadeStand-picture" alt="a lemonade stand"/>
-    </div> */}      
-    {/* <MenuButton handleMenuClick={() => this.handleMenuClick()}/> */}
 
     </div>
   )
@@ -29,7 +36,8 @@ render(){
 
 const mapStateToProps = state => ({
   menuState: state.mainReducer.menuState,
-  signedIn: state.mainReducer.signedIn
+  signedIn: state.mainReducer.signedIn,
+  currentUser: state.mainReducer.currentUser
 })
 
 export default connect(mapStateToProps)(Play);
