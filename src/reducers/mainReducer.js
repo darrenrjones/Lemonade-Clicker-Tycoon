@@ -11,26 +11,32 @@ import {
 } from '../actions'
 
 const initialState = {
-  currentCash: 0,
+  userName: '',
+  userId: '',
+  userEmail: '',
+  currentCash: 40466,
   careerCash: 0,
   manualClicks:0,
-  menuState: true,
-  clickValue: 2,
+  menuState: false,
+  clickValue: 1,
   signedIn: false, 
   employees: 
     {
+      name: 'Employees',
       count: 0,
       currentCost: 25,
       employeeSpeed: 1000
     },
   trucks: 
     {
+      name: 'Trucks',
       count: 0,
       currentCost: 5000 ,
       employeeSpeed: 5000
     },
   planes:
     {
+      name: 'Planes',
       count: 0,
       currentCost: 1000000,
       employeeSpeed: 10000
@@ -57,6 +63,8 @@ export default function mainReducer(state = initialState, action){
     }
   }
   if(action.type === AUTO_CLICK){
+    console.log('auto_click');
+    
     return {
       ...state,
       currentCash: state.currentCash + state.clickValue*action.multiplier,
@@ -69,6 +77,7 @@ export default function mainReducer(state = initialState, action){
     return {
       ...state,
       employees: {
+        name: 'Employees',
         count: count + 1,
         currentCost: currentCost * 5,
         employeeSpeed: 1000
@@ -82,6 +91,7 @@ export default function mainReducer(state = initialState, action){
     return {
       ...state,
       trucks: {
+        name: 'Trucks',
         count: count + 1,
         currentCost: currentCost * 5,
         employeeSpeed: 5000
@@ -95,6 +105,7 @@ export default function mainReducer(state = initialState, action){
     return {
       ...state,
       planes: {
+        name: 'Planes',
         count: count + 1,
         currentCost: currentCost * 10,
         employeeSpeed: 5000

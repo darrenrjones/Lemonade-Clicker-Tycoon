@@ -1,10 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-// import commerce from '../../images/commerce.png'
 import { clickMenu } from '../../actions'
 
 import Menu from './menu'
-// import Intro from './intro'
 import Play from './play'
 import './playScreen.css'
 
@@ -35,7 +33,7 @@ export class PlayScreen extends React.Component{
       )
     }
       return(
-        <div className='playScreen'>    
+        <div className='playscreen'>    
 
           {menuRender}
 

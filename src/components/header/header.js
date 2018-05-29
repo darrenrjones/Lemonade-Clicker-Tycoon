@@ -11,9 +11,24 @@ export class Header extends React.Component{
       <div className='header-container'>  
 
         <div className='employees-container'>
-          <Employees/>
-          <Employees/>
-          <Employees/>
+
+          <Employees
+            empTypeName={this.props.employees.name}
+            empCount={this.props.employees.count}
+          />
+
+          <Employees
+            empTypeName={this.props.trucks.name}
+            empCount={this.props.trucks.count}
+
+          />
+
+          <Employees 
+            empTypeName={this.props.planes.name}
+            empCount={this.props.planes.count}
+            
+          />
+
         </div>      
     
         <div className='currentCashHeader'>        
@@ -30,7 +45,10 @@ export class Header extends React.Component{
 
 const mapStateToProps = state => ({
   currentCash : state.mainReducer.currentCash,
-  signedIn: state.mainReducer.signedIn
+  signedIn: state.mainReducer.signedIn,
+  employees: state.mainReducer.employees,
+  trucks: state.mainReducer.trucks,
+  planes: state.mainReducer.planes,
 })
 
 export default connect(mapStateToProps)(Header)

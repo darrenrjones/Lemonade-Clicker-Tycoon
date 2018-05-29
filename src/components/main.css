@@ -1,11 +1,10 @@
 .main-container{
-  position: relative;
-}
+  /* position: relative; */
+}  
 
 
-@media screen and (min-width: 1024px) and (orientation: landscape) {
+@media screen and (min-width: 320px) and (orientation: landscape) {
   body {
-  background-color: black;
+  background-color: rgb(134, 79, 79);
   }
-  
-  }
+}

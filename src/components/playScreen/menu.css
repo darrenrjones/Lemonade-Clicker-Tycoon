@@ -1,6 +1,20 @@
-.menu-screen {
+/* .menu-screen {
   background-color: lightskyblue;
   border: 5px solid black;
 
   height: 760px;
+} */
+
+@media screen and (min-width: 320px) and (orientation: landscape) {
+  body {
+  background-color: rgb(134, 79, 79);
+  }
+
+  h2{
+    font-size: 14px;
+  }
+  p{
+    font-size: 8px;
+  }
+
 }

@@ -10,10 +10,9 @@ export default function employeeTemplate(props){
       <h2>{props.empTypeName}</h2>
       <p> {props.empTypeName} sell {props.currentClickValue} lemonades/second</p>
       <div>
-          {/* <BuyEmployeeButton /> */}
           <button onClick={() => props.purchaseAutoClickers()}>Buy</button>
           <span>${props.currentPurchaseCost}</span>
-      </div>
+    </div>
   
   </div>
   );
