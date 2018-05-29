@@ -11,7 +11,7 @@ export default function employeeTemplate(props){
       <p> {props.empTypeName} sell {props.currentClickValue} lemonades/second</p>
       <div>
           <button onClick={() => props.purchaseAutoClickers()}>Buy</button>
-          <span>${props.currentPurchaseCost}</span>
+          <span>${props.currentPurchaseCost.toLocaleString('en')}</span>
     </div>
   
   </div>

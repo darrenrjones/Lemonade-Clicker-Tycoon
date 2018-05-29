@@ -46,6 +46,17 @@ export const fetchUserError = (error) => ({
   error
 })
 
+export const fetchSubmitLogin = (credentials) => {
+
+  return dispatch => {
+
+    fetch(`${API_BASE_URL}/api/users/${credentials.userName}`)
+    .then(res => res.json())
+    .then(user => dispatch(fetchUser()))
+    .catch(err => console.log(err)
+    )
+  }
+}
 
 export const fetchUser = () => {
 

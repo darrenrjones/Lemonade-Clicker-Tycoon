@@ -14,33 +14,17 @@ const initialState = {
   userName: '',
   userId: '',
   userEmail: '',
-  currentCash: 40466,
+  currentCash: 0,
   careerCash: 0,
   manualClicks:0,
   menuState: false,
   clickValue: 1,
   signedIn: false, 
-  employees: 
-    {
-      name: 'Employees',
-      count: 0,
-      currentCost: 25,
-      employeeSpeed: 1000
-    },
-  trucks: 
-    {
-      name: 'Trucks',
-      count: 0,
-      currentCost: 5000 ,
-      employeeSpeed: 5000
-    },
-  planes:
-    {
-      name: 'Planes',
-      count: 0,
-      currentCost: 1000000,
-      employeeSpeed: 10000
-    },
+  assets: {
+    employees: 0,
+    trucks: 0,
+    planes: 0
+  },
   loading: false,
   error: null,
   currentUser: [],  
@@ -72,45 +56,30 @@ export default function mainReducer(state = initialState, action){
     }
   }
   if(action.type === PURCHASE_AUTO_CLICKER_EMPLOYEE){
-    let count = state.employees.count
-    let currentCost = state.employees.currentCost
+    let newCount = state.assets.employees + 1
+    let newCost = 5**newCount
     return {
       ...state,
-      employees: {
-        name: 'Employees',
-        count: count + 1,
-        currentCost: currentCost * 5,
-        employeeSpeed: 1000
-      },
-      currentCash: state.currentCash - currentCost      
+      assets: {...state.assets, employees: newCount},    
+      currentCash: state.currentCash - newCost       
     }
   }
   if(action.type === PURCHASE_AUTO_CLICKER_TRUCK){
-    let count = state.trucks.count
-    let currentCost = state.trucks.currentCost
+    let newCount = state.assets.trucks + 1
+    let newCost = 10**newCount
     return {
       ...state,
-      trucks: {
-        name: 'Trucks',
-        count: count + 1,
-        currentCost: currentCost * 5,
-        employeeSpeed: 5000
-      },
-      currentCash: state.currentCash - currentCost      
+      assets: {...state.assets, trucks: newCount},    
+      currentCash: state.currentCash - newCost       
     }
   }
   if(action.type === PURCHASE_AUTO_CLICKER_PLANE){
-    let count = state.planes.count
-    let currentCost = state.planes.currentCost
+    let newCount = state.assets.planes + 1
+    let newCost = 100**newCount
     return {
       ...state,
-      planes: {
-        name: 'Planes',
-        count: count + 1,
-        currentCost: currentCost * 10,
-        employeeSpeed: 5000
-      },
-      currentCash: state.currentCash - currentCost      
+      assets: {...state.assets, planes: newCount},    
+      currentCash: state.currentCash - newCost       
     }
   }
   if(action.type === FETCH_USER_REQUEST){

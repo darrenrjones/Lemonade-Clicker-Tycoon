@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Employees from './employees'
 import './header.css'
+import LoginForm from '../modal/login'
+
 
 
 export class Header extends React.Component{
@@ -13,19 +15,19 @@ export class Header extends React.Component{
         <div className='employees-container'>
 
           <Employees
-            empTypeName={this.props.employees.name}
-            empCount={this.props.employees.count}
+            empTypeName={'Employees'}
+            empCount={this.props.assets.employees}
           />
 
           <Employees
-            empTypeName={this.props.trucks.name}
-            empCount={this.props.trucks.count}
+            empTypeName={'Trucks'}
+            empCount={this.props.assets.trucks}
 
           />
 
           <Employees 
-            empTypeName={this.props.planes.name}
-            empCount={this.props.planes.count}
+            empTypeName={"Planes"}
+            empCount={this.props.assets.planes}
             
           />
 
@@ -36,7 +38,8 @@ export class Header extends React.Component{
           <span className='currentCashDisplay'>${this.props.currentCash.toLocaleString('en')}</span>
         </div>
         
-        <span> <strong>Signed in: {this.props.signedIn.toString()}</strong> </span>        
+        <span> <strong>Signed in: {this.props.signedIn.toString()}</strong> </span>
+        <LoginForm />        
     
       </div>
     );
@@ -46,9 +49,7 @@ export class Header extends React.Component{
 const mapStateToProps = state => ({
   currentCash : state.mainReducer.currentCash,
   signedIn: state.mainReducer.signedIn,
-  employees: state.mainReducer.employees,
-  trucks: state.mainReducer.trucks,
-  planes: state.mainReducer.planes,
+  assets: state.mainReducer.assets
 })
 
 export default connect(mapStateToProps)(Header)

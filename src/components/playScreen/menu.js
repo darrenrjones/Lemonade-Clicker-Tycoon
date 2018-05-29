@@ -18,29 +18,26 @@ let autoClickerPlanesRefs = [];
 export class Menu extends React.Component{
 
   purchaseEmployeeAutoClickers() {
-    let empSpeed = this.props.employees.employeeSpeed   
 
-    if(this.props.currentCash >= this.props.employees.currentCost){
+    if(this.props.currentCash >= 5**(this.props.assets.employees + 1)){
       this.props.dispatch(purchaseAutoClickerEmployee());
-      autoClickerEmployeeRefs.push(setInterval(() => this.props.dispatch(autoClick(1)), empSpeed));
+      autoClickerEmployeeRefs.push(setInterval(() => this.props.dispatch(autoClick(1)), 1000));
       console.log('auto employee clicked');
     }    
   }
   purchaseTruckAutoClickers() {
-    let empSpeed = this.props.trucks.employeeSpeed   
 
-    if(this.props.currentCash >= this.props.trucks.currentCost){
+    if(this.props.currentCash >= 10**(this.props.assets.trucks + 1)){
       this.props.dispatch(purchaseAutoClickerTruck());
-      autoClickerTrucksRefs.push(setInterval(() => this.props.dispatch(autoClick(25)), empSpeed));
+      autoClickerTrucksRefs.push(setInterval(() => this.props.dispatch(autoClick(10)), 5000));
       console.log('auto truck clicked');
     }    
   }
   purchasePlaneAutoClickers() {
-    let empSpeed = this.props.planes.employeeSpeed   
 
-    if(this.props.currentCash >= this.props.planes.currentCost){
+    if(this.props.currentCash >= 100**(this.props.assets.planes + 1)){
       this.props.dispatch(purchaseAutoClickerPlane());
-      autoClickerPlanesRefs.push(setInterval(() => this.props.dispatch(autoClick(100)), empSpeed));
+      autoClickerPlanesRefs.push(setInterval(() => this.props.dispatch(autoClick(100)), 10000));
       console.log('auto plane clicked');
     }    
   }
@@ -52,23 +49,23 @@ export class Menu extends React.Component{
         <EmployeeTemplate
          empTypeName='Employees'
          currentClickValue={this.props.clickValue} 
-         currentPurchaseCost={this.props.employees.currentCost.toLocaleString('en')}
+         currentPurchaseCost={5**(this.props.assets.employees + 1)}
          purchaseAutoClickers={() => this.purchaseEmployeeAutoClickers()}
-         />
+        />
 
          <EmployeeTemplate
-         empTypeName='Trucks'
-         currentClickValue={this.props.clickValue} 
-         currentPurchaseCost={this.props.trucks.currentCost.toLocaleString('en')}
-         purchaseAutoClickers={() => this.purchaseTruckAutoClickers()}
-         />
+          empTypeName='Trucks'
+          currentClickValue={this.props.clickValue} 
+          currentPurchaseCost={10**(this.props.assets.trucks + 1)}
+          purchaseAutoClickers={() => this.purchaseTruckAutoClickers()}
+        />
 
          <EmployeeTemplate
          empTypeName='Planes'
          currentClickValue={this.props.clickValue} 
-         currentPurchaseCost={this.props.planes.currentCost.toLocaleString('en')}
+         currentPurchaseCost={100**(this.props.assets.planes + 1)}
          purchaseAutoClickers={() => this.purchasePlaneAutoClickers()}
-         />
+         /> 
 
       </div>
     );
@@ -78,9 +75,7 @@ export class Menu extends React.Component{
 const mapStateToProps = state => ({
   menuState: state.mainReducer.menuState,
   clickValue: state.mainReducer.clickValue,
-  employees: state.mainReducer.employees,
-  trucks: state.mainReducer.trucks,
-  planes: state.mainReducer.planes,
+  assets: state.mainReducer.assets,
   currentCash: state.mainReducer.currentCash
 })
 
