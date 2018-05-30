@@ -46,27 +46,41 @@ export const fetchUserError = (error) => ({
   error
 })
 
-export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {
+export const fetchSave = () => (dispatch, getState) => {
+  const currentState = getState();
+
+  console.log('here is statestuff: ', {
+    currentCash: currentState.mainReducer.currentCash,
+    careerCash: currentState.mainReducer.careerCash,
+    manualClicks: currentState.mainReducer.manualClicks,
+    clickValue: currentState.mainReducer.clickValue,
+    assets: currentState.mainReducer.assets
+  });
   
-  // const currentState = getState();
-  console.log('fetchSubmitLogin called w/: ', credentials );
-  
-  fetch(`${API_BASE_URL}/api/users/${credentials.userName}`)
-  .then(res => res.json() 
-  )
-  .then(user => {dispatch(fetchUserSuccess(user))
-  console.log(user);
-  
+
+  fetch(`${API_BASE_URL}/api/users/${currentState.mainReducer.currentUser.id}`,{
+    method: 'PUT',
+    body: JSON.stringify({
+      currentCash: currentState.mainReducer.currentCash,
+      careerCash: currentState.mainReducer.careerCash,
+      manualClicks: currentState.mainReducer.manualClicks,
+      clickValue: currentState.mainReducer.clickValue,
+      assets: currentState.mainReducer.assets
+    }),
+    headers: {'Content-Type': 'application/json'}
   })
-  .catch(err => dispatch(fetchUserError(err)))
-  
+}
+
+export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {    
+  fetch(`${API_BASE_URL}/api/users/${credentials.userName}`)
+  .then(res => res.json())
+  .then(user => {dispatch(fetchUserSuccess(user))})
+  .catch(err => dispatch(fetchUserError(err)))  
 }
 
 export const fetchSubmitRegister = (credentials) => (dispatch, getState) => {
 
     const currentState = getState();
-    // console.log(currentState.mainReducer.currentCash);
-    // console.log(credentials.userName);
 
     fetch(`${API_BASE_URL}/api/users`,{
       method: 'POST',

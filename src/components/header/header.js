@@ -2,35 +2,35 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Employees from './employees'
 import './header.css'
-import LoginForm from '../modal/login'
+import LoginForm from '../modal/loginForm'
+import Save from'./save'
+import { fetchSave } from '../../actions';
 
 
 
 export class Header extends React.Component{
+
+  saveSubmit = () => {    
+    this.props.dispatch(fetchSave())
+  }
 
   render(){
     return(
       <div className='header-container'>  
 
         <div className='employees-container'>
-
           <Employees
             empTypeName={'Employees'}
             empCount={this.props.assets.employees}
           />
-
           <Employees
             empTypeName={'Trucks'}
             empCount={this.props.assets.trucks}
-
           />
-
           <Employees 
             empTypeName={"Planes"}
-            empCount={this.props.assets.planes}
-            
+            empCount={this.props.assets.planes}            
           />
-
         </div>      
     
         <div className='currentCashHeader'>        
@@ -39,7 +39,8 @@ export class Header extends React.Component{
         </div>
         
         <span> <strong>Signed in: {this.props.signedIn.toString()}</strong> </span>
-        <LoginForm />        
+        <LoginForm />
+        <Save saveSubmit={() => this.saveSubmit()}/>        
     
       </div>
     );
@@ -49,7 +50,8 @@ export class Header extends React.Component{
 const mapStateToProps = state => ({
   currentCash : state.mainReducer.currentCash,
   signedIn: state.mainReducer.signedIn,
-  assets: state.mainReducer.assets
+  assets: state.mainReducer.assets,
+
 })
 
 export default connect(mapStateToProps)(Header)

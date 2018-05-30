@@ -6,7 +6,7 @@ import {Field, reduxForm, reset} from 'redux-form'
 
 import { fetchSubmitRegister, fetchSubmitLogin } from '../../actions'
 
-import './login.css'
+import './loginForm.css'
 
 import { required, passwordLength } from './validators'; 
 
