@@ -51,8 +51,8 @@ export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {
   // console.log(getState());
 
     const currentState = getState();
-    console.log(currentState.mainReducer.currentCash);
-    console.log(credentials.userName);
+    // console.log(currentState.mainReducer.currentCash);
+    // console.log(credentials.userName);
     
 
 
@@ -61,7 +61,11 @@ export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {
       body: JSON.stringify({        
         userName: credentials.userName,
         password: credentials.password,
-        currentCash: currentState.mainReducer.currentCash
+        currentCash: currentState.mainReducer.currentCash,
+        careerCash: currentState.mainReducer.careerCash,
+        manualClicks: currentState.mainReducer.manualClicks,
+        clickValue: currentState.mainReducer.clickValue,
+        assets: currentState.mainReducer.assets
       }),
       headers: {'Content-Type': 'application/json'}
     })
