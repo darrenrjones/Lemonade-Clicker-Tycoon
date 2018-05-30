@@ -19,17 +19,17 @@ export class LoginForm extends React.Component{
   }
 
   toggleOpen = e => {
-    console.log(e);
     const { isOpen } = this.state;
     this.setState({isOpen: !isOpen})    
   }
 
   submitLogin(fields){
-    console.log('login form submitted!', fields);
+    // console.log('login form submitted!', fields);
 
     this.props.dispatch(fetchSubmitLogin(fields));
 
     this.props.dispatch(reset('loginForm')); 
+
 
   }
 

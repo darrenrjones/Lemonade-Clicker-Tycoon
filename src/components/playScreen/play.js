@@ -17,12 +17,12 @@ export class Play extends React.Component{
 
 render(){
 
-  let user = this.props.currentUser.map((user,i) => <li key={i}>userName: {user.userName} <br/> cash: $ {user.currentCash.toLocaleString('en')}</li>)
+  // let user = this.props.currentUser.map((user,i) => <li key={i}>userName: {user.userName} <br/> cash: $ {user.currentCash.toLocaleString('en')}</li>)
   return(
     <div className='playscreen-container' onClick={() => this.handleMainClick()}>
     
     <ul>
-      {user}
+      {/* {user} */}trash
     </ul>
 
 

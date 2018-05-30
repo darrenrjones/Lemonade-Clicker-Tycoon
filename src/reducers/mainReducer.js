@@ -12,8 +12,7 @@ import {
 
 const initialState = {
   userName: '',
-  userId: '',
-  userEmail: '',
+  id: '',
   currentCash: 0,
   careerCash: 0,
   manualClicks:0,

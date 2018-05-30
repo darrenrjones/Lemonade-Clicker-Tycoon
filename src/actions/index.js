@@ -46,16 +46,29 @@ export const fetchUserError = (error) => ({
   error
 })
 
-export const fetchSubmitLogin = (credentials) => {
+export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {
 
-  return dispatch => {
+  // console.log(getState());
 
-    fetch(`${API_BASE_URL}/api/users/${credentials.userName}`)
+    const currentState = getState();
+    console.log(currentState.mainReducer.currentCash);
+    console.log(credentials.userName);
+    
+
+
+    fetch(`${API_BASE_URL}/api/users`,{
+      method: 'POST',
+      body: JSON.stringify({        
+        userName: credentials.userName,
+        password: credentials.password,
+        currentCash: currentState.mainReducer.currentCash
+      }),
+      headers: {'Content-Type': 'application/json'}
+    })
     .then(res => res.json())
     .then(user => dispatch(fetchUser()))
-    .catch(err => console.log(err)
-    )
-  }
+    .catch(err => console.log(err)  )
+  
 }
 
 export const fetchUser = () => {
