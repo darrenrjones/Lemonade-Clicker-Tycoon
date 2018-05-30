@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { clickMain, fetchUser } from '../../actions'
+import { clickMain } from '../../actions'
 
 
 export class Play extends React.Component{
@@ -11,7 +11,6 @@ export class Play extends React.Component{
   }
 
   componentDidMount(){
-    this.props.dispatch(fetchUser())
   }
 
 

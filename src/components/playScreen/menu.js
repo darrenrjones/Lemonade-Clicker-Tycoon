@@ -3,42 +3,28 @@ import { connect } from 'react-redux'
 import './menu.css'
 import EmployeeTemplate from './employeeTemplate'
 import {
-   autoClick,
    purchaseAutoClickerEmployee,
    purchaseAutoClickerTruck,
    purchaseAutoClickerPlane,
   } from '../../actions'
 
 
-
-let autoClickerEmployeeRefs = [];
-let autoClickerTrucksRefs = [];
-let autoClickerPlanesRefs = [];
-
 export class Menu extends React.Component{
 
-  purchaseEmployeeAutoClickers() {
 
+  purchaseEmployeeAutoClickers() {
     if(this.props.currentCash >= 5**(this.props.assets.employees + 1)){
       this.props.dispatch(purchaseAutoClickerEmployee());
-      autoClickerEmployeeRefs.push(setInterval(() => this.props.dispatch(autoClick(1)), 1000));
-      console.log('auto employee clicked');
     }    
   }
   purchaseTruckAutoClickers() {
-
     if(this.props.currentCash >= 10**(this.props.assets.trucks + 1)){
       this.props.dispatch(purchaseAutoClickerTruck());
-      autoClickerTrucksRefs.push(setInterval(() => this.props.dispatch(autoClick(10)), 5000));
-      console.log('auto truck clicked');
     }    
   }
   purchasePlaneAutoClickers() {
-
     if(this.props.currentCash >= 100**(this.props.assets.planes + 1)){
       this.props.dispatch(purchaseAutoClickerPlane());
-      autoClickerPlanesRefs.push(setInterval(() => this.props.dispatch(autoClick(100)), 10000));
-      console.log('auto plane clicked');
     }    
   }
 

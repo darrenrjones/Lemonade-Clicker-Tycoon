@@ -1,0 +1,34 @@
+.modal-form-1{ 
+  max-width: 40%;
+  /* text-align: center; */
+  max-height: 70%;
+  padding-left: 2em;
+  padding-top: 1em;
+  margin-left: auto;
+  margin-right: auto;  
+  position: fixed;
+  top: 4em;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(255, 255, 255, 0.75);
+
+}
+
+.form-error, .form-warning {
+  margin: 0 6px;
+  padding: 6px;
+  display: inline-block;
+}
+.message {
+  padding: 12px 6px;
+}
+
+.message-success {
+  background-color: #5CB85C;
+  color: white;
+}
+.message-error, .form-error {
+  background-color: #d9534f;
+  color: white;
+}

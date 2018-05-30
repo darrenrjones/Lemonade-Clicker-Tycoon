@@ -47,14 +47,26 @@ export const fetchUserError = (error) => ({
 })
 
 export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {
+  
+  // const currentState = getState();
+  console.log('fetchSubmitLogin called w/: ', credentials );
+  
+  fetch(`${API_BASE_URL}/api/users/${credentials.userName}`)
+  .then(res => res.json() 
+  )
+  .then(user => {dispatch(fetchUserSuccess(user))
+  console.log(user);
+  
+  })
+  .catch(err => dispatch(fetchUserError(err)))
+  
+}
 
-  // console.log(getState());
+export const fetchSubmitRegister = (credentials) => (dispatch, getState) => {
 
     const currentState = getState();
     // console.log(currentState.mainReducer.currentCash);
     // console.log(credentials.userName);
-    
-
 
     fetch(`${API_BASE_URL}/api/users`,{
       method: 'POST',
@@ -69,21 +81,40 @@ export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {
       }),
       headers: {'Content-Type': 'application/json'}
     })
-    .then(res => res.json())
-    .then(user => dispatch(fetchUser()))
+    .then(res => {
+      if (!res.ok) {
+          if (
+              res.headers.has('content-type') &&
+              res.headers
+                  .get('content-type')
+                  .startsWith('application/json')
+          ) {
+              // It's a nice JSON error returned by us, so decode it
+              return res.json().then(err => Promise.reject(err));
+          }
+          // It's a less informative error returned by express
+          return Promise.reject({
+              code: res.status,
+              message: res.statusText
+          });
+      }
+      return;
+  })
+    .then(user => console.log(user)
+    )
     .catch(err => console.log(err)  )
   
 }
 
-export const fetchUser = () => {
+// export const fetchUser = () => {
 
-  return dispatch => {
+//   return dispatch => {
 
-    dispatch(fetchUserRequest());  
+//     dispatch(fetchUserRequest());  
 
-    fetch(`${API_BASE_URL}/api/users`)
-    .then(res => res.json())
-    .then(user => dispatch(fetchUserSuccess(user)))
-    .catch(err => dispatch(fetchUserError(err)))    
-  }  
-}
+//     fetch(`${API_BASE_URL}/api/users/${}`)
+//     .then(res => res.json())
+//     .then(user => dispatch(fetchUserSuccess(user)))
+//     .catch(err => dispatch(fetchUserError(err)))    
+//   }  
+// }

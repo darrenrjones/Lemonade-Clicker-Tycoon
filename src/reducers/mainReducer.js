@@ -47,6 +47,7 @@ export default function mainReducer(state = initialState, action){
   }
   if(action.type === AUTO_CLICK){
     console.log('auto_click');
+    console.log(state.clickValue*action.multiplier);
     
     return {
       ...state,
@@ -92,7 +93,12 @@ export default function mainReducer(state = initialState, action){
       ...state,
       loading: false,
       error: null,
-      currentUser: action.user     
+      currentUser: action.user,
+      currentCash: action.user.currentCash,
+      careerCash: action.user.careerCash,
+      manualClicks: action.user.manualClicks,
+      clickValue: action.user.clickValue,
+      assets: action.user.assets     
     }
   }
   if(action.type === FETCH_USER_ERROR){
