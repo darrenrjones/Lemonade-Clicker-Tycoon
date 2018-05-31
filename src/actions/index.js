@@ -54,7 +54,7 @@ export const fetchUserError = (error) => ({
 export const fetchSave = () => (dispatch, getState) => {
   const currentState = getState(); 
 
-  fetch(`${API_BASE_URL}/api/users/${currentState.mainReducer.currentUser.id}`,{
+  fetch(`${API_BASE_URL}/api/users/${currentState.mainReducer.id}`,{
     method: 'PUT',
     body: JSON.stringify({
       currentCash: currentState.mainReducer.currentCash,
@@ -67,19 +67,45 @@ export const fetchSave = () => (dispatch, getState) => {
   })
 }
 
-export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {    
-  fetch(`${API_BASE_URL}/api/users/${credentials.userName}`)
-  .then(res => res.json())
-  .then(user => {dispatch(fetchUserSuccess(user))})
-  .then(() => {dispatch(toggleSignedinState())})
-  .catch(err => dispatch(fetchUserError(err)))  
-}
+export const fetchUser = (user) => (dispatch, getState) => {
+
+  const currentState = getState(); 
+  console.log("USER PASSED FROM FETCHSUBMITLOGIN: ", user);
+
+  return fetch(`${API_BASE_URL}/api/users/5b104e03b521d6693de55699`)
+           .then(res => res.json())    
+           .then(user => {
+             console.log(user);
+             
+             dispatch(fetchUserSuccess(user))
+            })
+           
+
+  }
+
+export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {
+  // const currentState = getState(); 
+  // console.log('CURRENT STATE: ',currentState);  
+ 
+  return fetch(`${API_BASE_URL}/api/auth/login`, {
+            method: 'POST',
+            body: JSON.stringify({        
+              username: credentials.userName,
+              password: credentials.password
+            }),
+            headers: {'Content-Type': 'application/json'}
+          })
+          .then(res => res.json())
+          .then((user) => {dispatch(fetchUser(user))})
+          .then(() => {dispatch(toggleSignedinState())})
+          .catch(err => dispatch(fetchUserError(err)))  
+        }
 
 export const fetchSubmitRegister = (credentials) => (dispatch, getState) => {
 
     const currentState = getState();
 
-    fetch(`${API_BASE_URL}/api/users`,{
+    fetch(`${API_BASE_URL}/api/users/register`,{
       method: 'POST',
       body: JSON.stringify({        
         userName: credentials.userName,
@@ -92,8 +118,8 @@ export const fetchSubmitRegister = (credentials) => (dispatch, getState) => {
       }),
       headers: {'Content-Type': 'application/json'}
     })
-    .then(res => res.json(res))
-    .then(user => dispatch(fetchUserSuccess(user)))
+    .then(res => res.json())
+    .then(user => dispatch(fetchUserSuccess(user))) //another fetch for login dispatch fethcSubmitLogin
     .then(() => {dispatch(toggleSignedinState())})   
     .catch(err => {
       const {reason, message, location} = err;

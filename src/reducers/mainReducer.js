@@ -99,11 +99,15 @@ export default function mainReducer(state = initialState, action){
     }
   }
   if(action.type === FETCH_USER_SUCCESS){
+    // console.log('ACTION>USER: ',action.user);
+    
     return {
       ...state,
       loading: false,
       error: null,
-      currentUser: action.user,
+      currentUser: action.user, //
+      id: action.user.id,
+      userName: action.user.userName,
       currentCash: action.user.currentCash,
       careerCash: action.user.careerCash,
       manualClicks: action.user.manualClicks,

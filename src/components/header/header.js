@@ -15,6 +15,10 @@ export class Header extends React.Component{
   }
 
   render(){
+    // console.log('this.props: ',this.props);
+    // if(!this.props.currentUser){
+    //   return <div>LOADING...</div>
+    // }
     return(
       <div className='header-container'>  
 
@@ -39,7 +43,7 @@ export class Header extends React.Component{
         </div>
         
         <span> <strong>Signed in: {
-          this.props.signedIn ? this.props.currentUser.userName : this.props.signedIn.toString()
+          this.props.signedIn ? this.props.userName : this.props.signedIn.toString()
           }</strong> </span>
         <LoginForm />
         <Save saveSubmit={() => this.saveSubmit()}/>        
@@ -53,7 +57,8 @@ const mapStateToProps = state => ({
   currentCash : state.mainReducer.currentCash,
   signedIn: state.mainReducer.signedIn,
   assets: state.mainReducer.assets,
-  currentUser: state.mainReducer.currentUser
+  currentUser: state.mainReducer.currentUser,
+  userName: state.mainReducer.userName
 
 })
 

@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 
 import {Field, reduxForm, reset} from 'redux-form'
 
-import { fetchSubmitRegister, fetchSubmitLogin, toggleSignedinState } from '../../actions'
+import { fetchSubmitRegister, fetchSubmitLogin } from '../../actions'
 
 import './loginForm.css'
 
@@ -30,28 +30,30 @@ export class LoginForm extends React.Component{
   }
 
   submitRegister(fields){
-    console.log('login form submitted!', fields);
-    // this.props.dispatch(toggleSignedinState());
+    // console.log('login form submitted!', fields);
 
     this.props.dispatch(fetchSubmitRegister(fields));
+
+    this.toggleOpen();
 
     this.props.dispatch(reset('loginForm')); 
   }
 
   submitLogin(fields){
-    console.log('SubmitLogin submitted w/: ', fields);
+    // console.log('SubmitLogin submitted w/: ', fields);
 
     this.props.dispatch(fetchSubmitLogin(fields));
-
+    
+    this.toggleOpen();    
 
     this.props.dispatch(reset('loginForm'));     
   }
 
   onSubmit(fields){
     if (this.submittedButton === "login"){
-      this.submitRegister(fields);
-    } else if (this.submittedButton === 'register'){
       this.submitLogin(fields);
+    } else if (this.submittedButton === 'register'){
+      this.submitRegister(fields);
     }
   }
 
@@ -64,9 +66,11 @@ export class LoginForm extends React.Component{
     // need to check where .submitSucceeded happens
     let successMessage;
     if (this.props.submitSucceeded) {
+      // console.log(this.props.submitSucceeded);
+      
         successMessage = (
             <div className="message message-success">
-                Message submitted successfully
+                Logged in successfully
             </div>
         );
     }
@@ -126,13 +130,13 @@ export class LoginForm extends React.Component{
 
             <button 
               disabled={this.props.pristine || this.props.submitting}
-              onClick={() => this.submittedButton = "login"}>
+              onClick={() => this.submittedButton = "register"}>
               REGISTER
             </button>
 
             <button 
               disabled={this.props.pristine || this.props.submitting}
-              onClick={() => this.submittedButton = "register"}>
+              onClick={() => this.submittedButton = "login"}>
               LOG IN
             </button>
           </form>
@@ -144,10 +148,14 @@ export class LoginForm extends React.Component{
     )
   }
 
-
-
-
 }
+
+
+// const mapStateToProps = state => ({
+//   signedIn: state.mainReducer.signedIn
+// })
+
+
 export default reduxForm({
   form: 'loginForm',
   app: LoginForm

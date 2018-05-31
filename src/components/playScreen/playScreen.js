@@ -1,18 +1,23 @@
+
+
 import React from 'react'
 import { connect } from 'react-redux'
 
 
 import Menu from './menu'
 import Play from './play'
+import Intro from './intro'
 import './playScreen.css'
 import {
   clickMenu,
   autoClick,
  } from '../../actions'
-
- let autoClickerEmployeeRef;
-  let autoClickerTrucksRef;
-  let autoClickerPlanesRef;
+ 
+/*eslint-disable */
+let autoClickerEmployeeRef; 
+let autoClickerTrucksRef;
+let autoClickerPlanesRef;
+/*eslint-enable */
 
 export class PlayScreen extends React.Component{
 
@@ -31,8 +36,6 @@ export class PlayScreen extends React.Component{
   //   clearInterval(autoClickerPlanesRef);
   // }
 
-
- 
 
   render(){
 
@@ -58,6 +61,8 @@ export class PlayScreen extends React.Component{
           {menuRender}
 
           {playScreenRender}
+
+          <Intro />
 
           <button className='menu-button' onClick={() => this.handleMenuClick()}>MENU</button>
 

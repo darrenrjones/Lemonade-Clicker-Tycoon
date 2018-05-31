@@ -56,5 +56,22 @@
     height: 230px;
     border: 1px solid black;
   }
+  .intro-paragraph{
+    border: 5px solid black;
+    position: fixed;
+    bottom: 100px;
+    width: 180px;
+    height: 150px;
+    left: 250px;
+    background-color: pink;
+    font-size: 12px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .intro-closebutton{
+    color:red;
+    /* display: flex;
+    justify-content: flex-end; */
+  }
 
 }
