@@ -12,7 +12,7 @@ import {
 } from '../actions'
 
 const initialState = {
-  userName: '',
+  username: '',
   id: '',
   currentCash: 0,
   careerCash: 0,
@@ -107,7 +107,7 @@ export default function mainReducer(state = initialState, action){
       error: null,
       currentUser: action.user, //
       id: action.user.id,
-      userName: action.user.userName,
+      username: action.user.username,
       currentCash: action.user.currentCash,
       careerCash: action.user.careerCash,
       manualClicks: action.user.manualClicks,

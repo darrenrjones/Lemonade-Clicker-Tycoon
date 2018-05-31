@@ -43,7 +43,7 @@ export class Header extends React.Component{
         </div>
         
         <span> <strong>Signed in: {
-          this.props.signedIn ? this.props.userName : this.props.signedIn.toString()
+          this.props.signedIn ? this.props.username : this.props.signedIn.toString()
           }</strong> </span>
         <LoginForm />
         <Save saveSubmit={() => this.saveSubmit()}/>        
@@ -58,7 +58,7 @@ const mapStateToProps = state => ({
   signedIn: state.mainReducer.signedIn,
   assets: state.mainReducer.assets,
   currentUser: state.mainReducer.currentUser,
-  userName: state.mainReducer.userName
+  username: state.mainReducer.username
 
 })
 

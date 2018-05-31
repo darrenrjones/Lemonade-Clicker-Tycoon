@@ -108,7 +108,7 @@ export class LoginForm extends React.Component{
             <div>
               
               <Field 
-                name='userName'
+                name='username'
                 label='Username: '
                 component={Input}
                 type='text'

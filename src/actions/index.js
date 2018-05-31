@@ -72,7 +72,7 @@ export const fetchUser = (user) => (dispatch, getState) => {
   const currentState = getState(); 
   console.log("USER PASSED FROM FETCHSUBMITLOGIN: ", user);
 
-  return fetch(`${API_BASE_URL}/api/users/5b104e03b521d6693de55699`)
+  return fetch(`${API_BASE_URL}/api/users/5b107026b559ac0ec9a2459d`)
            .then(res => res.json())    
            .then(user => {
              console.log(user);
@@ -90,7 +90,7 @@ export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {
   return fetch(`${API_BASE_URL}/api/auth/login`, {
             method: 'POST',
             body: JSON.stringify({        
-              username: credentials.userName,
+              username: credentials.username,
               password: credentials.password
             }),
             headers: {'Content-Type': 'application/json'}
@@ -108,7 +108,7 @@ export const fetchSubmitRegister = (credentials) => (dispatch, getState) => {
     fetch(`${API_BASE_URL}/api/users/register`,{
       method: 'POST',
       body: JSON.stringify({        
-        userName: credentials.userName,
+        username: credentials.username,
         password: credentials.password,
         currentCash: currentState.mainReducer.currentCash,
         careerCash: currentState.mainReducer.careerCash,
