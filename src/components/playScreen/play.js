@@ -35,7 +35,6 @@ render(){
 
 const mapStateToProps = state => ({
   menuState: state.mainReducer.menuState,
-  signedIn: state.mainReducer.signedIn,
   currentUser: state.mainReducer.currentUser
 })
 

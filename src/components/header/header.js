@@ -38,7 +38,9 @@ export class Header extends React.Component{
           <span className='currentCashDisplay'>${this.props.currentCash.toLocaleString('en')}</span>
         </div>
         
-        <span> <strong>Signed in: {this.props.signedIn.toString()}</strong> </span>
+        <span> <strong>Signed in: {
+          this.props.signedIn ? this.props.currentUser.userName : this.props.signedIn.toString()
+          }</strong> </span>
         <LoginForm />
         <Save saveSubmit={() => this.saveSubmit()}/>        
     
@@ -51,6 +53,7 @@ const mapStateToProps = state => ({
   currentCash : state.mainReducer.currentCash,
   signedIn: state.mainReducer.signedIn,
   assets: state.mainReducer.assets,
+  currentUser: state.mainReducer.currentUser
 
 })
 

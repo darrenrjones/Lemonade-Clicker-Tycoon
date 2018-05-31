@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 
 import {Field, reduxForm, reset} from 'redux-form'
 
-import { fetchSubmitRegister, fetchSubmitLogin } from '../../actions'
+import { fetchSubmitRegister, fetchSubmitLogin, toggleSignedinState } from '../../actions'
 
 import './loginForm.css'
 
@@ -31,15 +31,18 @@ export class LoginForm extends React.Component{
 
   submitRegister(fields){
     console.log('login form submitted!', fields);
+    // this.props.dispatch(toggleSignedinState());
+
     this.props.dispatch(fetchSubmitRegister(fields));
 
     this.props.dispatch(reset('loginForm')); 
   }
 
   submitLogin(fields){
-
     console.log('SubmitLogin submitted w/: ', fields);
+
     this.props.dispatch(fetchSubmitLogin(fields));
+
 
     this.props.dispatch(reset('loginForm'));     
   }
@@ -58,6 +61,7 @@ export class LoginForm extends React.Component{
 
     const { isOpen } = this.state;
 
+    // need to check where .submitSucceeded happens
     let successMessage;
     if (this.props.submitSucceeded) {
         successMessage = (

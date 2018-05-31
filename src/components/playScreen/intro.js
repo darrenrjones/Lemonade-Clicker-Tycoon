@@ -1,8 +1,26 @@
-import React from 'react'
+import React from 'react';
 
+import Modal from 'react-modal';
+
+
+
+Modal.setAppElement('#root');
 
 
 export default class Intro extends React.Component{
+  constructor() {
+    super();
+
+    this.state = {
+      isOpen: false
+    };
+  }
+
+  toggleOpen = e => {
+    const { isOpen } = this.state;
+    this.setState({isOpen: !isOpen})    
+  }
+  
 
   render(){
     return(
@@ -18,3 +36,7 @@ export default class Intro extends React.Component{
   }
 }
 
+// export default reduxForm({
+//   form: 'Intro',
+//   app: Intro
+// })(Intro)

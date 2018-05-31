@@ -8,6 +8,7 @@ import {
   FETCH_USER_ERROR,
   FETCH_USER_SUCCESS,
   FETCH_USER_REQUEST,
+  TOGGLE_SIGNEDIN_STATE,
 } from '../actions'
 
 const initialState = {
@@ -26,7 +27,7 @@ const initialState = {
   },
   loading: false,
   error: null,
-  currentUser: [],  
+  currentUser: null,  
 }
 
 export default function mainReducer(state = initialState, action){
@@ -46,8 +47,8 @@ export default function mainReducer(state = initialState, action){
     }
   }
   if(action.type === AUTO_CLICK){
-    console.log('auto_click');
-    console.log(state.clickValue*action.multiplier);
+    // console.log('auto_click');
+    // console.log(state.clickValue*action.multiplier);
     
     return {
       ...state,
@@ -55,6 +56,14 @@ export default function mainReducer(state = initialState, action){
       careerCash: state.careerCash + state.clickValue*action.multiplier,      
     }
   }
+  if(action.type === TOGGLE_SIGNEDIN_STATE){
+    console.log('signedIn state changed');    
+    return {
+      ...state,
+      signedIn: !state.signedIn
+    }
+  }
+
   if(action.type === PURCHASE_AUTO_CLICKER_EMPLOYEE){
     let newCount = state.assets.employees + 1
     let newCost = 5**newCount
@@ -82,6 +91,7 @@ export default function mainReducer(state = initialState, action){
       currentCash: state.currentCash - newCost       
     }
   }
+  
   if(action.type === FETCH_USER_REQUEST){
     return {
       ...state,
