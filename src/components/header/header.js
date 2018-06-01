@@ -42,7 +42,7 @@ export class Header extends React.Component{
           <span className='currentCashDisplay'>${this.props.currentCash.toLocaleString('en')}</span>
         </div>
         
-        <span> <strong>Signed in: {
+        <span className={this.props.signedIn ? 'signedin signedin-green' : 'signedin signedin-red'}> <strong>Signed in: {
           this.props.signedIn ? this.props.username : this.props.signedIn.toString()
           }</strong> </span>
         <LoginForm />

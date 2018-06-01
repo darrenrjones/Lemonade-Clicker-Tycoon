@@ -2,6 +2,8 @@ import React from 'react';
 
 import Modal from 'react-modal';
 
+import { connect } from 'react-redux';
+
 import {Field, reduxForm, reset} from 'redux-form'
 
 import { fetchSubmitRegister, fetchSubmitLogin } from '../../actions'
@@ -64,22 +66,25 @@ export class LoginForm extends React.Component{
     const { isOpen } = this.state;
 
     // need to check where .submitSucceeded happens
-    let successMessage;
-    if (this.props.submitSucceeded) {
-      // console.log(this.props.submitSucceeded);
+    // let successMessage;
+    // if (!this.props.failedLoginError) {
+    //   // console.log(this.props.submitSucceeded);
       
-        successMessage = (
-            <div className="message message-success">
-                Logged in successfully
-            </div>
-        );
-    }
+    //     successMessage = (
+    //         <div className="message message-success">
+    //             {this.props.submitSucceeded.toString()}
+    //         </div>
+    //     );
+    // }
     let errorMessage;
-    if (this.props.error) {
+    if (this.props.failedLoginError) {
         errorMessage = (
-            <div className="message message-error">{this.props.error}</div>
+            <div className="message message-error">{this.props.failedLoginError} username or password</div>
         );
     }
+
+    console.log('this.props: ',this.props);
+    
 
     return (
       <div className='modal-form'>
@@ -102,7 +107,7 @@ export class LoginForm extends React.Component{
             className='redux-form'
             onSubmit={this.props.handleSubmit(fields => this.onSubmit(fields))}
           >
-            {successMessage}
+            {/* {successMessage} */}
             {errorMessage}
             <label>Enter your credentials to sign in, or enter a unique Username and password to create a new account</label>
             <div>
@@ -151,12 +156,16 @@ export class LoginForm extends React.Component{
 }
 
 
-// const mapStateToProps = state => ({
-//   signedIn: state.mainReducer.signedIn
-// })
+const mapStateToProps = state => ({
+  signedIn: state.mainReducer.signedIn,
+  failedLoginError: state.mainReducer.error
+})
 
+LoginForm = connect(
+  mapStateToProps
+)(LoginForm)
 
 export default reduxForm({
   form: 'loginForm',
-  app: LoginForm
+  app: LoginForm,
 })(LoginForm)

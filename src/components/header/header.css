@@ -37,7 +37,7 @@
     background-color: rgb(134, 79, 79);
   }
   .header-container {
-    background-color: red;
+    background-color: rgb(207, 96, 96);
     border: 1px black solid;
     display: flex;
     justify-content: space-between;
@@ -45,5 +45,13 @@
   h1{
     font-size: 18px;
   }
-
+  .signedin {
+    height: 20px;
+  }
+  .signedin-green {
+    background-color: green
+  }
+  .signedin-red {
+    background-color: red
+  }
 }

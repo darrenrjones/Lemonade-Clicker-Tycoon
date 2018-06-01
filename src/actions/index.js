@@ -111,7 +111,11 @@ export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {
         })
           .then(() => {dispatch(fetchUser(credentials))})
           .then(() => {dispatch(toggleSignedinState())})
-          .catch(err => dispatch(fetchUserError(err)))  
+          .catch(err => {
+            console.log('catch in fetchSubmitLogin: ', err);
+            
+            dispatch(fetchUserError(err))
+          })  
         }
 
 export const fetchSubmitRegister = (credentials) => (dispatch, getState) => {
