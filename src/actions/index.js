@@ -69,24 +69,19 @@ export const fetchSave = () => (dispatch, getState) => {
 
 export const fetchUser = (user) => (dispatch, getState) => {
 
-  const currentState = getState(); 
   console.log("USER PASSED FROM FETCHSUBMITLOGIN: ", user);
 
-  return fetch(`${API_BASE_URL}/api/users/5b107026b559ac0ec9a2459d`)
+  return fetch(`${API_BASE_URL}/api/users/${user.username}`)
            .then(res => res.json())    
            .then(user => {
              console.log(user);
              
              dispatch(fetchUserSuccess(user))
-            })
-           
-
+            })   
   }
 
 export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {
-  // const currentState = getState(); 
-  // console.log('CURRENT STATE: ',currentState);  
- 
+
   return fetch(`${API_BASE_URL}/api/auth/login`, {
             method: 'POST',
             body: JSON.stringify({        
@@ -94,9 +89,27 @@ export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {
               password: credentials.password
             }),
             headers: {'Content-Type': 'application/json'}
-          })
-          .then(res => res.json())
-          .then((user) => {dispatch(fetchUser(user))})
+          })          
+          .then(res => {
+            if (!res.ok) {
+                if (
+                    res.headers.has('content-type') &&
+                    res.headers
+                        .get('content-type')
+                        .startsWith('application/json')
+                ) {
+                    // It's a nice JSON error returned by us, so decode it
+                    return res.json().then(err => Promise.reject(err));
+                }
+                // It's a less informative error returned by express
+                return Promise.reject({
+                    code: res.status,
+                    message: res.statusText
+                });
+            }
+            return;
+        })
+          .then(() => {dispatch(fetchUser(credentials))})
           .then(() => {dispatch(toggleSignedinState())})
           .catch(err => dispatch(fetchUserError(err)))  
         }
