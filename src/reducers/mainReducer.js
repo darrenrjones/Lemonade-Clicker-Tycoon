@@ -9,9 +9,7 @@ import {
   FETCH_USER_SUCCESS,
   FETCH_USER_REQUEST,
   TOGGLE_SIGNEDIN_STATE,
-  TOGGLE_MODAL_VISIBLE,
-  CHANGE_MODAL_MESSAGE,
-  SELL_UPGRADE,
+  TOGGLE_MODAL_VISIBLE, 
 } from '../actions'
 
 const initialState = {
@@ -56,24 +54,8 @@ const messageChecker = (state) => {
       }   
   return {};
 }
+
 export default function mainReducer(state = initialState, action){
-
-// if(state.seenMessage < 5 && state.currentCash >= 5 && state.assets.employees === 0){
-//   return {
-//     ...state,
-//     modalVisible: true,
-//     modalMessage: state.messages[5],
-//     seenMessage: 5    
-//   }  
-// } else if (state.seenMessage < 10 && state.currentCash >= 10 && state.assets.trucks === 0){
-//   return {
-//     ...state,
-//     modalVisible: true,
-//     modalMessage: state.messages[10],
-//     seenMessage: 10   
-//   } 
-// }
-
 
   if(action.type === CLICK_MENU){
     return {
@@ -94,8 +76,7 @@ export default function mainReducer(state = initialState, action){
       ...state,
       currentCash: state.currentCash + state.clickValue*action.multiplier,
       careerCash: state.careerCash + state.clickValue*action.multiplier, 
-      ...messageChecker(state)
-     
+      ...messageChecker(state)     
     }
   }
   if(action.type === TOGGLE_SIGNEDIN_STATE){
@@ -140,14 +121,12 @@ export default function mainReducer(state = initialState, action){
       loading: true     
     }
   }
-  if(action.type === FETCH_USER_SUCCESS){
-    // console.log('ACTION>USER: ',action.user);
-    
+  if(action.type === FETCH_USER_SUCCESS){    
     return {
       ...state,
       loading: false,
       error: null,
-      currentUser: action.user, //
+      currentUser: action.user, 
       id: action.user.id,
       username: action.user.username,
       currentCash: action.user.currentCash,
@@ -170,20 +149,7 @@ export default function mainReducer(state = initialState, action){
       modalVisible: !state.modalVisible    
     }
   }
-  // if(action.type === CHANGE_MODAL_MESSAGE){
-  //   return {
-  //     ...state,
-  //     modalMessage: action.message    
-  //   }
-  // }
-  if(action.type === SELL_UPGRADE){
-    return {
-      ...state,
-      modalVisible: true,
-      modalMessage: state.messages[action.message],
-      seenMessage: action.message    
-    }
-  }
+
   
   return state;
 }

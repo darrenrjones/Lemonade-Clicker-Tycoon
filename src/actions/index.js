@@ -54,16 +54,6 @@ export const TOGGLE_MODAL_VISIBLE = 'TOGGLE_MODAL_VISIBLE';
 export const toggleModalVisible = () => ({
   type: TOGGLE_MODAL_VISIBLE  
 })
-// export const CHANGE_MODAL_MESSAGE = 'CHANGE_MODAL_MESSAGE';
-// export const changeModalMessage = (message) => ({
-//   type: CHANGE_MODAL_MESSAGE,
-//   message  
-// })
-export const SELL_UPGRADE = 'SELL_UPGRADE';
-export const sellUpgrade = (message) => ({
-  type: SELL_UPGRADE,
-  message  
-})
 
 
 export const fetchSave = () => (dispatch, getState) => {

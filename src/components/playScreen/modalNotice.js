@@ -20,8 +20,6 @@ export class ModalNotice extends React.Component{
 
   render(){
 
-    // const { isOpen } = this.state;  
-
     return(
      
       <div className='intro-container'>
