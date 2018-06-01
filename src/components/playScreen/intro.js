@@ -13,7 +13,7 @@ export default class Intro extends React.Component{
     super();
 
     this.state = {
-      isOpen: true
+      isOpen: false
     };
   }
 
@@ -22,20 +22,21 @@ export default class Intro extends React.Component{
     this.setState({isOpen: !isOpen})    
   }
   
-  modalToggle = (function() {
-    let alreadyCalled = false;
-    return function() {
-      if(!alreadyCalled){
-        alreadyCalled = true;
-        this.toggleOpen();
-      }
-    };
-  })();
+  // modalToggle = (function() {
+  //   let alreadyCalled = false;
+  //   return function() {
+  //     if(!alreadyCalled){
+  //       alreadyCalled = true;
+  //       this.toggleOpen();
+  //     }
+  //   };
+  // })(); 
 
   componentWillMount(){
-    if(!this.props.signedIn){
-      this.modalToggle();  
-    }
+    // if(!this.props.signedIn){
+      // this.modalToggle();  
+    // }
+    this.toggleOpen();
   }
 
   render(){

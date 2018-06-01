@@ -6,11 +6,15 @@ import { connect } from 'react-redux'
 
 import Menu from './menu'
 import Play from './play'
-import Intro from './intro'
+// import Intro from './intro'
+// import UpgradeNotice from './upgradeNotice'
+import ModalNotice from './modalNotice'
 import './playScreen.css'
 import {
   clickMenu,
   autoClick,
+  toggleModalVisible,
+  changeModalMessage,
  } from '../../actions'
  
 /*eslint-disable */
@@ -37,6 +41,18 @@ export class PlayScreen extends React.Component{
   // }
 
 
+
+    modalToggleEmployeeNotice = (function() {
+      let alreadyCalled = false;
+      return function() {
+        if(!alreadyCalled){
+          this.props.dispatch(toggleModalVisible()); 
+          this.props.dispatch(changeModalMessage('Purchase an employee'));
+          alreadyCalled = true;     
+        }
+      };
+    })();
+
   render(){
 
     let menuRender;
@@ -54,7 +70,12 @@ export class PlayScreen extends React.Component{
                 <Play />
               </div>
       )
+    }    
+
+    if(this.props.currentCash >= 5 && this.props.assets.employees < 1){
+      this.modalToggleEmployeeNotice();
     }
+
       return(
         <div className='playscreen'>    
 
@@ -62,7 +83,7 @@ export class PlayScreen extends React.Component{
 
           {playScreenRender}
 
-          <Intro />
+          <ModalNotice />
 
           <button className='menu-button' onClick={() => this.handleMenuClick()}>MENU</button>
 

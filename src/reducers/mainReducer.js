@@ -9,6 +9,8 @@ import {
   FETCH_USER_SUCCESS,
   FETCH_USER_REQUEST,
   TOGGLE_SIGNEDIN_STATE,
+  TOGGLE_MODAL_VISIBLE,
+  CHANGE_MODAL_MESSAGE,
 } from '../actions'
 
 const initialState = {
@@ -27,7 +29,9 @@ const initialState = {
   },
   loading: false,
   error: null,
-  currentUser: null,  
+  currentUser: null,
+  modalVisible: true,
+  modalMessage: 'Welcome default!'  
 }
 
 export default function mainReducer(state = initialState, action){
@@ -43,7 +47,7 @@ export default function mainReducer(state = initialState, action){
       ...state,
       currentCash: state.currentCash + state.clickValue,
       careerCash: state.careerCash + state.clickValue,
-      manualClicks: state.manualClicks + 1
+      manualClicks: state.manualClicks + 1,
     }
   }
   if(action.type === AUTO_CLICK){
@@ -120,6 +124,18 @@ export default function mainReducer(state = initialState, action){
       ...state,
       loading: false,
       error: action.error.message      
+    }
+  }
+  if(action.type === TOGGLE_MODAL_VISIBLE){
+    return {
+      ...state,
+      modalVisible: !state.modalVisible    
+    }
+  }
+  if(action.type === CHANGE_MODAL_MESSAGE){
+    return {
+      ...state,
+      modalMessage: action.message    
     }
   }
   

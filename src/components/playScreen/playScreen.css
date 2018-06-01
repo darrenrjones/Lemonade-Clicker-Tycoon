@@ -56,7 +56,7 @@
     height: 230px;
     border: 1px solid black;
   }
-  .intro-paragraph{
+  .intro-paragraph, .upgradeNotice-paragraph{
     border: 5px solid black;
     position: fixed;
     bottom: 100px;
