@@ -30,7 +30,7 @@ export class ModalNotice extends React.Component{
           // overlayClassName='modal-overlay'
           isOpen={this.props.modalVisible}
           shouldCloseOnOverlayClick={false}
-          onRequestClose={this.toggleOpen}
+          // onRequestClose={this.toggleOpen}
           aria={{
             labelledby: "heading",
             describedby: "fulldescription"
