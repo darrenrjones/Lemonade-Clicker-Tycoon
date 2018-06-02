@@ -56,22 +56,22 @@
     height: 230px;
     border: 1px solid black;
   }
-  .intro-paragraph, .upgradeNotice-paragraph{
+  .modal-message-paragraph{
     border: 5px solid black;
-    position: fixed;
-    bottom: 100px;
     width: 180px;
-    height: 150px;
-    left: 250px;
+    height: 150px; 
     background-color: pink;
     font-size: 12px;
-    display: flex;
-    justify-content: flex-end;
+    margin: 0 auto;
   }
   .intro-closebutton{
     color:red;
-    /* display: flex;
-    justify-content: flex-end; */
+  }
+  .modal-message-container{
+    left: 0;
+    right: 0;
+    position: fixed;
+    top: 25%;
   }
 
 }
