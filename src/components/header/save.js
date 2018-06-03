@@ -7,7 +7,9 @@ export default function Save(props){
 
 
     return(
-      <button onClick={() => props.saveSubmit()}>SAVE</button>
+      <div className='save-button-div'>
+        <button onClick={() => props.saveSubmit()}>SAVE</button>
+      </div>
     );
   
 }

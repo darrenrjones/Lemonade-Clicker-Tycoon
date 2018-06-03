@@ -21,7 +21,7 @@ render(){
     <div className='playscreen-container' onClick={() => this.handleMainClick()}>
     
     <ul>
-      {/* {user} */}trash
+      {/* {user} */}
     </ul>
 
 

@@ -1,49 +1,13 @@
-/* .header-container {
-  border: 5px solid black;
-  text-align: center;
-  max-width: 100%;
-  height: 200px;
-  background-color: red;
-  display: flex;
-  justify-content: space-between;
-} */
-
-
-/* .currentCashDisplay {  
-  border: 2px solid black;
-  padding: 10px;
-  background-color: pink;
-} */
-
-/* .employee-container {
-  border: 1px solid black;
-  background-color: purple;
-  max-width: 150px;
-  max-height: 90px;
-  padding: 10px;
-      float: left;
-    margin-left: 20px;
-    margin-top: 120px;
-} */
-
-/* .employees-container{
-  display: inline-flex;
-  align-items: flex-end;
-  justify-content: space-around;
-} */
-
-@media screen and (min-width: 320px) and (orientation: landscape) {
-  body {
-    background-color: rgb(134, 79, 79);
-  }
   .header-container {
-    background-color: rgb(207, 96, 96);
-    border: 1px black solid;
+    background-color:#FEFE33;
+    border: 2px #FEFE33 solid;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    color: #343409;
   }
   h1{
-    font-size: 18px;
+    font-size: 24px;
+    text-align: center;
   }
   .signedin {
     height: 20px;
@@ -54,4 +18,54 @@
   .signedin-red {
     background-color: red
   }
+  .current-cash-display{
+    border: #FEFE33 2px dotted;
+    width: 250px;
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+  .current-cash-display span {
+    background-color: pink;
+    font-size: 22px;
+  }
+
+  .currentCashHeader{
+    width: 50%
+  }
+
+  .modal-form, .save-button-div {
+    height: 50%;
+  }
+  .save-button-div button {
+    width: 100%;
+  }
+  .modal-form button {
+    width: 100%;
+  }
+  .employees-container{
+    width: 25%;
+  }
+  .signedin-div, .login-save-div{
+    height: 50%;
+  }
+  .right-side-header{
+    width: 25%;
+  }
+
+@media screen and (min-width: 1000px) and (orientation: landscape) { 
+  .modal-form, .save-button-div{
+    width: 50%;
+  }
+  .login-save-div{
+    display: flex;
+    align-items: flex-end;
+  }
+  .save-button-div button {
+    height: 100%;
+  }
+  .modal-form button {
+    height: 100%;
+  }
+
 }

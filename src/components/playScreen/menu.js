@@ -34,22 +34,25 @@ export class Menu extends React.Component{
 
         <EmployeeTemplate
          empTypeName='Employees'
-         currentClickValue={this.props.clickValue} 
+         currentClickValue='1' 
          currentPurchaseCost={5**(this.props.assets.employees + 1)}
+         rate='1'
          purchaseAutoClickers={() => this.purchaseEmployeeAutoClickers()}
         />
 
          <EmployeeTemplate
           empTypeName='Trucks'
-          currentClickValue={this.props.clickValue} 
+          currentClickValue='10'
           currentPurchaseCost={10**(this.props.assets.trucks + 1)}
+          rate='10'
           purchaseAutoClickers={() => this.purchaseTruckAutoClickers()}
         />
 
          <EmployeeTemplate
          empTypeName='Planes'
-         currentClickValue={this.props.clickValue} 
+         currentClickValue='100' 
          currentPurchaseCost={100**(this.props.assets.planes + 1)}
+         rate='60'
          purchaseAutoClickers={() => this.purchasePlaneAutoClickers()}
          /> 
 

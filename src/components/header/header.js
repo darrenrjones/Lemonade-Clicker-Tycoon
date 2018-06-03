@@ -37,16 +37,31 @@ export class Header extends React.Component{
           />
         </div>      
     
-        <div className='currentCashHeader'>        
+        <section className='currentCashHeader'>        
           <h1>Lemonade Clicker Tycoon!</h1>
-          <span className='currentCashDisplay'>${this.props.currentCash.toLocaleString('en')}</span>
-        </div>
+          <div aria-labelledby="current-cash-display" role='banner' className='current-cash-display'>
+            <span>${this.props.currentCash.toLocaleString('en')}</span>
+          </div>
+        </section>
+
+        <div className='right-side-header'>
         
-        <div className={this.props.signedIn ? 'signedin signedin-green' : null}> <strong>Signed in: {
-          this.props.signedIn ? this.props.username : this.props.signedIn.toString()
-          } </strong> </div>        
-        <LoginForm />
-        <Save saveSubmit={() => this.saveSubmit()}/>        
+          <div className='signedin-div'>
+            <div className={this.props.signedIn ? 'signedin signedin-green' : null}> <strong>Signed in: {
+              this.props.signedIn ? this.props.username : this.props.signedIn.toString()
+              } </strong> 
+            </div>
+          </div>
+    
+          <div className='login-save-div' >
+            <LoginForm />
+            <Save saveSubmit={() => this.saveSubmit()}/> 
+          </div>
+
+        </div>
+    
+
+               
     
       </div>
     );

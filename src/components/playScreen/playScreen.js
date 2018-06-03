@@ -49,7 +49,7 @@ export class PlayScreen extends React.Component{
     }    
 
       return(
-        <div className='playscreen'>    
+        <div role='main' className='playscreen'>    
 
           {menuRender}
 

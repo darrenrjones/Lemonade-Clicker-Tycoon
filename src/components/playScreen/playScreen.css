@@ -1,45 +1,5 @@
-/* .playScreen-container {
-  background-color: yellowgreen;
-  display: flex;
-  flex-direction: column;
-  background-image: url('../../images/commerce.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 400px 400px;
-  height: 770px;
-  border: 5px solid black;
-} */
-
-/* .playScreen {
-  background-color: yellowgreen;
-  display: flex;
-  flex-direction: column;
-  background-image: url('../../images/commerce.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 400px 400px;
-  height: 770px;
-  border: 5px solid black;
-} */
-
-/* .menu-button{
-  color:red;
-  padding: 15px;
-  width:105px;
-  position: fixed;
-  left: 50%;
-  margin-left: -53px;
-  bottom: 0px;
-
-} */
-
-
-@media screen and (min-width: 320px) and (orientation: landscape) {
-  body {
-  background-color: rgb(134, 79, 79);
-  }
   .menu-button{
-  color:red;
+  color:black(0, 0, 0);
   padding: 10px;
   width:85px;
   position: fixed;
@@ -48,25 +8,23 @@
   bottom: 0px;
   }
   .playscreen-container{
-    background-color: yellowgreen;
+    background-color: #FB9902;
     background-image: url('../../images/commerce.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 200px 200px;
-    height: 230px;
-    border: 1px solid black;
+    height: 14.25em;
+    border: 2px solid #FEFE33;
   }
   .modal-message-paragraph{
-    border: 5px solid black;
+    border: 5px solid #FEFE33;
     width: 180px;
     height: 150px; 
     background-color: pink;
     font-size: 1em;
     margin: 0 auto;
   }
-  .intro-closebutton{
-    color:red;
-  }
+
   .modal-message-container{
     left: 0;
     right: 0;
@@ -74,4 +32,3 @@
     top: 25%;
   }
 
-}
