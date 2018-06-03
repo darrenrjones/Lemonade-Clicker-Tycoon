@@ -33,7 +33,8 @@ const initialState = {
   modalMessage: 'Welcome to Lemonade Clicker Tycoon! Click on the green screen to sell lemonade and watch your profits soar!',
   messages: {
     5:'It looks like you could use some help selling all that sweet sweet lemonade. Click the \'MENU\' button and hire an employee!',
-    10: 'The demand for your lemonade has grown throughout the city! We better start delivering to local stores! Click the \'MENU\' and purchase a delivery truck!',
+    100: 'The demand for your lemonade has grown throughout the city! We better start delivering to local stores! Click the \'MENU\' and purchase a delivery truck!',
+    1000: 'Someone made a MEME about your lemonade and now it\'s now a global phenomenon! Go buy a plane to send crates of lemonade to the world!'
   },
   seenMessage: 0,
 }
@@ -45,13 +46,19 @@ const messageChecker = (state) => {
       modalMessage: state.messages[5],
       seenMessage: 5    
     }
-  } else if (state.seenMessage < 10 && state.currentCash >= 10 && state.assets.trucks === 0){
+  } else if (state.seenMessage < 100 && state.currentCash >= 100 && state.assets.trucks === 0){
       return {         
          modalVisible: true,
-         modalMessage: state.messages[10],
-         seenMessage: 10   
+         modalMessage: state.messages[100],
+         seenMessage: 100   
        }
-      }   
+  } else if (state.seenMessage < 1000 && state.currentCash >= 1000 && state.assets.planes === 0){
+    return {         
+       modalVisible: true,
+       modalMessage: state.messages[1000],
+       seenMessage: 1000   
+     }
+    }   
   return {};
 }
 
@@ -98,7 +105,7 @@ export default function mainReducer(state = initialState, action){
   }
   if(action.type === PURCHASE_AUTO_CLICKER_TRUCK){
     let newCount = state.assets.trucks + 1
-    let newCost = 10**newCount
+    let newCost = 100**newCount
     return {
       ...state,
       assets: {...state.assets, trucks: newCount},    
@@ -107,7 +114,7 @@ export default function mainReducer(state = initialState, action){
   }
   if(action.type === PURCHASE_AUTO_CLICKER_PLANE){
     let newCount = state.assets.planes + 1
-    let newCost = 100**newCount
+    let newCost = 1000**newCount
     return {
       ...state,
       assets: {...state.assets, planes: newCount},    

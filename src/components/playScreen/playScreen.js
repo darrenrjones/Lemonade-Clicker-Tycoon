@@ -25,7 +25,7 @@ export class PlayScreen extends React.Component{
 
   componentDidMount(){    
     autoClickerEmployeeRef = setInterval(() => this.props.dispatch(autoClick(this.props.assets.employees)), 1000)
-    autoClickerTrucksRef = setInterval(() => this.props.dispatch(autoClick(this.props.assets.trucks * 10)), 5000);
+    autoClickerTrucksRef = setInterval(() => this.props.dispatch(autoClick(this.props.assets.trucks * 25)), 10000);
     autoClickerPlanesRef = setInterval(() => this.props.dispatch(autoClick(this.props.assets.planes * 100)), 10000);
   }
 

@@ -8,8 +8,10 @@ import {
    purchaseAutoClickerPlane,
   } from '../../actions'
 
+// let employeePurchaseCost = 5**(this.state.assets.employees + 1);
 
 export class Menu extends React.Component{
+
 
 
   purchaseEmployeeAutoClickers() {
@@ -18,12 +20,12 @@ export class Menu extends React.Component{
     }    
   }
   purchaseTruckAutoClickers() {
-    if(this.props.currentCash >= 10**(this.props.assets.trucks + 1)){
+    if(this.props.currentCash >= 100**(this.props.assets.trucks + 1)){
       this.props.dispatch(purchaseAutoClickerTruck());
     }    
   }
   purchasePlaneAutoClickers() {
-    if(this.props.currentCash >= 100**(this.props.assets.planes + 1)){
+    if(this.props.currentCash >= 1000**(this.props.assets.planes + 1)){
       this.props.dispatch(purchaseAutoClickerPlane());
     }    
   }
@@ -43,15 +45,15 @@ export class Menu extends React.Component{
          <EmployeeTemplate
           empTypeName='Trucks'
           currentClickValue='10'
-          currentPurchaseCost={10**(this.props.assets.trucks + 1)}
-          rate='10'
+          currentPurchaseCost={100**(this.props.assets.trucks + 1)}
+          rate='5'
           purchaseAutoClickers={() => this.purchaseTruckAutoClickers()}
         />
 
          <EmployeeTemplate
          empTypeName='Planes'
          currentClickValue='100' 
-         currentPurchaseCost={100**(this.props.assets.planes + 1)}
+         currentPurchaseCost={1000**(this.props.assets.planes + 1)}
          rate='60'
          purchaseAutoClickers={() => this.purchasePlaneAutoClickers()}
          /> 
