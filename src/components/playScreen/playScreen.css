@@ -61,7 +61,7 @@
     width: 180px;
     height: 150px; 
     background-color: pink;
-    font-size: 12px;
+    font-size: 1em;
     margin: 0 auto;
   }
   .intro-closebutton{

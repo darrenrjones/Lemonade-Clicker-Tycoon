@@ -46,7 +46,9 @@ export class LoginForm extends React.Component{
 
     this.props.dispatch(fetchSubmitLogin(fields));
     
-    this.toggleOpen();    
+    // if(this.props.signedIn){
+    //       this.toggleOpen();    
+    // }
 
     this.props.dispatch(reset('loginForm'));     
   }
@@ -62,8 +64,11 @@ export class LoginForm extends React.Component{
   
 
   render() {
-
     const { isOpen } = this.state;
+
+    if(this.props.signedIn && isOpen){
+      this.toggleOpen();    
+    }
 
     // need to check where .submitSucceeded happens
     // let successMessage;
@@ -79,11 +84,11 @@ export class LoginForm extends React.Component{
     let errorMessage;
     if (this.props.failedLoginError) {
         errorMessage = (
-            <div className="message message-error">{this.props.failedLoginError} username or password</div>
+            <div className="message message-error">{this.props.failedLoginError}</div>
         );
     }
 
-    console.log('this.props: ',this.props);
+    // console.log('this.props: ',this.props);
     
 
     return (

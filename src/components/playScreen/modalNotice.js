@@ -13,7 +13,6 @@ export class ModalNotice extends React.Component{
 
 
   toggleOpen = () => {
-    console.log('this will dispatch action to change modalVisible');
     this.props.dispatch(toggleModalVisible());
   }
   
@@ -38,8 +37,8 @@ export class ModalNotice extends React.Component{
             <p className='modal-message-paragraph'>
               {this.props.modalMessage}
             <button className='intro-closebutton' onClick={() => this.toggleOpen()}>close</button>
-
             </p>
+            
           </div>
     
 

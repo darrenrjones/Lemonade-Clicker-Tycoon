@@ -57,7 +57,8 @@ export const toggleModalVisible = () => ({
 
 
 export const fetchSave = () => (dispatch, getState) => {
-  const currentState = getState(); 
+  const currentState = getState();
+  
 
   fetch(`${API_BASE_URL}/api/users/${currentState.mainReducer.id}`,{
     method: 'PUT',
@@ -97,6 +98,8 @@ export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {
             headers: {'Content-Type': 'application/json'}
           })          
           .then(res => {
+            console.log('check res.ok: ', res);
+            
             if (!res.ok) {
                 if (
                     res.headers.has('content-type') &&
@@ -108,6 +111,8 @@ export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {
                     return res.json().then(err => Promise.reject(err));
                 }
                 // It's a less informative error returned by express
+                console.log('res not caught in !res.ok if statement: ', res);
+                
                 return Promise.reject({
                     code: res.status,
                     message: res.statusText
