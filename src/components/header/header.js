@@ -38,8 +38,8 @@ export class Header extends React.Component{
         </div>      
     
         <section className='currentCashHeader'>        
-          <h1>Lemonade Clicker Tycoon!</h1>
-          <div aria-labelledby="current-cash-display" role='banner' className='current-cash-display'>
+          <h1 role='banner'>Lemonade Clicker Tycoon!</h1>
+          <div aria-labelledby="current-cash-display" className='current-cash-display'>
             <span>${this.props.currentCash.toLocaleString('en')}</span>
           </div>
         </section>
@@ -47,9 +47,9 @@ export class Header extends React.Component{
         <div className='right-side-header'>
         
           <div className='signedin-div'>
-            <div className={this.props.signedIn ? 'signedin signedin-green' : null}> <strong>Signed in: {
+            <div className={this.props.signedIn ? 'signedin signedin-green' : null}>Signed in: {
               this.props.signedIn ? this.props.username : this.props.signedIn.toString()
-              } </strong> 
+              }  
             </div>
           </div>
     

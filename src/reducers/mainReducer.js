@@ -15,7 +15,7 @@ import {
 const initialState = {
   username: '',
   id: '',
-  currentCash: 0,
+  currentCash: 99,
   careerCash: 0,
   manualClicks: 0,
   menuState: false,
@@ -48,17 +48,17 @@ const messageChecker = (state) => {
     }
   } else if (state.seenMessage < 100 && state.currentCash >= 100 && state.assets.trucks === 0){
       return {         
-         modalVisible: true,
-         modalMessage: state.messages[100],
-         seenMessage: 100   
+        modalVisible: true,
+        modalMessage: state.messages[100],
+        seenMessage: 100   
        }
   } else if (state.seenMessage < 1000 && state.currentCash >= 1000 && state.assets.planes === 0){
-    return {         
-       modalVisible: true,
-       modalMessage: state.messages[1000],
-       seenMessage: 1000   
+      return {         
+        modalVisible: true,
+        modalMessage: state.messages[1000],
+        seenMessage: 1000   
      }
-    }   
+  }   
   return {};
 }
 

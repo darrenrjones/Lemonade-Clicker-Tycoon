@@ -17,6 +17,7 @@ import Input from './input.js'
 
 Modal.setAppElement('#root');
 
+
 export class LoginForm extends React.Component{
   constructor() {
     super();
@@ -36,9 +37,9 @@ export class LoginForm extends React.Component{
 
     this.props.dispatch(fetchSubmitRegister(fields));
 
-    this.toggleOpen();
+    // this.toggleOpen();
 
-    this.props.dispatch(reset('loginForm')); 
+    // this.props.dispatch(reset('loginForm')); 
   }
 
   submitLogin(fields){
@@ -50,7 +51,7 @@ export class LoginForm extends React.Component{
     //       this.toggleOpen();    
     // }
 
-    this.props.dispatch(reset('loginForm'));     
+    // this.props.dispatch(reset('loginForm'));     
   }
 
   onSubmit(fields){
@@ -60,6 +61,7 @@ export class LoginForm extends React.Component{
       this.submitRegister(fields);
     }
   }
+
 
   
 
@@ -114,8 +116,8 @@ export class LoginForm extends React.Component{
           >
             {/* {successMessage} */}
             {errorMessage}
-            <label>Enter your credentials to sign in, or enter a unique Username and password to create a new account</label>
-            <div>
+            <label>Enter your credentials to login, or enter a unique Username and password to create a new account</label>
+            <div className='form-input-div'>
               
               <Field 
                 name='username'
@@ -131,24 +133,28 @@ export class LoginForm extends React.Component{
                 name='password'
                 label='Password: '
                 component={Input}
-                type='text'
+                type='password'
                 placeholder='xxxxxxxx'
                 validate={[required, passwordLength]}                
               />
 
             </div>
-
-            <button 
-              disabled={this.props.pristine || this.props.submitting}
-              onClick={() => this.submittedButton = "register"}>
-              REGISTER
-            </button>
-
-            <button 
-              disabled={this.props.pristine || this.props.submitting}
-              onClick={() => this.submittedButton = "login"}>
-              LOG IN
-            </button>
+            {/* <div className='form-button-div'> */}
+              <button 
+                className='form-button-login' 
+                disabled={this.props.pristine || this.props.submitting}
+                onClick={() => this.submittedButton = "login"}>
+                LOGIN
+              </button>
+              <p className='or-paragraph'>or</p>
+              <button
+                className='form-button-register' 
+                disabled={this.props.pristine || this.props.submitting}
+                onClick={() => this.submittedButton = "register"}>
+                REGISTER
+              </button>
+            {/* </div> */}
+         
           </form>
 
 

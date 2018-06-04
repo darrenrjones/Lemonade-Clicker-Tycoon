@@ -9,15 +9,13 @@
     font-size: 24px;
     text-align: center;
   }
-  .signedin {
-    height: 20px;
-  }
+
   .signedin-green {
     background-color: green
   }
-  .signedin-red {
+  /* .signedin-red {
     background-color: red
-  }
+  } */
   .current-cash-display{
     border: #FEFE33 2px dotted;
     width: 250px;

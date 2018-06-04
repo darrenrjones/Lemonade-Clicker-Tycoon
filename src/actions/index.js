@@ -149,14 +149,19 @@ export const fetchSubmitRegister = (credentials) => (dispatch, getState) => {
       headers: {'Content-Type': 'application/json'}
     })
     .then(res => res.json())
-    .then(user => dispatch(fetchUserSuccess(user))) //another fetch for login dispatch fethcSubmitLogin
+    .then(user => {
+      console.log('should not be here: ',user);
+      if(user.error){
+        throw user
+      }
+      
+      return dispatch(fetchUserSuccess(user))
+    }) //another fetch for login dispatch fethcSubmitLogin
     .then(() => {dispatch(toggleSignedinState())})   
     .catch(err => {
-      const {reason, message, location} = err;
-      if (reason === 'ValidationError') {
-        err = new Error('The username already exists, please choose another');
-        err.status = 400;
-      }      
+      console.log('ERROR FROM CALL: ', err);      
+      dispatch(fetchUserError(err))
+
   });
   
 }

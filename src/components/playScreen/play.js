@@ -2,6 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { clickMain } from '../../actions'
 
+import Audio from './audio'
+
+
 
 export class Play extends React.Component{
 
@@ -23,6 +26,8 @@ render(){
     <ul>
       {/* {user} */}
     </ul>
+    <Audio />
+
 
 
     </div>
