@@ -2,8 +2,9 @@
     background-color:#FEFE33;
     border: 2px #FEFE33 solid;
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     color: #343409;
+    flex-grow: 0;
   }
   h1{
     font-size: 24px;
@@ -67,3 +68,57 @@
   }
 
 }
+@media screen and (orientation: portrait) { 
+
+  .current-cash-display span {
+    font-size: 16px;
+  }
+  .right-side-header{
+    display: flex;
+    flex-direction: column;
+  }
+  .signedin-div, .login-save-div{
+    width: 80% 
+  }
+  .login-save-div {
+    margin-left: 6px;
+  }
+
+}
+
+@media only screen and (max-height: 320px){ 
+
+  h1{
+    font-size: 20px;
+  }
+} 
+@media only screen and (min-height: 1000px), only screen and (min-width: 1000px){ 
+
+  .header-container{
+    padding: 40px;
+    font-size: 20px;
+  }
+  h1{
+    font-size: 29px;
+  }
+  .current-cash-display span {
+    font-size: 26px;
+  }
+} 
+@media only screen and (min-height: 1200px){ 
+
+  .header-container{
+    padding: 40px;
+    font-size: 28px;
+  }
+  h1{
+    font-size: 34px;
+  }
+  .current-cash-display span {
+    font-size: 32px;
+  }
+  button {
+    padding: 15px;
+    font-size: 20px;
+  }
+} 

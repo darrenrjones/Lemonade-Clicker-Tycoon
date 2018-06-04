@@ -14,7 +14,7 @@ export default function employeeTemplate(props){
       
       <div className='buy-button-div'>
           <button onClick={() => props.purchaseAutoClickers()}>Buy</button>
-          <span>${props.currentPurchaseCost.toLocaleString('en')}</span>
+          <span className='buy-button-span'>${props.currentPurchaseCost.toLocaleString('en')}</span>
       </div>
   
   </div>

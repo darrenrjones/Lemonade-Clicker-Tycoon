@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Menu from './menu'
 import Play from './play'
 import ModalNotice from './modalNotice'
+import Audio from './audio'
 import './playScreen.css'
 
 import {

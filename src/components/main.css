@@ -3,7 +3,12 @@
   body {
   background-color: #51A3A3;
   font-family: 'Jua', sans-serif;
+
   }
   button{
     font-family: 'Jua', sans-serif;
+  }
+  .main-container {
+    display: flex;
+    flex-direction: column;
   }

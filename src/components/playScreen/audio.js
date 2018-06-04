@@ -20,15 +20,15 @@ class Audio extends React.Component {
   render() {
     return (
       <div className="stage">
-		<audio className='music-button' ref={(whistle) => { this.whistle = whistle; }}>
-			<source src={audiofile} type="audio/mpeg" >
-			</source>
-		</audio>
+        <audio className='music-button' ref={(whistle) => { this.whistle = whistle; }}>
+          <source src={audiofile} type="audio/mpeg" >
+          </source>
+        </audio>
 
-		
-			
-      <button className="btn btn-info" onClick={this.playAudio}>play music</button>
-      <button className="btn btn-info" onClick={this.pauseAudio}>pause</button>
+      
+        
+        <button className="btn btn-info" onClick={this.playAudio}>play music</button>
+        <button className="btn btn-info" onClick={this.pauseAudio}>pause</button>
 
       </div>
     );
