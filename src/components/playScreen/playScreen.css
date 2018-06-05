@@ -22,24 +22,28 @@
     border: 2px solid #FEFE33;
   }
   .modal-message-container{
-    left: 0;
-    right: 0;
-    position: fixed;
-    top: 20%;
+    position: relative;
+    border: 5px solid #FEFE33;
+    width: 50%;
+    margin: 0 auto;
+    background-color: pink;
+    padding: 10px;
+    margin-top: 30%;
   }
   .modal-message-paragraph{
-    border: 5px solid #FEFE33;
-    width: 180px;
+    /* border: 5px solid #FEFE33; */
+    /* width: 180px; */
     /* height: 150px;  */
-    background-color: pink;
+    /* background-color: pink; */
     font-size: 1em;
     margin: 0 auto;
     padding: 27px;
   }
-
   .modal-closebutton{
-    display: flex; 
-    margin: 0 auto; 
+    position: absolute;
+    top: .5em;
+    right: .5em;
+    /* margin: 0 auto;  */
     padding: 6px;
     border: 5px solid yellow;
     border-radius: 34%;
@@ -51,13 +55,13 @@
 
 
 
-  /* @media screen and (orientation: portrait) { 
+  @media screen and (orientation: landscape) { 
 
-    .playscreen-container{
-      height: 29.95em;     
+    .modal-message-container{
+      margin-top: 15%;
     }
 
-  } */
+  }
 
 
   @media screen and (min-height: 568px){ 
@@ -69,6 +73,9 @@
       padding: 10px;
       width:75px;
       margin-left: -38px;
+    }
+    .modal-message-container{
+      width: 66%;
     }
 
   } 
@@ -96,17 +103,8 @@
       height: 45.95em;
       border: 10px solid #FEFE33;
     }
-    .modal-message-paragraph{
-      width: 380px;
-      font-size: 2em;
-    }
-    .modal-closebutton{
-      margin: 0 auto; 
-      padding: 12px;
-      border: 8px solid yellow;
-      border-radius: 34%;
-      background-color: red;
-      font-size: 22px;
+    .modal-message-container{
+      width: 33%;
     }
     .menu-button{
       padding: 25px;
@@ -126,6 +124,9 @@
       width:135px;
       font-size: 18px;
       margin-left: -71px;
+    }
+    .modal-message-container{
+      width: 33%;
     }
   } 
   @media screen and (min-width: 1200px){ 
@@ -148,10 +149,10 @@
       margin-left: -71px;
     }
     .modal-message-paragraph{
-      width: 420px;
       font-size: 2em;
     }
     .modal-closebutton{
-      font-size: 28px;
+     padding: 9px;
+     font-size: 24px;
     }
   } 
