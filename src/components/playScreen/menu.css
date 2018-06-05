@@ -35,7 +35,11 @@
     }
     .menu-container {
       margin-top: 70px;
-  }
+    }
+    .buy-button-div button {
+      padding:10px;
+      font-size: 16px;
+    }
 
   }
 
@@ -94,7 +98,11 @@
     }
     .buy-button-div span {
       margin-right: 20px;
-      margin-top: 15px;
+      margin-top: 18px;
+    }
+    .buy-button-div button {
+      font-size: 18px;
+      padding: 10px;
     }
   } 
 

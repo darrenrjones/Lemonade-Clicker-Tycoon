@@ -36,9 +36,8 @@ export const purchaseAutoClickerPlane = () => ({
 })
 
 export const FETCH_USER_REQUEST = 'FETCH_USER_REQUEST';
-export const fetchUserRequest = (user) => ({
-  type: FETCH_USER_REQUEST,
-  user
+export const fetchUserRequest = () => ({
+  type: FETCH_USER_REQUEST  
 })
 export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS';
 export const fetchUserSuccess = (user) => ({
@@ -57,10 +56,9 @@ export const toggleModalVisible = () => ({
 
 
 export const fetchSave = () => (dispatch, getState) => {
-  const currentState = getState();
-  
 
-  fetch(`${API_BASE_URL}/api/users/${currentState.mainReducer.id}`,{
+  const currentState = getState();
+  return fetch(`${API_BASE_URL}/api/users/${currentState.mainReducer.id}`,{
     method: 'PUT',
     body: JSON.stringify({
       currentCash: currentState.mainReducer.currentCash,
@@ -76,64 +74,59 @@ export const fetchSave = () => (dispatch, getState) => {
 
 export const fetchUser = (user) => (dispatch, getState) => {
 
-  console.log("USER PASSED FROM FETCHSUBMITLOGIN: ", user);
-
+  // console.log("USER PASSED FROM FETCHSUBMITLOGIN: ", user);
   return fetch(`${API_BASE_URL}/api/users/${user.username}`)
-           .then(res => res.json())    
-           .then(user => {
-             console.log(user);
-             
-             dispatch(fetchUserSuccess(user))
-            })   
-  }
+  .then(res => res.json()) 
+  .then(user => {
+    console.log(user);
+    dispatch(fetchUserSuccess(user))
+  })   
+}
 
 export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {
 
   return fetch(`${API_BASE_URL}/api/auth/login`, {
-            method: 'POST',
-            body: JSON.stringify({        
-              username: credentials.username,
-              password: credentials.password
-            }),
-            headers: {'Content-Type': 'application/json'}
-          })          
-          .then(res => {
-            console.log('check res.ok: ', res);
-            
-            if (!res.ok) {
-                if (
-                    res.headers.has('content-type') &&
-                    res.headers
+    method: 'POST',
+    body: JSON.stringify({
+      username: credentials.username,
+      password: credentials.password
+      }),
+      headers: {'Content-Type': 'application/json'}
+  })   
+  .then(res => {
+    console.log('check res.ok: ', res);
+    if (!res.ok) {
+      if (res.headers.has('content-type') && res.headers
                         .get('content-type')
                         .startsWith('application/json')
-                ) {
-                    // It's a nice JSON error returned by us, so decode it
-                    return res.json().then(err => Promise.reject(err));
-                }
-                // It's a less informative error returned by express
-                console.log('res not caught in !res.ok if statement: ', res);
-                
-                return Promise.reject({
-                    code: res.status,
-                    message: res.statusText
-                });
-            }
-            return;
-        })
-          .then(() => {dispatch(fetchUser(credentials))})
-          .then(() => {dispatch(toggleSignedinState())})
-          .catch(err => {
-            console.log('catch in fetchSubmitLogin: ', err);
-            
-            dispatch(fetchUserError(err))
-          })  
-        }
+      ){
+        // It's a nice JSON error returned by us, so decode it
+        return res.json().then(err => Promise.reject(err));
+      }
+      // It's a less informative error returned by express
+      console.log('res not caught in !res.ok if statement: ', res);
+      return Promise.reject({
+        code: res.status,
+        message: res.statusText
+        });
+    }
+    return;
+  })
+  // .then(() => dispatch(fetchUserRequest()))
+
+  .then(() => dispatch(fetchUser(credentials)))
+  .then(() => dispatch(toggleSignedinState()))
+  .catch(err => {
+    console.log('catch in fetchSubmitLogin: ', err);
+    dispatch(fetchUserError(err))
+  }) 
+}
 
 export const fetchSubmitRegister = (credentials) => (dispatch, getState) => {
 
     const currentState = getState();
 
-    fetch(`${API_BASE_URL}/api/users/register`,{
+    return fetch(`${API_BASE_URL}/api/users/register`,{
       method: 'POST',
       body: JSON.stringify({        
         username: credentials.username,
@@ -157,7 +150,7 @@ export const fetchSubmitRegister = (credentials) => (dispatch, getState) => {
       
       return dispatch(fetchUserSuccess(user))
     }) //another fetch for login dispatch fethcSubmitLogin
-    .then(() => {dispatch(toggleSignedinState())})   
+    .then(() => dispatch(toggleSignedinState()))   
     .catch(err => {
       console.log('ERROR FROM CALL: ', err);      
       dispatch(fetchUserError(err))
@@ -165,16 +158,3 @@ export const fetchSubmitRegister = (credentials) => (dispatch, getState) => {
   });
   
 }
-
-// export const fetchUser = () => {
-
-//   return dispatch => {
-
-//     dispatch(fetchUserRequest());  
-
-//     fetch(`${API_BASE_URL}/api/users/${}`)
-//     .then(res => res.json())
-//     .then(user => dispatch(fetchUserSuccess(user)))
-//     .catch(err => dispatch(fetchUserError(err)))    
-//   }  
-// }

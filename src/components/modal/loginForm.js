@@ -33,27 +33,23 @@ export class LoginForm extends React.Component{
   }
 
   submitRegister(fields){
-    // console.log('login form submitted!', fields);
-
-    this.props.dispatch(fetchSubmitRegister(fields));
-
-    // this.toggleOpen();
-
-    // this.props.dispatch(reset('loginForm')); 
+    this.props.dispatch(fetchSubmitRegister(fields))
+      .then(() => {
+        if(!this.props.failedLoginError){
+          this.toggleOpen();
+          this.props.dispatch(reset('loginForm'));
+        }
+      });     
   }
-
-  submitLogin(fields){
-    // console.log('SubmitLogin submitted w/: ', fields);
-
-    this.props.dispatch(fetchSubmitLogin(fields));
-    
-    // if(this.props.signedIn){
-    //       this.toggleOpen();    
-    // }
-
-    // this.props.dispatch(reset('loginForm'));     
+  submitLogin(fields){   
+    this.props.dispatch(fetchSubmitLogin(fields))
+      .then(() => {
+        if(!this.props.failedLoginError){
+          this.toggleOpen();
+          this.props.dispatch(reset('loginForm'));
+        }
+      }); 
   }
-
   onSubmit(fields){
     if (this.submittedButton === "login"){
       this.submitLogin(fields);
@@ -62,15 +58,16 @@ export class LoginForm extends React.Component{
     }
   }
 
+// static getDerivedStateFromProps(props, state){
+//      if(props.signedIn && state.isOpen){
+//        this.toggleOpen();    
+//     }
+// }
 
   
 
   render() {
     const { isOpen } = this.state;
-
-    if(this.props.signedIn && isOpen){
-      this.toggleOpen();    
-    }
 
     // need to check where .submitSucceeded happens
     // let successMessage;
