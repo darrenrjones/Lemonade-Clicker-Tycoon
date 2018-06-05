@@ -36,11 +36,10 @@ export class ModalNotice extends React.Component{
           <div className='modal-message-container'>
           
             <p className='modal-message-paragraph'>
-              {this.props.modalMessage}
-            <button className='modal-closebutton' onClick={() => this.toggleOpen()}>x</button>            
-              
+              {this.props.modalMessage}              
             </p>
-                        
+            <button className='modal-closebutton' onClick={() => this.toggleOpen()}>x</button>            
+
           </div>
     
 

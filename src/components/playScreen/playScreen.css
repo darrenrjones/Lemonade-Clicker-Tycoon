@@ -21,6 +21,12 @@
     height: 13.25em;
     border: 2px solid #FEFE33;
   }
+  .modal-message-container{
+    left: 0;
+    right: 0;
+    position: fixed;
+    top: 20%;
+  }
   .modal-message-paragraph{
     border: 5px solid #FEFE33;
     width: 180px;
@@ -31,12 +37,6 @@
     padding: 27px;
   }
 
-  .modal-message-container{
-    left: 0;
-    right: 0;
-    position: fixed;
-    top: 20%;
-  }
   .modal-closebutton{
     display: flex; 
     margin: 0 auto; 
