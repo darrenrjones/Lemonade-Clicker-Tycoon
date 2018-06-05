@@ -1,7 +1,6 @@
 import React from 'react'
-// import BuyEmployeeButton from './buyEmployeeButton'
 
-export default function employeeTemplate(props){
+export default function EmployeeTemplate(props){
 
 
   return(

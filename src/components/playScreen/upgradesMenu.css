@@ -1,0 +1,133 @@
+h2{
+  font-size: 14px;
+}
+p{
+  font-size: 10px;
+}
+.upgrades-container {
+  background-color: rgb(30, 133, 38);
+  
+}
+.upgrade-menu-container{
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid #FEFE33;
+  border-top: 1px solid #FEFE33;
+  padding: 3px;
+
+}
+.buy-upgrade-button-div{
+  padding: 20px;
+  display: flex;
+  flex-direction: row-reverse;
+  /* justify-content: space-evenly; */
+}
+.buy-upgrade-button-div span {
+  margin-right: 10px;
+  margin-top: 2px;
+}
+.upgrades-button{
+  padding: 0px;
+  width: 85px;
+  position: fixed;
+  left: 50%;
+  margin-left: -42px;
+  bottom: 42px;
+}
+
+
+@media screen and (orientation: portrait) { 
+
+  .upgrade-menu-container{
+    padding: 20px;  
+  }
+  .upgrades-container {
+    margin-top: 70px;
+  }
+  .buy-upgrade-button-div button {
+    padding:10px;
+    font-size: 16px;
+  }
+
+}
+
+@media only screen and (min-height: 320px) { 
+
+  .upgrade-menu-container{
+    padding: 1px;
+  }
+} 
+@media only screen and (min-height: 640px){ 
+
+  .upgrade-menu-container{
+    padding: 5px;
+    font-size: 18px;
+  }
+  h2{
+    font-size: 18px;
+  }
+  p{
+    font-size: 12px;
+  }
+  .buy-upgrade-button-div span {
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+} 
+
+@media only screen and (min-height: 1000px){ 
+
+  .upgrade-menu-container{
+    padding:15px;
+    font-size: 30px;
+  }
+  h2{
+    font-size: 24px;
+  }
+  p{
+    font-size: 18px;
+  }
+  .buy-upgrade-button-div span {
+    margin-right: 20px;
+    margin-top: 15px;
+  }
+} 
+@media only screen and (min-width: 1000px){ 
+
+  .upgrade-menu-container{
+    padding:15px;
+    font-size: 30px;
+  }
+  h2{
+    font-size: 24px;
+  }
+  p{
+    font-size: 18px;
+  }
+  .buy-upgrade-button-div span {
+    margin-right: 20px;
+    margin-top: 18px;
+  }
+  .buy-upgrade-button-div button {
+    font-size: 18px;
+    padding: 10px;
+  }
+} 
+
+@media only screen and (min-height: 1200px){ 
+
+  .upgrade-menu-container{
+    padding:20px;
+    font-size: 40px;
+  }
+  h2{
+    font-size: 26px;
+  }
+  p{
+    font-size: 20px;
+  }
+  .buy-upgrade-button-div span {
+    margin-right: 25px;
+    margin-top: 17px;
+  }
+} 

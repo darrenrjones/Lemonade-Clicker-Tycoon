@@ -21,7 +21,7 @@ let autoClickerPlanesRef;
 export class PlayScreen extends React.Component{
 
   handleMenuClick(){
-    this.props.dispatch(clickMenu());
+    this.props.dispatch(clickMenu()); //switches menu to T/F
   } 
 
   componentDidMount(){    
@@ -36,7 +36,7 @@ export class PlayScreen extends React.Component{
     if(this.props.menuState){
       menuRender = (
         <div className='menu-screen'>
-          <Menu />           
+          <Menu />  
         </div>
       )     
     }  
