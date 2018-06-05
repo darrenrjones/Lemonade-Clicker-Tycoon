@@ -30,11 +30,11 @@ const initialState = {
   error: null,
   currentUser: null,
   modalVisible: true,
-  modalMessage: 'Welcome to Lemonade Clicker Tycoon! Click on the green screen to sell lemonade and watch your profits soar!',
+  modalMessage: 'Welcome to Lemonade Clicker Tycoon! Click on the orange screen to sell lemonade and watch your profits soar!',
   messages: {
     5:'It looks like you could use some help selling all that sweet sweet lemonade. Click the \'MENU\' button and hire an employee!',
-    100: 'The demand for your lemonade has grown throughout the city! We better start delivering to local stores! Click the \'MENU\' and purchase a delivery truck!',
-    1000: 'Someone made a MEME about your lemonade and now it\'s now a global phenomenon! Go buy a plane to send crates of lemonade to the world!'
+    100: 'The demand for your lemonade has grown throughout the city! You should deliver to local stores. Open the \'MENU\' and purchase a delivery truck!',
+    1000: 'Someone made a MEME about your lemonade and now it\'s a global phenomenon! Buy a plane to meet the global demand!'
   },
   seenMessage: 0,
 }

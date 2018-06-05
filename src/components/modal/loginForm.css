@@ -63,3 +63,79 @@
 .redux-form{
   margin-top: 40px;
 }
+
+@media screen and (min-height: 568px){ 
+  .modal-form-1{
+    top: 6em;
+    bottom: 50px;
+  }
+  .message-error{
+    top: 70px;
+  }
+} 
+@media screen and (max-height: 320px){ 
+
+
+
+} 
+@media screen and (min-height: 700px){ 
+  .modal-form-1{
+    top: 6em;
+    bottom: 265px;
+  }
+  .message-error{
+    top: 70px;
+  }
+} 
+@media screen and (min-height: 1000px){ 
+  .modal-form-1{
+    top: 7em;
+    bottom: 480px;
+    font-size: 18px;
+    max-width: 66%;
+  }
+  .modal-form-1 input{
+    height: 30px;
+    font-size: 18px;
+  }
+
+  .message-error{
+    top: 51px;
+  }
+  .form-button-login, .form-button-register {
+    font-size: 16px;
+    padding: 5px;
+  }
+} 
+/* @media screen and (min-width: 1000px){ 
+
+
+}  */
+/* @media screen and (min-width: 1200px){ 
+
+
+}  */
+@media screen and (min-height: 1200px){ 
+
+  .modal-form-1{
+    top: 7em;
+    bottom: 480px;
+    font-size: 26px;
+    max-width: 70%;
+  }
+  .modal-form-1 input{
+    height: 42px;
+    font-size: 26px;
+  }
+
+  .message-error{
+    top: 60px;
+  }
+  .form-button-login, .form-button-register {
+    font-size: 20px;
+    padding: 10px;
+  }
+  h1{
+    padding-bottom: 12px;
+  }
+} 
