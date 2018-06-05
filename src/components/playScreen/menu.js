@@ -8,6 +8,7 @@ import {
    purchaseAutoClickerEmployee,
    purchaseAutoClickerTruck,
    purchaseAutoClickerPlane,
+   purchaseUpgradeOrganic
   } from '../../actions'
 
 // let employeePurchaseCost = 5**(this.state.assets.employees + 1);
@@ -17,21 +18,24 @@ export class Menu extends React.Component{
     super(props);
 
     this.state = {
-      upgradeView: false
+      upgradeView: false,
+      organic: false,
+      downtown: false,
+      newyork: false,
     }
   }
 
-  purchaseEmployeeAutoClickers() {
+  purchaseAutoClickerEmployee() {
     if(this.props.currentCash >= 5**(this.props.assets.employees + 1)){
       this.props.dispatch(purchaseAutoClickerEmployee());
     }    
   }
-  purchaseTruckAutoClickers() {
+  purchaseAutoClickerTruck() {
     if(this.props.currentCash >= 100**(this.props.assets.trucks + 1)){
       this.props.dispatch(purchaseAutoClickerTruck());
     }    
   }
-  purchasePlaneAutoClickers() {
+  purchaseAutoClickerPlane() {
     if(this.props.currentCash >= 1000**(this.props.assets.planes + 1)){
       this.props.dispatch(purchaseAutoClickerPlane());
     }    
@@ -41,8 +45,21 @@ export class Menu extends React.Component{
       upgradeView: !this.state.upgradeView
     })
   }
+  purchaseUpgradeOrganic() {
+    console.log('organice purchased!');
+    if(this.props.currentCash >= 500){
+      this.setState({
+        organic: true
+      })
+      this.props.dispatch(purchaseUpgradeOrganic());
+    }
+    console.log('this.state.organic:',this.state.organic);
+
+  }
+
 
   render(){
+    console.log('this.state.organic:',this.state.organic);
 
     let menuRender;
     if(!this.state.upgradeView){
@@ -53,21 +70,21 @@ export class Menu extends React.Component{
             currentClickValue='1' 
             currentPurchaseCost={5**(this.props.assets.employees + 1)}
             rate='1'
-            purchaseAutoClickers={() => this.purchaseEmployeeAutoClickers()}
+            purchaseAutoClickers={() => this.purchaseAutoClickerEmployee()}
           />
           <EmployeeTemplate
             empTypeName='Trucks'
             currentClickValue='25'
             currentPurchaseCost={100**(this.props.assets.trucks + 1)}
             rate='10'
-            purchaseAutoClickers={() => this.purchaseTruckAutoClickers()}
+            purchaseAutoClickers={() => this.purchaseAutoClickerTruck()}
           />
           <EmployeeTemplate
             empTypeName='Planes'
             currentClickValue='1,000' 
             currentPurchaseCost={1000**(this.props.assets.planes + 1)}
             rate='60'
-            purchaseAutoClickers={() => this.purchasePlaneAutoClickers()}
+            purchaseAutoClickers={() => this.purchaseAutoClickerPlane()}
           /> 
           
       </div>
@@ -79,15 +96,24 @@ export class Menu extends React.Component{
         <div className='upgrades-container'>
           <UpgradeTemplate 
             upgradeTypeName='Organic lemons'
-            description='People will pay more for organic! Now lemonade sells for $2 each!' 
+            description='People will pay more for organic! Now lemonade sells for $2 each!'
+            cost={500}
+            purchaseUpgrade={() => this.purchaseUpgradeOrganic()}
+            bought={this.state.organic} 
           />
           <UpgradeTemplate 
             upgradeTypeName='COMING SOON!'
-            description='more cool features in upcoming update!' 
+            description='Move your stand to downtown. Shoppers there will spend $3 per lemonade!'
+            cost={5000}
+            purchaseUpgrade={() => console.log('2nd upgrade buy button clicked')}
+            bought={this.state.downtown}            
           />
           <UpgradeTemplate 
             upgradeTypeName='COMING SOON!'
-            description='more cool features in upcoming update!' 
+            description='Move your stand to New York. Shoppers there will spend $5 per lemonade!'
+            cost={15000}
+            purchaseUpgrade={() => console.log('3rd upgrade buy button clicked')}
+            bought={this.state.newyork}
           />       
         </div>
       )

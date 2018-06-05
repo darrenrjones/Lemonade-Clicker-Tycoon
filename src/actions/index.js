@@ -35,6 +35,12 @@ export const purchaseAutoClickerPlane = () => ({
   type: PURCHASE_AUTO_CLICKER_PLANE  
 })
 
+export const PURCHASE_UPGRADE_ORGANIC = 'PURCHASE_UPGRADE_ORGANIC';
+export const purchaseUpgradeOrganic = () => ({
+  type: PURCHASE_UPGRADE_ORGANIC  
+})
+
+
 export const FETCH_USER_REQUEST = 'FETCH_USER_REQUEST';
 export const fetchUserRequest = () => ({
   type: FETCH_USER_REQUEST  

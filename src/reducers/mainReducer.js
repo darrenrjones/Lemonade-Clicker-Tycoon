@@ -9,13 +9,14 @@ import {
   FETCH_USER_SUCCESS,
   FETCH_USER_REQUEST,
   TOGGLE_SIGNEDIN_STATE,
-  TOGGLE_MODAL_VISIBLE, 
+  TOGGLE_MODAL_VISIBLE,
+  PURCHASE_UPGRADE_ORGANIC, 
 } from '../actions'
 
 const initialState = {
   username: '',
   id: '',
-  currentCash: 0,
+  currentCash: 750,
   careerCash: 0,
   manualClicks: 0,
   menuState: false,
@@ -119,6 +120,14 @@ export default function mainReducer(state = initialState, action){
       ...state,
       assets: {...state.assets, planes: newCount},    
       currentCash: state.currentCash - newCost       
+    }
+  }
+  if(action.type === PURCHASE_UPGRADE_ORGANIC){
+    return {
+      ...state,
+      clickValue: state.clickValue + 1,
+      currentCash: state.currentCash - 500       
+      
     }
   }
   

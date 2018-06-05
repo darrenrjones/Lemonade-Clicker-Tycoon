@@ -34,6 +34,9 @@ p{
   margin-left: -42px;
   bottom: 42px;
 }
+.upgrade-description-div{
+
+}
 
 
 @media screen and (orientation: portrait) { 
@@ -91,6 +94,15 @@ p{
     margin-right: 20px;
     margin-top: 15px;
   }
+  .upgrades-button{
+    padding: 6px;
+    width: 85px;
+    position: fixed;
+    left: 50%;
+    margin-left: -44px;
+    bottom: 82px;
+  }
+
 } 
 @media only screen and (min-width: 1000px){ 
 
@@ -112,6 +124,14 @@ p{
     font-size: 18px;
     padding: 10px;
   }
+  .upgrades-button{
+    padding: 6px;
+    width: 85px;
+    position: fixed;
+    left: 50%;
+    margin-left: -44px;
+    bottom: 82px;
+  }
 } 
 
 @media only screen and (min-height: 1200px){ 
@@ -130,4 +150,5 @@ p{
     margin-right: 25px;
     margin-top: 17px;
   }
+  
 } 
