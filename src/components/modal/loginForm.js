@@ -177,3 +177,14 @@ export default reduxForm({
   form: 'loginForm',
   app: LoginForm,
 })(LoginForm)
+
+
+
+
+
+
+// TRY THIS WAY LATER ...
+
+// export default connect(mapStateToProps)(reduxForm({
+//   form: 'addIOU'
+// })(IOUAddForm));

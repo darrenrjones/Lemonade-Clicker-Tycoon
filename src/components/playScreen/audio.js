@@ -14,9 +14,12 @@ class Audio extends React.Component {
       }
       this.pauseAudio = () => {
         this.whistle.pause();
-      }
-	  
+      }  
   }
+
+  // componentDidMount(){
+  //   this.whistle.play();
+  // }
   render() {
     return (
       <div className="stage">
