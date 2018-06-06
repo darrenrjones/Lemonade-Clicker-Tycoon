@@ -1,4 +1,4 @@
-# Project Title
+# Lemonade Clicker Tycoon
 
 Welcome to Lemonade Clicker Tycoon. A casual clicker game where you click your way to riches but hiring employees and buying upgrades.
 
