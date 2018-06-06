@@ -6,7 +6,7 @@ import { toggleModalVisible } from '../../actions';
 
 
 
-Modal.setAppElement('#root');
+// Modal.setAppElement('#root');
 
 
 export class ModalNotice extends React.Component{

@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import Menu from './menu'
 import Play from './play'
 import ModalNotice from './modalNotice'
-import Audio from './audio'
 import './playScreen.css'
 
 import {
@@ -75,5 +74,5 @@ const mapStateToProps = state => ({
   currentCash: state.mainReducer.currentCash,
   messages: state.mainReducer.messages ,
   seenMessage: state.mainReducer.seenMessage
-})
-export default connect(mapStateToProps)(PlayScreen)
+});
+export default connect(mapStateToProps)(PlayScreen);

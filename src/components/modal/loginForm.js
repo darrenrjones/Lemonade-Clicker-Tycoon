@@ -15,7 +15,7 @@ import { required, passwordLength } from './validators';
 import Input from './input.js'
 
 
-Modal.setAppElement('#root');
+// Modal.setAppElement('#root');
 
 
 export class LoginForm extends React.Component{
