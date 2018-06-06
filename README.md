@@ -4,7 +4,7 @@ Welcome to Lemonade Clicker Tycoon. A casual clicker game where you click your w
 
 ## Getting Started
 
-Open the game and play...
+Open the game and play...?
 
 ### Prerequisites
 
