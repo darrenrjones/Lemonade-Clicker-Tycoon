@@ -1,8 +1,15 @@
 h2{
   font-size: 14px;
+  margin:0;
+  padding: 8px;
 }
 p{
   font-size: 10px;
+  margin: 0;
+  padding: 8px;
+}
+.upgrade-description-div{
+  
 }
 .upgrades-container {
   background-color: rgb(30, 133, 38);
