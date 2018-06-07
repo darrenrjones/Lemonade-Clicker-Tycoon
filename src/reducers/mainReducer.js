@@ -182,7 +182,9 @@ export default function mainReducer(state = initialState, action){
       careerCash: action.user.careerCash,
       manualClicks: action.user.manualClicks,
       clickValue: action.user.clickValue,
-      assets: action.user.assets     
+      assets: action.user.assets,
+      upgrades: action.user.upgrades,
+     
     }
   }
   if(action.type === FETCH_USER_ERROR){

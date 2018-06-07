@@ -80,7 +80,7 @@ export class LoginForm extends React.Component{
           // overlayClassName='modal-overlay'
           isOpen={this.props.loginFormVisible}
           shouldCloseOnOverlayClick={true}
-          onRequestClose={this.toggleOpen}
+          onRequestClose={() => this.toggleLoginFormVisible()}
           aria={{
             labelledby: "heading",
             describedby: "fulldescription"

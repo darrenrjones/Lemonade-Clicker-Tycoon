@@ -90,6 +90,7 @@ export const fetchSave = () => (dispatch, getState) => {
       manualClicks: currentState.mainReducer.manualClicks,
       clickValue: currentState.mainReducer.clickValue,
       assets: currentState.mainReducer.assets,
+      upgrades: currentState.mainReducer.upgrades,
       seenMessage: currentState.mainReducer.seenMessage
     }),
     headers: {'Content-Type': 'application/json'}
@@ -160,6 +161,7 @@ export const fetchSubmitRegister = (credentials) => (dispatch, getState) => {
         manualClicks: currentState.mainReducer.manualClicks,
         clickValue: currentState.mainReducer.clickValue,
         assets: currentState.mainReducer.assets,
+        upgrades: currentState.mainReducer.upgrades,
         seenMessage: currentState.mainReducer.seenMessage
 
       }),
