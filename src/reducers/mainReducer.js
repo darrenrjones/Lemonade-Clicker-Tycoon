@@ -20,7 +20,7 @@ import {
 const initialState = {
   username: '',
   id: '',
-  currentCash: 147889,
+  currentCash: 0,
   careerCash: 0,
   manualClicks: 0,
   menuState: false,
