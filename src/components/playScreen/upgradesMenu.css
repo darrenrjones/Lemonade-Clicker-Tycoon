@@ -58,10 +58,16 @@ p{
     padding: 1px;
   }
 } 
+/* @media only screen and (max-height: 375px) { 
+  p{
+    font-size: 8px;
+  }
+}  */
+
 @media only screen and (min-height: 640px){ 
 
   .upgrade-menu-container{
-    padding: 5px;
+    padding: 3px;
     font-size: 18px;
   }
   h2{
@@ -148,6 +154,15 @@ p{
     margin-right: 25px;
     margin-top: 17px;
   }
+  .upgrades-button{
+    padding: 9px;
+    width: 119px;
+    position: fixed;
+    left: 50%;
+    margin-left: -63px;
+    bottom: 93px;
+  }
+  
   
 } 
 @media only screen and (min-width: 1200px){ 
