@@ -139,3 +139,27 @@
     padding-bottom: 12px;
   }
 } 
+@media only screen and (min-width: 1200px){ 
+
+  .modal-form-1{
+    top: 2em;
+    bottom: 430px;
+    font-size: 26px;
+    max-width: 70%;
+  }
+  .modal-form-1 input{
+    height: 42px;
+    font-size: 26px;
+  }
+
+  .message-error{
+    top: 60px;
+  }
+  .form-button-login, .form-button-register {
+    font-size: 20px;
+    padding: 10px;
+  }
+  h1{
+    padding-bottom: 12px;
+  }
+} 

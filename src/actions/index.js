@@ -5,11 +5,16 @@ export const CLICK_MENU = 'CLICK_MENU';
 export const clickMenu = () => ({
   type: CLICK_MENU
 })
-
+export const CLICK_UPGRADE_MENU = 'CLICK_UPGRADE_MENU';
+export const clickUpgradeMenu = () => ({
+  type: CLICK_UPGRADE_MENU
+})
 export const CLICK_MAIN = 'CLICK_MAIN';
 export const clickMain = () => ({
   type: CLICK_MAIN
 })
+
+
 
 export const AUTO_CLICK = 'AUTO_CLICK';
 export const autoClick = (multiplier) => ({
@@ -38,6 +43,14 @@ export const purchaseAutoClickerPlane = () => ({
 export const PURCHASE_UPGRADE_ORGANIC = 'PURCHASE_UPGRADE_ORGANIC';
 export const purchaseUpgradeOrganic = () => ({
   type: PURCHASE_UPGRADE_ORGANIC  
+})
+export const PURCHASE_UPGRADE_DOWNTOWN = 'PURCHASE_UPGRADE_DOWNTOWN';
+export const purchaseUpgradeDowntown = () => ({
+  type: PURCHASE_UPGRADE_DOWNTOWN  
+})
+export const PURCHASE_UPGRADE_NEWYORK = 'PURCHASE_UPGRADE_NEWYORK';
+export const purchaseUpgradeNewYork = () => ({
+  type: PURCHASE_UPGRADE_NEWYORK  
 })
 
 

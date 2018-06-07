@@ -42,11 +42,17 @@
     }
 
   }
-
   @media only screen and (min-height: 320px) { 
 
     .employee-menu-container{
       padding: 1px;
+    }
+  } 
+
+  @media only screen and (max-width: 374px) { 
+
+    .buy-button-div span {
+      margin-top: 13px;
     }
   } 
   @media only screen and (min-height: 640px){ 
@@ -122,5 +128,16 @@
       margin-right: 25px;
       margin-top: 17px;
     }
+  } 
+  @media only screen and (min-width: 1200px){ 
+
+
+    h2{
+      font-size: 26px;
+    }
+    p{
+      font-size: 20px;
+    }
+
   } 
   

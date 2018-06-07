@@ -34,9 +34,7 @@ p{
   margin-left: -42px;
   bottom: 42px;
 }
-.upgrade-description-div{
 
-}
 
 
 @media screen and (orientation: portrait) { 
@@ -152,3 +150,15 @@ p{
   }
   
 } 
+@media only screen and (min-width: 1200px){ 
+
+.upgrades-button{
+  padding: 9px;
+  width: 118px;
+  position: fixed;
+  left: 50%;
+  margin-left: -62px;
+  bottom: 82px;
+} 
+
+}

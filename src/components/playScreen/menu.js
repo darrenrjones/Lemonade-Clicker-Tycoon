@@ -8,25 +8,17 @@ import {
    purchaseAutoClickerEmployee,
    purchaseAutoClickerTruck,
    purchaseAutoClickerPlane,
-   purchaseUpgradeOrganic
+   purchaseUpgradeOrganic,
+   purchaseUpgradeDowntown,
+   purchaseUpgradeNewYork,
+   clickUpgradeMenu,
   } from '../../actions'
 
-// let employeePurchaseCost = 5**(this.state.assets.employees + 1);
 
 export class Menu extends React.Component{
-  constructor(props){
-    super(props);
-
-    this.state = {
-      upgradeView: false,
-      organic: false,
-      downtown: false,
-      newyork: false,
-    }
-  }
 
   purchaseAutoClickerEmployee() {
-    if(this.props.currentCash >= 5**(this.props.assets.employees + 1)){
+    if(this.props.currentCash >= 10**(this.props.assets.employees + 1)){
       this.props.dispatch(purchaseAutoClickerEmployee());
     }    
   }
@@ -41,34 +33,38 @@ export class Menu extends React.Component{
     }    
   }
   handleUpgradeMenuClick(){
-    this.setState({
-      upgradeView: !this.state.upgradeView
-    })
+    this.props.dispatch(clickUpgradeMenu());
   }
   purchaseUpgradeOrganic() {
     console.log('organice purchased!');
     if(this.props.currentCash >= 500){
-      this.setState({
-        organic: true
-      })
       this.props.dispatch(purchaseUpgradeOrganic());
     }
-    console.log('this.state.organic:',this.state.organic);
-
+  }
+  purchaseUpgradeDowntown() {
+    console.log('organice purchased!');
+    if(this.props.currentCash >= 5000){
+      this.props.dispatch(purchaseUpgradeDowntown());
+    }
+  }
+  purchaseUpgradeNewYork() {
+    console.log('organice purchased!');
+    if(this.props.currentCash >= 50000){
+      this.props.dispatch(purchaseUpgradeNewYork());
+    }
   }
 
 
   render(){
-    console.log('this.state.organic:',this.state.organic);
 
     let menuRender;
-    if(!this.state.upgradeView){
+    if(!this.props.upgradeView){
       menuRender = (
         <div className='menu-container'> 
           <EmployeeTemplate
             empTypeName='Employees'
             currentClickValue='1' 
-            currentPurchaseCost={5**(this.props.assets.employees + 1)}
+            currentPurchaseCost={10**(this.props.assets.employees + 1)}
             rate='1'
             purchaseAutoClickers={() => this.purchaseAutoClickerEmployee()}
           />
@@ -91,7 +87,7 @@ export class Menu extends React.Component{
       )  
     }
     let upgradeRender;
-    if(this.state.upgradeView){
+    if(this.props.upgradeView){
       upgradeRender = (
         <div className='upgrades-container'>
           <UpgradeTemplate 
@@ -99,21 +95,21 @@ export class Menu extends React.Component{
             description='People will pay more for organic! Now lemonade sells for $2 each!'
             cost={500}
             purchaseUpgrade={() => this.purchaseUpgradeOrganic()}
-            bought={this.state.organic} 
+            bought={this.props.upgrades.organic} 
           />
           <UpgradeTemplate 
-            upgradeTypeName='COMING SOON!'
+            upgradeTypeName='Downtown storefront'
             description='Move your stand to downtown. Shoppers there will spend $3 per lemonade!'
             cost={5000}
-            purchaseUpgrade={() => console.log('2nd upgrade buy button clicked')}
-            bought={this.state.downtown}            
+            purchaseUpgrade={() => this.purchaseUpgradeDowntown()}
+            bought={this.props.upgrades.downtown}            
           />
           <UpgradeTemplate 
-            upgradeTypeName='COMING SOON!'
+            upgradeTypeName='New York storefront'
             description='Move your stand to New York. Shoppers there will spend $5 per lemonade!'
-            cost={15000}
-            purchaseUpgrade={() => console.log('3rd upgrade buy button clicked')}
-            bought={this.state.newyork}
+            cost={50000}
+            purchaseUpgrade={() => this.purchaseUpgradeNewYork()}
+            bought={this.props.upgrades.newyork}
           />       
         </div>
       )
@@ -136,7 +132,9 @@ const mapStateToProps = state => ({
   menuState: state.mainReducer.menuState,
   clickValue: state.mainReducer.clickValue,
   assets: state.mainReducer.assets,
-  currentCash: state.mainReducer.currentCash
+  currentCash: state.mainReducer.currentCash,
+  upgrades: state.mainReducer.upgrades,
+  upgradeView: state.mainReducer.upgradeView,
 })
 
 export default connect(mapStateToProps)(Menu);

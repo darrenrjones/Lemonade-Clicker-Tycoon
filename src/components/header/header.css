@@ -122,3 +122,20 @@
     font-size: 20px;
   }
 } 
+@media only screen and (min-width: 1200px){ 
+
+  .header-container{
+    padding: 40px;
+    font-size: 28px;
+  }
+  h1{
+    font-size: 44px;
+  }
+  .current-cash-display span {
+    font-size: 32px;
+  }
+  button {
+    padding: 15px;
+    font-size: 20px;
+  }
+} 

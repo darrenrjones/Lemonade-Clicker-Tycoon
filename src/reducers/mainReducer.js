@@ -10,16 +10,20 @@ import {
   FETCH_USER_REQUEST,
   TOGGLE_SIGNEDIN_STATE,
   TOGGLE_MODAL_VISIBLE,
-  PURCHASE_UPGRADE_ORGANIC, 
+  PURCHASE_UPGRADE_ORGANIC,
+  PURCHASE_UPGRADE_DOWNTOWN,
+  PURCHASE_UPGRADE_NEWYORK, 
+  CLICK_UPGRADE_MENU
 } from '../actions'
 
 const initialState = {
   username: '',
   id: '',
-  currentCash: 0,
+  currentCash: 147889,
   careerCash: 0,
   manualClicks: 0,
   menuState: false,
+  upgradeView: false,
   clickValue: 1,
   signedIn: false, 
   assets: {
@@ -27,13 +31,18 @@ const initialState = {
     trucks: 0,
     planes: 0
   },
+  upgrades: {
+    organic: false,
+    downtown: false,
+    newyork: false
+  },
   loading: false,
   error: null,
   currentUser: null,
   modalVisible: true,
   modalMessage: 'Welcome to Lemonade Clicker Tycoon! Click on the orange screen to sell lemonade and watch your profits soar!',
   messages: {
-    5:'It looks like you could use some help selling all that sweet sweet lemonade. Click the \'MENU\' button and hire an employee!',
+    10:'It looks like you could use some help selling all that sweet sweet lemonade. Click the \'MENU\' button and hire an employee!',
     100: 'The demand for your lemonade has grown throughout the city! You should deliver to local stores. Open the \'MENU\' and purchase a delivery truck!',
     1000: 'Someone made a MEME about your lemonade and now it\'s a global phenomenon! Buy a plane to meet the global demand!'
   },
@@ -41,11 +50,11 @@ const initialState = {
 }
 
 const messageChecker = (state) => {
-  if(state.seenMessage < 5 && state.currentCash >= 5 && state.assets.employees === 0){
+  if(state.seenMessage < 10 && state.currentCash >= 10 && state.assets.employees === 0){
     return {
       modalVisible: true,
-      modalMessage: state.messages[5],
-      seenMessage: 5    
+      modalMessage: state.messages[10],
+      seenMessage: 10    
     }
   } else if (state.seenMessage < 100 && state.currentCash >= 100 && state.assets.trucks === 0){
       return {         
@@ -69,6 +78,12 @@ export default function mainReducer(state = initialState, action){
     return {
       ...state,
       menuState: !state.menuState
+    }
+  }
+  if(action.type === CLICK_UPGRADE_MENU){
+    return {
+      ...state,
+      upgradeView: !state.upgradeView
     }
   }
   if(action.type === CLICK_MAIN){
@@ -97,7 +112,7 @@ export default function mainReducer(state = initialState, action){
 
   if(action.type === PURCHASE_AUTO_CLICKER_EMPLOYEE){
     let newCount = state.assets.employees + 1
-    let newCost = 5**newCount
+    let newCost = 10**newCount
     return {
       ...state,
       assets: {...state.assets, employees: newCount},    
@@ -126,8 +141,24 @@ export default function mainReducer(state = initialState, action){
     return {
       ...state,
       clickValue: state.clickValue + 1,
-      currentCash: state.currentCash - 500       
-      
+      upgrades: {...state.upgrades, organic : true},
+      currentCash: state.currentCash - 500
+    }
+  }
+  if(action.type === PURCHASE_UPGRADE_DOWNTOWN){
+    return {
+      ...state,
+      clickValue: state.clickValue + 1,
+      upgrades: {...state.upgrades, downtown : true},
+      currentCash: state.currentCash - 5000
+    }
+  }
+  if(action.type === PURCHASE_UPGRADE_NEWYORK){
+    return {
+      ...state,
+      clickValue: state.clickValue + 2,
+      upgrades: {...state.upgrades, newyork : true},
+      currentCash: state.currentCash - 50000
     }
   }
   
