@@ -12,11 +12,11 @@ export default function EmployeeTemplate(props){
       </div>
       
       <div className='buy-button-div'>
-          <button onClick={() => props.purchaseAutoClickers()}>Buy</button>
-          <span className='buy-button-span' aria-labelledby='aria-{props.empTypeName}'>${props.currentPurchaseCost.toLocaleString('en')}</span>
+        <button onClick={() => props.purchaseAutoClickers()}>Buy</button>
+        <span className='buy-button-span' aria-labelledby='aria-{props.empTypeName}'>${props.currentPurchaseCost.toLocaleString('en')}</span>
       </div>
   
-  </div>
+    </div>
   );
 }
 

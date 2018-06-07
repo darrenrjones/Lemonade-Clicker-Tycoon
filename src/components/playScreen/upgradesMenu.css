@@ -1,15 +1,15 @@
 h2{
   font-size: 14px;
   margin:0;
-  padding: 8px;
+  padding: 2px;
 }
 p{
   font-size: 10px;
   margin: 0;
-  padding: 8px;
+  padding: 2px;
 }
 .upgrade-description-div{
-  
+  width: 40%
 }
 .upgrades-container {
   background-color: rgb(30, 133, 38);
@@ -27,7 +27,6 @@ p{
   padding: 20px;
   display: flex;
   flex-direction: row-reverse;
-  /* justify-content: space-evenly; */
 }
 .buy-upgrade-button-div span {
   margin-right: 10px;
@@ -65,11 +64,6 @@ p{
     padding: 1px;
   }
 } 
-/* @media only screen and (max-height: 375px) { 
-  p{
-    font-size: 8px;
-  }
-}  */
 
 @media only screen and (min-height: 640px){ 
 
@@ -113,8 +107,8 @@ p{
     margin-left: -44px;
     bottom: 82px;
   }
-
 } 
+
 @media only screen and (min-width: 1000px){ 
 
   .upgrade-menu-container{
@@ -169,18 +163,15 @@ p{
     margin-left: -63px;
     bottom: 93px;
   }
-  
-  
 } 
 @media only screen and (min-width: 1200px){ 
 
-.upgrades-button{
-  padding: 9px;
-  width: 118px;
-  position: fixed;
-  left: 50%;
-  margin-left: -62px;
-  bottom: 82px;
-} 
-
+  .upgrades-button{
+    padding: 9px;
+    width: 118px;
+    position: fixed;
+    left: 50%;
+    margin-left: -62px;
+    bottom: 82px;
+  } 
 }

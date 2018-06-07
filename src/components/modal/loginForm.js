@@ -15,13 +15,21 @@ import { required, passwordLength } from './validators';
 import Input from './input.js'
 
 
-// Modal.setAppElement('#root');
+// Modal.setAppElement('#root'); // COMMENTED OUT TO APPEASE TEST
 
 
 export class LoginForm extends React.Component{
 
   toggleLoginFormVisible() {
     this.props.dispatch(toggleLoginFormVisible());
+  }
+
+  onSubmit(fields){
+    if (this.submittedButton === "login"){
+      this.submitLogin(fields);
+    } else if (this.submittedButton === 'register'){
+      this.submitRegister(fields);
+    }
   }
 
   submitRegister(fields){
@@ -42,33 +50,14 @@ export class LoginForm extends React.Component{
         }
       }); 
   }
-  onSubmit(fields){
-    if (this.submittedButton === "login"){
-      this.submitLogin(fields);
-    } else if (this.submittedButton === 'register'){
-      this.submitRegister(fields);
-    }
-  }
-
 
   render() {
-    // const { isOpen } = this.props.loginFormVisible;
-
-    // let successMessage;
-    // if (!this.props.failedLoginError) {
-    //   // console.log(this.props.submitSucceeded);
-      
-    //     successMessage = (
-    //         <div className="message message-success">
-    //             {this.props.submitSucceeded.toString()}
-    //         </div>
-    //     );
-    // }
+ 
     let errorMessage;
     if (this.props.failedLoginError) {
-        errorMessage = (
-            <div className="message message-error">{this.props.failedLoginError}</div>
-        );
+      errorMessage = (
+        <div className="message message-error">{this.props.failedLoginError}</div>
+      );
     }
 
     return (
@@ -92,9 +81,8 @@ export class LoginForm extends React.Component{
             className='redux-form'
             onSubmit={this.props.handleSubmit(fields => this.onSubmit(fields))}
           >
-            {/* {successMessage} */}
             {errorMessage}
-            <label>Enter your credentials to login, or enter a unique Username and password to create a new account</label>
+            <label>Enter your credentials to login, or enter a unique Username and Password to create a new account</label>
             <div className='form-input-div'>
               
               <Field 
@@ -117,7 +105,6 @@ export class LoginForm extends React.Component{
               />
 
             </div>
-            {/* <div className='form-button-div'> */}
               <button 
                 className='form-button-login' 
                 disabled={this.props.pristine || this.props.submitting}
@@ -131,19 +118,15 @@ export class LoginForm extends React.Component{
                 onClick={() => this.submittedButton = "register"}>
                 REGISTER
               </button>
-            {/* </div> */}
          
           </form>
-
 
           </div>
         </Modal>
       </div>
     )
   }
-
 }
-
 
 const mapStateToProps = state => ({
   signedIn: state.mainReducer.signedIn,
@@ -151,22 +134,16 @@ const mapStateToProps = state => ({
   loginFormVisible: state.mainReducer.loginFormVisible
 })
 
-LoginForm = connect(
-  mapStateToProps
-)(LoginForm)
+// LoginForm = connect(
+//   mapStateToProps
+// )(LoginForm)
 
-export default reduxForm({
-  form: 'loginForm',
-  app: LoginForm,
-})(LoginForm)
+// export default reduxForm({
+//   form: 'loginForm',
+//   app: LoginForm,
+// })(LoginForm)
 
+export default connect(mapStateToProps)(reduxForm({
+  form: 'loginForm'
+})(LoginForm));
 
-
-
-
-
-// TRY THIS WAY LATER ...
-
-// export default connect(mapStateToProps)(reduxForm({
-//   form: 'addIOU'
-// })(IOUAddForm));

@@ -6,8 +6,6 @@ import LoginForm from '../modal/loginForm'
 import Save from'./save'
 import { fetchSave } from '../../actions';
 
-
-
 export class Header extends React.Component{
 
   saveSubmit = () => {    
@@ -15,10 +13,7 @@ export class Header extends React.Component{
   }
 
   render(){
-    // console.log('this.props: ',this.props);
-    // if(!this.props.currentUser){
-    //   return <div>LOADING...</div>
-    // }
+
     return(
       <div className='header-container'>  
 
@@ -59,10 +54,7 @@ export class Header extends React.Component{
           </div>
 
         </div>
-    
-
                
-    
       </div>
     );
   }

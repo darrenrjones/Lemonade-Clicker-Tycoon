@@ -1,8 +1,7 @@
   .header-container {
-    background-color: rgb(184, 224, 39);
+    background-color: #FEFE33;
     border: 2px #FEFE33 solid;
     display: flex;
-    /* justify-content: space-around; */
     color: #343409;
     flex-grow: 0;
   }
@@ -14,11 +13,7 @@
   .signedin-green {
     background-color: green
   }
-  /* .signedin-red {
-    background-color: red
-  } */
   .current-cash-display{
-    border: #FEFE33 2px dotted;
     width: 250px;
     display: block;
     text-align: center;
@@ -51,6 +46,9 @@
   .right-side-header{
     width: 25%;
   }
+  .signedin-div{
+    font-size: .66em;
+  }
 
 @media screen and (min-width: 1000px) and (orientation: landscape) { 
   .modal-form, .save-button-div{
@@ -76,9 +74,6 @@
   .right-side-header{
     display: flex;
     flex-direction: column;
-  }
-  .signedin-div, .login-save-div{
-    width: 80% 
   }
   .login-save-div {
     margin-left: 6px;

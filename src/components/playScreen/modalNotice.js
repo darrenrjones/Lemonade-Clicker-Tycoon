@@ -5,20 +5,16 @@ import Modal from 'react-modal';
 import { toggleModalVisible } from '../../actions';
 
 
-
-// Modal.setAppElement('#root');
+// Modal.setAppElement('#root'); // this is COMMENTED OUT to appease tests
 
 
 export class ModalNotice extends React.Component{
 
-
   toggleOpen = () => {
     this.props.dispatch(toggleModalVisible());
-  }
-  
+  }  
 
   render(){
-
     return(
      
       <div className='intro-container'>
@@ -27,11 +23,12 @@ export class ModalNotice extends React.Component{
           // overlayClassName='modal-overlay'
           isOpen={this.props.modalVisible}
           shouldCloseOnOverlayClick={false}
-          // onRequestClose={this.toggleOpen}
+          // onRequestClose={() => this.toggleModalVisible()}
           aria={{
             labelledby: "heading",
             describedby: "fulldescription"
-          }}>
+          }}
+        >
 
           <div className='modal-message-container'>
           
@@ -55,9 +52,3 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps)(ModalNotice);
-
-
-// export default reduxForm({
-//   form: 'Intro',
-//   app: Intro
-// })(Intro)
