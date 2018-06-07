@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import {Field, reduxForm, reset} from 'redux-form'
 
-import { fetchSubmitRegister, fetchSubmitLogin } from '../../actions'
+import { fetchSubmitRegister, fetchSubmitLogin, toggleLoginFormVisible } from '../../actions'
 
 import './loginForm.css'
 
@@ -19,24 +19,16 @@ import Input from './input.js'
 
 
 export class LoginForm extends React.Component{
-  constructor() {
-    super();
 
-    this.state = {
-      isOpen: false  
-    }
-  }
-
-  toggleOpen = e => {
-    const { isOpen } = this.state;
-    this.setState({isOpen: !isOpen})    
+  toggleLoginFormVisible() {
+    this.props.dispatch(toggleLoginFormVisible());
   }
 
   submitRegister(fields){
     this.props.dispatch(fetchSubmitRegister(fields))
       .then(() => {
         if(!this.props.failedLoginError){
-          this.toggleOpen();
+          this.props.dispatch(toggleLoginFormVisible());
           this.props.dispatch(reset('loginForm'));
         }
       });     
@@ -45,7 +37,7 @@ export class LoginForm extends React.Component{
     this.props.dispatch(fetchSubmitLogin(fields))
       .then(() => {
         if(!this.props.failedLoginError){
-          this.toggleOpen();
+          this.props.dispatch(toggleLoginFormVisible());
           this.props.dispatch(reset('loginForm'));
         }
       }); 
@@ -58,18 +50,10 @@ export class LoginForm extends React.Component{
     }
   }
 
-// static getDerivedStateFromProps(props, state){
-//      if(props.signedIn && state.isOpen){
-//        this.toggleOpen();    
-//     }
-// }
-
-  
 
   render() {
-    const { isOpen } = this.state;
+    // const { isOpen } = this.props.loginFormVisible;
 
-    // need to check where .submitSucceeded happens
     // let successMessage;
     // if (!this.props.failedLoginError) {
     //   // console.log(this.props.submitSucceeded);
@@ -87,17 +71,14 @@ export class LoginForm extends React.Component{
         );
     }
 
-    // console.log('this.props: ',this.props);
-    
-
     return (
       <div className='modal-form'>
 
-        <button onClick={this.toggleOpen}>Log In</button>
+        <button onClick={() => this.toggleLoginFormVisible()}>Log In</button>
         <Modal 
           className='modal-form-1'
           // overlayClassName='modal-overlay'
-          isOpen={isOpen}
+          isOpen={this.props.loginFormVisible}
           shouldCloseOnOverlayClick={true}
           onRequestClose={this.toggleOpen}
           aria={{
@@ -166,7 +147,8 @@ export class LoginForm extends React.Component{
 
 const mapStateToProps = state => ({
   signedIn: state.mainReducer.signedIn,
-  failedLoginError: state.mainReducer.error
+  failedLoginError: state.mainReducer.error,
+  loginFormVisible: state.mainReducer.loginFormVisible
 })
 
 LoginForm = connect(

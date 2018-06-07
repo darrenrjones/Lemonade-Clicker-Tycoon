@@ -72,6 +72,11 @@ export const TOGGLE_MODAL_VISIBLE = 'TOGGLE_MODAL_VISIBLE';
 export const toggleModalVisible = () => ({
   type: TOGGLE_MODAL_VISIBLE  
 })
+export const TOGGLE_LOGIN_FORM_VISIBLE = 'TOGGLE_LOGIN_FORM_VISIBLE';
+export const toggleLoginFormVisible = () => ({
+  type: TOGGLE_LOGIN_FORM_VISIBLE  
+})
+
 
 
 export const fetchSave = () => (dispatch, getState) => {

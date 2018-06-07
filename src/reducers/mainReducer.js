@@ -10,6 +10,7 @@ import {
   FETCH_USER_REQUEST,
   TOGGLE_SIGNEDIN_STATE,
   TOGGLE_MODAL_VISIBLE,
+  TOGGLE_LOGIN_FORM_VISIBLE,
   PURCHASE_UPGRADE_ORGANIC,
   PURCHASE_UPGRADE_DOWNTOWN,
   PURCHASE_UPGRADE_NEWYORK, 
@@ -40,6 +41,7 @@ const initialState = {
   error: null,
   currentUser: null,
   modalVisible: true,
+  loginFormVisible: false,
   modalMessage: 'Welcome to Lemonade Clicker Tycoon! Click on the orange screen to sell lemonade and watch your profits soar!',
   messages: {
     10:'It looks like you could use some help selling all that sweet sweet lemonade. Click the \'MENU\' button and hire an employee!',
@@ -196,7 +198,12 @@ export default function mainReducer(state = initialState, action){
       modalVisible: !state.modalVisible    
     }
   }
-
+  if(action.type === TOGGLE_LOGIN_FORM_VISIBLE){
+    return {
+      ...state,
+      loginFormVisible: !state.loginFormVisible    
+    }
+  }
   
   return state;
 }
