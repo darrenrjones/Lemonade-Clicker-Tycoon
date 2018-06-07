@@ -98,12 +98,15 @@ export const fetchSave = () => (dispatch, getState) => {
 }
 
 export const fetchUser = (user) => (dispatch, getState) => {
+  dispatch(fetchUserRequest())
+
 
   // console.log("USER PASSED FROM FETCHSUBMITLOGIN: ", user);
   return fetch(`${API_BASE_URL}/api/users/${user.username}`)
   .then(res => res.json()) 
   .then(user => {
-    console.log(user);
+    // console.log('right before fetchUserRequest: ', user);
+
     dispatch(fetchUserSuccess(user))
   })   
 }
@@ -119,7 +122,7 @@ export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {
       headers: {'Content-Type': 'application/json'}
   })   
   .then(res => {
-    console.log('check res.ok: ', res);
+    // console.log('check res.ok: ', res);
     if (!res.ok) {
       if (res.headers.has('content-type') && res.headers
                         .get('content-type')
