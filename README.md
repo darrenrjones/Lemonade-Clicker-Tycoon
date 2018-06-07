@@ -1,68 +1,36 @@
 # Lemonade Clicker Tycoon
 
-Welcome to Lemonade Clicker Tycoon. A casual clicker game where you click your way to riches but hiring employees and buying upgrades!
+Welcome to Lemonade Clicker Tycoon. A casual clicker game where you click your way to riches by hiring employees and buying upgrades!
 
 ## Getting Started
 
-Open the game and play...?
+Go here to play: [Lemonade Clicker Tycoon!](https://lemonade-clicker-tycoon.netlify.com/)
 
-### Prerequisites
+### Screenshots
 
-non
+![playscreen](screenshots/0.png)
 
-### Installing
+![notice](screenshots/modal1.png)
 
-A step by step series of examples that tell you how to get a development env running
+![menu](screenshots/menu1.png)
 
-Say what the step will be
+![upgrades](screenshots/upgradeMenu.png)
 
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+![login screen](screenshots/login.png)
 
 ## Built With
 
-create-react-app
+**React, React-Redux, Redux-Form, React-Modal**
 
-node
+**create-react-app** - deployed via netlify
 
-etc 
+**enzyme** for testing
 
-## Contributing
+**node** - deployed via heroku
 
-## Versioning
+**express, passport, bcrypt, mongoose, chai, mocha**
+
+**mongo** - hosted by Mlab
 
 ## Authors
 
@@ -74,6 +42,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Zach for helping at many different stages
+* Zach, Casey, Kevin and Chris for helping at many different stages
 
 
