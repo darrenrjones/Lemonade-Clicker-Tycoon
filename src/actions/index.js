@@ -121,9 +121,8 @@ export const fetchSave = () => (dispatch, getState) => {
   }) 
 }
 
-export const fetchUser = (user) => (dispatch, getState) => {
+export const fetchUser = (user) => (dispatch, getState) => {  
   dispatch(fetchUserRequest())
-  
   return fetch(`${API_BASE_URL}/api/users/${user.username}`)
   .then(res => res.json()) 
   .then(user => {
@@ -132,7 +131,7 @@ export const fetchUser = (user) => (dispatch, getState) => {
 }
 
 export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {
-
+  dispatch(fetchUserRequest())
   return fetch(`${API_BASE_URL}/api/auth/login`, {
     method: 'POST',
     body: JSON.stringify({
