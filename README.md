@@ -19,19 +19,32 @@ Go here to play: [Lemonade Clicker Tycoon!](https://lemonade-clicker-tycoon.netl
 ![login screen](screenshots/login.png)
 
 ## Built With
-
-**React, React-Redux, Redux-Form, React-Modal**
-
-**create-react-app** - deployed via Netlify
-
-**Enzyme** for testing
-
-**Node** - deployed via Heroku
-
-**Express, Passport, Bcrypt, Mongoose, Chai, Mocha**
-
-**Mongo** - hosted by Mlab
-
+```
+* **React**
+* **React-Redux**
+* **Redux-Form**
+* **React-Modal**
+```
+```
+* **create-react-app** - deployed via Netlify
+```
+```
+* **Enzyme** for testing
+```
+```
+* **Node** - deployed via Heroku
+```
+```
+* **Express**
+* **Passport**
+* **Bcrypt**
+* **Mongoose**
+* **Chai**
+* **Mocha**
+```
+```
+* **Mongo** - hosted by Mlab
+```
 ## Where key parts live in codebase:
 
 All components, actions and reducers are in [**src**](https://github.com/darrenrjones/Lemonade-Clicker-Tycoon/tree/master/src) folder
@@ -39,32 +52,30 @@ All components, actions and reducers are in [**src**](https://github.com/darrenr
 ```
 project
 │   README.md
-│   [package.json](https://github.com/darrenrjones/Lemonade-Clicker-Tycoon/blob/master/package.json)           
+│   package.json         
 │   
 └───src
 │   │   index.js
 │   │   store.js
 │   │   
-│   │
-│   └───[components](https://github.com/darrenrjones/Lemonade-Clicker-Tycoon/tree/master/src/components)
+│   └───components
 │       │   header
 │       │   modal
 │       │   playScreen
+│       │
 │       actions
-│       │   file111.txt
-│       │   file112.txt
-│       │   ...
+│       │   index.js
+│       │
 │       reducers
-│       │   file111.txt
-│       │   file112.txt
-│       │   ...
-│   
-└───[public](https://github.com/darrenrjones/Lemonade-Clicker-Tycoon/tree/master/public)          
+│       │   index.js
+│       │   mainReducer.js
+│       │
+└───public          
 ```
 
 ## Authors
 
-* **Darren Jones** - [github](https://github.com/darrenrjones)
+**Darren Jones** - [github](https://github.com/darrenrjones)
 
 ## License
 
@@ -72,6 +83,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Zach, Casey, Kevin and Chris for helping at many different stages
+Zach, Casey, Kevin and Chris for helping at many different stages
 
 
