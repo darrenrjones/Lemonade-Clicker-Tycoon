@@ -131,12 +131,13 @@ export const fetchUser = (user) => (dispatch, getState) => {
   dispatch(fetchUserRequest())
 
   // console.log("USER PASSED FROM FETCHSUBMITLOGIN: ", user);
+  
   return fetch(`${API_BASE_URL}/api/users/${user.username}`)
   .then(res => res.json()) 
   .then(user => {
     // console.log('right before fetchUserRequest: ', user);
 
-    dispatch(fetchUserSuccess(user))
+    dispatch(fetchUserSuccess(user)) 
   })   
 }
 

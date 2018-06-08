@@ -47,7 +47,7 @@ export class LoginForm extends React.Component{
     this.props.dispatch(fetchSubmitLogin(fields))
       .then(() => {
         if(!this.props.failedLoginError){
-          this.props.dispatch(toggleLoginFormVisible());
+          this.props.dispatch(toggleLoginFormVisible())
           this.props.dispatch(reset('loginForm'));
         }
       }); 
