@@ -1,6 +1,6 @@
 import React from 'react'
 
-import audiofile from './Ukulele.mp3'
+import audiofile from '../../Ukulele.mp3'
 
 class Audio extends React.Component {
   constructor(props) {
