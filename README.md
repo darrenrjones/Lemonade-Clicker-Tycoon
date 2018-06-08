@@ -19,32 +19,27 @@ Go here to play: [Lemonade Clicker Tycoon!](https://lemonade-clicker-tycoon.netl
 ![login screen](screenshots/login.png)
 
 ## Built With
-```
+
 * **React**
 * **React-Redux**
 * **Redux-Form**
 * **React-Modal**
-```
-```
+
 * **create-react-app** - deployed via Netlify
-```
-```
+
 * **Enzyme** for testing
-```
-```
+
 * **Node** - deployed via Heroku
-```
-```
+
 * **Express**
 * **Passport**
 * **Bcrypt**
 * **Mongoose**
 * **Chai**
 * **Mocha**
-```
-```
+
 * **Mongo** - hosted by Mlab
-```
+
 ## Where key parts live in codebase:
 
 All components, actions and reducers are in [**src**](https://github.com/darrenrjones/Lemonade-Clicker-Tycoon/tree/master/src) folder
