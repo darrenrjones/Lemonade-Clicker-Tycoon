@@ -107,7 +107,6 @@ export default function mainReducer(state = initialState, action){
     }
   }
   if(action.type === TOGGLE_SIGNEDIN_STATE){
-    // console.log('signedIn state changed');    
     return {
       ...state,
       signedIn: !state.signedIn

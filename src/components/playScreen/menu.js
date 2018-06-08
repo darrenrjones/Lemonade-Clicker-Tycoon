@@ -36,19 +36,16 @@ export class Menu extends React.Component{
     this.props.dispatch(clickUpgradeMenu());
   }
   purchaseUpgradeOrganic() {
-    console.log('organice purchased!');
     if(this.props.currentCash >= 500){
       this.props.dispatch(purchaseUpgradeOrganic());
     }
   }
   purchaseUpgradeDowntown() {
-    console.log('organice purchased!');
     if(this.props.currentCash >= 5000){
       this.props.dispatch(purchaseUpgradeDowntown());
     }
   }
   purchaseUpgradeNewYork() {
-    console.log('organice purchased!');
     if(this.props.currentCash >= 50000){
       this.props.dispatch(purchaseUpgradeNewYork());
     }

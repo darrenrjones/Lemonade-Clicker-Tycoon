@@ -79,11 +79,7 @@ export const saveSuccessDisplay = (success) => ({
   success  
 })
 
-
-
-
 export const fetchSave = () => (dispatch, getState) => {
-
   const currentState = getState();
   return fetch(`${API_BASE_URL}/api/users/${currentState.mainReducer.id}`,{
     method: 'PUT',
@@ -101,8 +97,8 @@ export const fetchSave = () => (dispatch, getState) => {
   .then(res => {
     if (!res.ok) {
       if (res.headers.has('content-type') && res.headers
-                        .get('content-type')
-                        .startsWith('application/json')
+        .get('content-type')
+        .startsWith('application/json')
       ){
         return res.json().then(err => Promise.reject(err));
       }
@@ -111,23 +107,13 @@ export const fetchSave = () => (dispatch, getState) => {
         message: res.statusText
         });
     }
-    console.log(res);    
     dispatch(saveSuccessDisplay(true));
   })
   .catch(err => {
-    console.log('catch in fetchSave: ', err);
     dispatch(saveSuccessDisplay(false));    
     dispatch(fetchUserError(err))
   }) 
-}
-
-export const fetchUser = (user) => (dispatch, getState) => {  
-  dispatch(fetchUserRequest())
-  return fetch(`${API_BASE_URL}/api/users/${user.username}`)
-  .then(res => res.json()) 
-  .then(user => {
-    dispatch(fetchUserSuccess(user))
-  })   
+  
 }
 
 export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {
@@ -143,8 +129,8 @@ export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {
   .then(res => {
     if (!res.ok) {
       if (res.headers.has('content-type') && res.headers
-                        .get('content-type')
-                        .startsWith('application/json')
+        .get('content-type')
+        .startsWith('application/json')
       ){
         return res.json().then(err => Promise.reject(err));
       }
@@ -155,11 +141,16 @@ export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {
     }
     return;
   })
-  .then(() => dispatch(fetchUser(credentials)))
+  .then(() => fetch(`${API_BASE_URL}/api/users/${credentials.username}`)
+  .then(res => res.json()) 
+  .then(user => {
+    dispatch(fetchUserSuccess(user))
+  }))
   .then(() => dispatch(toggleSignedinState()))
   .catch(err => {
     dispatch(fetchUserError(err))
   }) 
+
 }
 
 export const fetchSubmitRegister = (credentials) => (dispatch, getState) => {
@@ -185,18 +176,14 @@ export const fetchSubmitRegister = (credentials) => (dispatch, getState) => {
     })
     .then(res => res.json())
     .then(user => {
-      console.log('should not be here: ',user);
       if(user.error){
         throw user
-      }
-      
+      }      
       return dispatch(fetchUserSuccess(user))
     })
     .then(() => dispatch(toggleSignedinState()))   
     .catch(err => {
-      console.log('ERROR FROM CALL: ', err);      
       dispatch(fetchUserError(err))
+  }); 
 
-  });
-  
 }
