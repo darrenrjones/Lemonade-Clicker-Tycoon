@@ -13,9 +13,6 @@ export const CLICK_MAIN = 'CLICK_MAIN';
 export const clickMain = () => ({
   type: CLICK_MAIN
 })
-
-
-
 export const AUTO_CLICK = 'AUTO_CLICK';
 export const autoClick = (multiplier) => ({
   type: AUTO_CLICK,
@@ -107,11 +104,8 @@ export const fetchSave = () => (dispatch, getState) => {
                         .get('content-type')
                         .startsWith('application/json')
       ){
-        // It's a nice JSON error returned by us, so decode it
         return res.json().then(err => Promise.reject(err));
       }
-      // It's a less informative error returned by express
-      console.log('fetchSave caught in !res.ok if statement: ', res);
       return Promise.reject({
         code: res.status,
         message: res.statusText
@@ -129,15 +123,11 @@ export const fetchSave = () => (dispatch, getState) => {
 
 export const fetchUser = (user) => (dispatch, getState) => {
   dispatch(fetchUserRequest())
-
-  // console.log("USER PASSED FROM FETCHSUBMITLOGIN: ", user);
   
   return fetch(`${API_BASE_URL}/api/users/${user.username}`)
   .then(res => res.json()) 
   .then(user => {
-    // console.log('right before fetchUserRequest: ', user);
-
-    dispatch(fetchUserSuccess(user)) 
+    dispatch(fetchUserSuccess(user))
   })   
 }
 
@@ -152,17 +142,13 @@ export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {
       headers: {'Content-Type': 'application/json'}
   })   
   .then(res => {
-    // console.log('check res.ok: ', res);
     if (!res.ok) {
       if (res.headers.has('content-type') && res.headers
                         .get('content-type')
                         .startsWith('application/json')
       ){
-        // It's a nice JSON error returned by us, so decode it
         return res.json().then(err => Promise.reject(err));
       }
-      // It's a less informative error returned by express
-      console.log('res not caught in !res.ok if statement: ', res);
       return Promise.reject({
         code: res.status,
         message: res.statusText
@@ -170,17 +156,15 @@ export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {
     }
     return;
   })
-  // .then(() => dispatch(fetchUserRequest()))
-
   .then(() => dispatch(fetchUser(credentials)))
   .then(() => dispatch(toggleSignedinState()))
   .catch(err => {
-    console.log('catch in fetchSubmitLogin: ', err);
     dispatch(fetchUserError(err))
   }) 
 }
 
 export const fetchSubmitRegister = (credentials) => (dispatch, getState) => {
+    dispatch(fetchUserRequest())
 
     const currentState = getState();
 
@@ -208,7 +192,7 @@ export const fetchSubmitRegister = (credentials) => (dispatch, getState) => {
       }
       
       return dispatch(fetchUserSuccess(user))
-    }) //another fetch for login dispatch fethcSubmitLogin
+    })
     .then(() => dispatch(toggleSignedinState()))   
     .catch(err => {
       console.log('ERROR FROM CALL: ', err);      

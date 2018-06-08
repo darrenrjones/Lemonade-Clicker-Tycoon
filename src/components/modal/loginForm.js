@@ -55,7 +55,7 @@ export class LoginForm extends React.Component{
 
   loadingSpinner(){
     if(this.props.loading){
-      return <Spinner className='spinner' name="line-spin-fade-loader" />
+      return <Spinner className='spinner' name="line-spin-fade-loader" fadeIn='quarter' />
     }
   }
 
