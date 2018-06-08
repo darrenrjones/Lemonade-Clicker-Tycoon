@@ -8,15 +8,18 @@ Go here to play: [Lemonade Clicker Tycoon!](https://lemonade-clicker-tycoon.netl
 
 ### Screenshots
 
+Here is the play screen. You can click anywhere in the orange section to sell lemonade.
+If the user is not signed in the top right "Signed in:" bar does not have a green background and says false.
 ![playscreen](screenshots/0.png)
-
+These are the modals that show up when you reach checkpoint of being able to purchase your first employee, truck or plane. A similar one appears upon landing at the game to welcome you and give instruction. 
 ![notice](screenshots/modal1.png)
-
+This is the menu screen where you can buy employees, trucks or planes. 
 ![menu](screenshots/menu1.png)
-
+The upgrade screen allows you to purchase upgrades to increase the amount gained for each sold lemonade.
 ![upgrades](screenshots/upgradeMenu.png)
-
+The login screen uses react-modal and will give proper warnings upon local and backend checks.
 ![login screen](screenshots/login.png)
+
 
 ## Built With
 
@@ -25,20 +28,15 @@ Go here to play: [Lemonade Clicker Tycoon!](https://lemonade-clicker-tycoon.netl
 * **Redux-Form**
 * **React-Modal**
 * **React-Spinkit**
-
 * **create-react-app** - deployed via Netlify
-
 * **Enzyme** 
-
 * **Node** - deployed via Heroku
-
 * **Express**
 * **Passport**
 * **Bcrypt**
 * **Mongoose**
 * **Chai** 
 * **Mocha** 
-
 * **Mongo** - hosted by Mlab
 
 ## Where key parts live in codebase:

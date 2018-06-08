@@ -36,7 +36,7 @@ export class Header extends React.Component{
     
         <section className='currentCashHeader'>        
           <h1 role='banner'>Lemonade Clicker Tycoon!</h1>
-          <div aria-labelledby="current-cash-display" className='current-cash-display'>
+          <div className='current-cash-display'>
             <span>${this.props.currentCash.toLocaleString('en')}</span>
           </div>
         </section>
