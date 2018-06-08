@@ -4,6 +4,8 @@ import Modal from 'react-modal';
 
 import { connect } from 'react-redux';
 
+import Spinner from 'react-spinkit';
+
 import {Field, reduxForm, reset} from 'redux-form'
 
 import { fetchSubmitRegister, fetchSubmitLogin, toggleLoginFormVisible } from '../../actions'
@@ -51,6 +53,12 @@ export class LoginForm extends React.Component{
       }); 
   }
 
+  loadingSpinner(){
+    if(this.props.loading){
+      return <Spinner className='spinner' name="line-spin-fade-loader" />
+    }
+  }
+
   render() {
  
     let errorMessage;
@@ -93,6 +101,9 @@ export class LoginForm extends React.Component{
                 placeholder='LemonadeDealer'
                 validate={[required]}
               />
+              <div className='spinner-div'>
+              {this.loadingSpinner()}
+              </div>
               <br/>
 
               <Field 
@@ -131,7 +142,8 @@ export class LoginForm extends React.Component{
 const mapStateToProps = state => ({
   signedIn: state.mainReducer.signedIn,
   failedLoginError: state.mainReducer.error,
-  loginFormVisible: state.mainReducer.loginFormVisible
+  loginFormVisible: state.mainReducer.loginFormVisible,
+  loading: state.mainReducer.loading
 })
 
 // LoginForm = connect(

@@ -24,10 +24,11 @@ Go here to play: [Lemonade Clicker Tycoon!](https://lemonade-clicker-tycoon.netl
 * **React-Redux**
 * **Redux-Form**
 * **React-Modal**
+* **React-Spinkit**
 
 * **create-react-app** - deployed via Netlify
 
-* **Enzyme** for testing
+* **Enzyme** 
 
 * **Node** - deployed via Heroku
 
@@ -35,8 +36,8 @@ Go here to play: [Lemonade Clicker Tycoon!](https://lemonade-clicker-tycoon.netl
 * **Passport**
 * **Bcrypt**
 * **Mongoose**
-* **Chai**
-* **Mocha**
+* **Chai** 
+* **Mocha** 
 
 * **Mongo** - hosted by Mlab
 
