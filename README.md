@@ -34,19 +34,19 @@ Go here to play: [Lemonade Clicker Tycoon!](https://lemonade-clicker-tycoon.netl
 
 ## Where key parts live in codebase:
 
-All components, actions and reducers are in [**src**](https://github.com/darrenrjones/Lemonade-Clicker-Tycoon/tree/master/src){:target="_blank"} folder
+All components, actions and reducers are in [**src**](https://github.com/darrenrjones/Lemonade-Clicker-Tycoon/tree/master/src) folder
 
-
+```
 project
 │   README.md
-│   [package.json](https://github.com/darrenrjones/Lemonade-Clicker-Tycoon/blob/master/package.json){:target="_blank"}           
+│   [package.json](https://github.com/darrenrjones/Lemonade-Clicker-Tycoon/blob/master/package.json)           
 │   
 └───src
 │   │   index.js
 │   │   store.js
 │   │   
 │   │
-│   └───[components](https://github.com/darrenrjones/Lemonade-Clicker-Tycoon/tree/master/src/components){:target="_blank"}
+│   └───[components](https://github.com/darrenrjones/Lemonade-Clicker-Tycoon/tree/master/src/components)
 │       │   header
 │       │   modal
 │       │   playScreen
@@ -59,8 +59,8 @@ project
 │       │   file112.txt
 │       │   ...
 │   
-└───[public](https://github.com/darrenrjones/Lemonade-Clicker-Tycoon/tree/master/public){:target="_blank"}          
-
+└───[public](https://github.com/darrenrjones/Lemonade-Clicker-Tycoon/tree/master/public)          
+```
 
 ## Authors
 
