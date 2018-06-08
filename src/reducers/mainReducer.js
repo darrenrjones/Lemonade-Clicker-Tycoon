@@ -14,7 +14,8 @@ import {
   PURCHASE_UPGRADE_ORGANIC,
   PURCHASE_UPGRADE_DOWNTOWN,
   PURCHASE_UPGRADE_NEWYORK, 
-  CLICK_UPGRADE_MENU
+  CLICK_UPGRADE_MENU,
+  SAVE_SUCCESS_DISPLAY
 } from '../actions'
 
 const initialState = {
@@ -49,6 +50,7 @@ const initialState = {
     1000: 'Someone made a MEME about your lemonade and now it\'s a global phenomenon! Buy a plane to meet the global demand!'
   },
   seenMessage: 0,
+  saveSuccess: null,
 }
 
 const messageChecker = (state) => {
@@ -101,7 +103,7 @@ export default function mainReducer(state = initialState, action){
       ...state,
       currentCash: state.currentCash + state.clickValue*action.multiplier,
       careerCash: state.careerCash + state.clickValue*action.multiplier, 
-      ...messageChecker(state)     
+      ...messageChecker(state),
     }
   }
   if(action.type === TOGGLE_SIGNEDIN_STATE){
@@ -204,6 +206,12 @@ export default function mainReducer(state = initialState, action){
     return {
       ...state,
       loginFormVisible: !state.loginFormVisible    
+    }
+  }
+  if(action.type === SAVE_SUCCESS_DISPLAY){
+    return {
+      ...state,
+      saveSuccess: action.success   
     }
   }
   

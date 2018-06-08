@@ -22,15 +22,19 @@ Go here to play: [Lemonade Clicker Tycoon!](https://lemonade-clicker-tycoon.netl
 
 **React, React-Redux, Redux-Form, React-Modal**
 
-**create-react-app** - deployed via netlify
+**create-react-app** - deployed via Netlify
 
-**enzyme** for testing
+**Enzyme** for testing
 
-**node** - deployed via heroku
+**Node** - deployed via Heroku
 
-**express, passport, bcrypt, mongoose, chai, mocha**
+**Express, Passport, Bcrypt, Mongoose, Chai, Mocha**
 
-**mongo** - hosted by Mlab
+**Mongo** - hosted by Mlab
+
+## Where key parts live in codebase:
+
+****
 
 ## Authors
 

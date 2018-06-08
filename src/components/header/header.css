@@ -49,6 +49,37 @@
   .signedin-div{
     font-size: .66em;
   }
+  
+  .saveSuccess {
+    background-color: #E8E8E8;
+    animation: color-it-green 2s;
+  }
+  @keyframes color-it-green {
+    0% {
+      background: #E8E8E8;
+    }
+    50% {
+      background: green;
+    }
+    100% {
+      background: #E8E8E8;
+    }
+  }
+  .saveFail {
+    background-color: #E8E8E8;
+    animation: color-it-red 2s;
+  }
+  @keyframes color-it-red {
+    0% {
+      background: #E8E8E8;
+    }
+    50% {
+      background: red;
+    }
+    100% {
+      background: #E8E8E8;
+    }
+  }
 
 @media screen and (min-width: 1000px) and (orientation: landscape) { 
   .modal-form, .save-button-div{

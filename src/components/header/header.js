@@ -4,16 +4,18 @@ import Employees from './employees'
 import './header.css'
 import LoginForm from '../modal/loginForm'
 import Save from'./save'
-import { fetchSave } from '../../actions';
+import { fetchSave, saveSuccessDisplay } from '../../actions';
 
 export class Header extends React.Component{
 
-  saveSubmit = () => {    
-    this.props.dispatch(fetchSave())
+  saveSubmit = () => {
+    if(this.props.signedIn){
+      this.props.dispatch(fetchSave());
+      this.props.dispatch(saveSuccessDisplay(null));
+    }    
   }
 
   render(){
-
     return(
       <div className='header-container'>  
 
@@ -50,7 +52,10 @@ export class Header extends React.Component{
     
           <div className='login-save-div' >
             <LoginForm />
-            <Save saveSubmit={() => this.saveSubmit()}/> 
+            <Save
+              saveSubmit={() => this.saveSubmit()}
+              saveSuccess={this.props.saveSuccess}
+            />
           </div>
 
         </div>
@@ -66,8 +71,8 @@ const mapStateToProps = state => ({
   assets: state.mainReducer.assets,
   currentUser: state.mainReducer.currentUser,
   username: state.mainReducer.username,
-  error: state.mainReducer.error
-
+  error: state.mainReducer.error,
+  saveSuccess: state.mainReducer.saveSuccess,
 })
 
 export default connect(mapStateToProps)(Header)

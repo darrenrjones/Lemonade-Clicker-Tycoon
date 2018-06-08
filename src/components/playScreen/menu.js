@@ -54,7 +54,6 @@ export class Menu extends React.Component{
     }
   }
 
-
   render(){
 
     let menuRender;

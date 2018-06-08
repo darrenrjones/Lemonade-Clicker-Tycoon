@@ -76,6 +76,12 @@ export const TOGGLE_LOGIN_FORM_VISIBLE = 'TOGGLE_LOGIN_FORM_VISIBLE';
 export const toggleLoginFormVisible = () => ({
   type: TOGGLE_LOGIN_FORM_VISIBLE  
 })
+export const SAVE_SUCCESS_DISPLAY = 'SAVE_SUCCESS_DISPLAY';
+export const saveSuccessDisplay = (success) => ({
+  type: SAVE_SUCCESS_DISPLAY,
+  success  
+})
+
 
 
 
@@ -95,11 +101,34 @@ export const fetchSave = () => (dispatch, getState) => {
     }),
     headers: {'Content-Type': 'application/json'}
   })
+  .then(res => {
+    if (!res.ok) {
+      if (res.headers.has('content-type') && res.headers
+                        .get('content-type')
+                        .startsWith('application/json')
+      ){
+        // It's a nice JSON error returned by us, so decode it
+        return res.json().then(err => Promise.reject(err));
+      }
+      // It's a less informative error returned by express
+      console.log('fetchSave caught in !res.ok if statement: ', res);
+      return Promise.reject({
+        code: res.status,
+        message: res.statusText
+        });
+    }
+    console.log(res);    
+    dispatch(saveSuccessDisplay(true));
+  })
+  .catch(err => {
+    console.log('catch in fetchSave: ', err);
+    dispatch(saveSuccessDisplay(false));    
+    dispatch(fetchUserError(err))
+  }) 
 }
 
 export const fetchUser = (user) => (dispatch, getState) => {
   dispatch(fetchUserRequest())
-
 
   // console.log("USER PASSED FROM FETCHSUBMITLOGIN: ", user);
   return fetch(`${API_BASE_URL}/api/users/${user.username}`)

@@ -67,6 +67,11 @@
     top: 70px;
   }
 } 
+@media screen and (max-height: 320px){ 
+  .modal-form-1{
+    position: unset;
+  }
+} 
 
 @media screen and (min-height: 700px){ 
   .modal-form-1{
