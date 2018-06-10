@@ -23,7 +23,7 @@ const initialState = {
   id: '',
   currentCash: 0,
   careerCash: 0,
-  manualClicks: 99,
+  manualClicks: 0,
   menuState: false,
   upgradeView: false,
   clickValue: 1,
