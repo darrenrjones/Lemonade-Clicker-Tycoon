@@ -94,14 +94,14 @@ export const fetchSave = () => (dispatch, getState) => {
     }),
     headers: {'Content-Type': 'application/json'}
   })
-  .then(res => {
+  .then(res => {    
     if (!res.ok) {
       if (res.headers.has('content-type') && res.headers
         .get('content-type')
         .startsWith('application/json')
-      ){
+      ){        
         return res.json().then(err => Promise.reject(err));
-      }
+      }      
       return Promise.reject({
         code: res.status,
         message: res.statusText
@@ -110,7 +110,9 @@ export const fetchSave = () => (dispatch, getState) => {
     dispatch(saveSuccessDisplay(true));
   })
   .catch(err => {
-    dispatch(saveSuccessDisplay(false));    
+    dispatch(saveSuccessDisplay(false));
+    // setTimeout(() => dispatch(saveSuccessDisplay(null)), 2500);
+    
     dispatch(fetchUserError(err))
   }) 
   

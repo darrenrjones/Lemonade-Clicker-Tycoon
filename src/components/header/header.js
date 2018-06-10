@@ -11,7 +11,7 @@ export class Header extends React.Component{
   saveSubmit = () => {
     if(this.props.signedIn){
       this.props.dispatch(fetchSave());
-      setTimeout(this.props.dispatch(saveSuccessDisplay(null)),500);
+      this.props.dispatch(saveSuccessDisplay(null));
     }    
   }
 

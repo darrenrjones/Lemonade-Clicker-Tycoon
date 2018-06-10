@@ -23,7 +23,7 @@ const initialState = {
   id: '',
   currentCash: 0,
   careerCash: 0,
-  manualClicks: 0,
+  manualClicks: 99,
   menuState: false,
   upgradeView: false,
   clickValue: 1,
@@ -53,7 +53,7 @@ const initialState = {
     100: 'Wow! You have clicked 100 times! You are a lemonade selling machine!',
     200: 'Wow! You have clicked 200 times! You are a lemonade selling beast!',
     500: 'Wow! You have clicked 500 times! What a hard working CEO!',
-    1000: '1000 clicks!?!?! Your work ethic is so impressive it\'s scary! Don\'t worry you won\'t be reminded about your click count again. Carry on you lemonade selling fiend!',
+    1000: '1000 clicks!?!?! Your work ethic is so impressive it\'s scary! Don\'t worry, you won\'t be reminded about your click count again. Carry on you lemonade selling fiend!',
   },
   seenMessage: 0,
   seenClickMessage: 0,
@@ -83,25 +83,25 @@ const messageChecker = (state) => {
   return {};
 }
 const clickMessageChecker = (state) => {
-  if(state.seenClickMessage < 100 && state.manualClicks >= 100){
+  if(state.seenClickMessage < 100 && state.manualClicks === 100){
     return {
       modalVisible: true,
       modalMessage: state.clickMessages[100],
       seenClickMessage: 100    
     }
-  } else if(state.seenClickMessage < 200 && state.manualClicks >= 200){
+  } else if(state.seenClickMessage < 200 && state.manualClicks === 200){
     return {
       modalVisible: true,
       modalMessage: state.clickMessages[200],
       seenClickMessage: 200    
     }
-  } else if(state.seenClickMessage < 500 && state.manualClicks >= 500){
+  } else if(state.seenClickMessage < 500 && state.manualClicks === 500){
     return {
       modalVisible: true,
       modalMessage: state.clickMessages[500],
       seenClickMessage: 500    
     }
-  } else if(state.seenClickMessage < 1000 && state.manualClicks >= 1000){
+  } else if(state.seenClickMessage < 1000 && state.manualClicks === 1000){
     return {
       modalVisible: true,
       modalMessage: state.clickMessages[1000],
