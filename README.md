@@ -5,6 +5,7 @@ Welcome to Lemonade Clicker Tycoon. A casual clicker game where you click your w
 ## Getting Started
 
 Go here to play: [Lemonade Clicker Tycoon!](https://lemonade-clicker-tycoon.netlify.com/)
+Server [repo](https://github.com/darrenrjones/Lemonade-Clicker-Server)
 
 ### Screenshots
 
