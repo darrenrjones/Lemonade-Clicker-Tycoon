@@ -3,16 +3,17 @@
   border: 2px #E4BD00 solid;
   display: flex;
   color: #343409;
-  height: 19vh;
+  height: 20vh;
 }
 
 .currentCashHeader{
   width: 50%;
+
 }
 
 .currentCashHeader .banner{
-  width: 80%;
-  margin-left: 1.8em;
+  width: 50vw;
+  margin-left: 1.3em;
 }
 
 .current-cash-display{
@@ -26,13 +27,6 @@
   font-size: 2.5vw;
   border-radius: 20%;
   padding: .1em;
-}
-
-.save-button-div button {
-  width: 4.5em;
-  margin-left: 1.1em;  
-  border-radius: 4px;  
-  padding: .2em;
 }
 
 .employees-container{
@@ -52,6 +46,14 @@
 }
 .signedin-div button{
   margin-left: 1em;
+  font-size: 2.8vw;
+}
+.save-button-div button {
+  width: 4.5em;
+  margin-left: 1.1em;  
+  border-radius: 4px;  
+  padding: .2em;
+  font-size: 2.2vw;
 }
 .right-side-header{
   width: 25%;
@@ -61,6 +63,7 @@
 }
 .signedin-div{
   height: 50%;
+  font-size: 3vw;
 }
 
 .signedin-username{
@@ -100,7 +103,7 @@
   }
 }
 
-@media screen and (orientation: portrait){
+/* @media screen and (orientation: portrait){
   .currentCashHeader .banner{
     width: 60vw;
     margin-left: -4.5em;
@@ -130,4 +133,4 @@
     font-size: .7em;
   }
   
-}
+} */

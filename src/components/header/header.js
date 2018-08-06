@@ -62,7 +62,7 @@ export class Header extends React.Component{
           {/* <div className='login-button-container'> */}
           {/* <div className='signedin-div'> */}
             <div className={this.props.signedIn ? 'signedin-div signedin' : 'signedin-div'}>
-              { this.props.signedIn ? <span className='signedin-username'><span className='signedin-div-span'>Signed in: </span>{this.props.username}</span> : <LoginForm /> }  
+              { this.props.signedIn ? <span className='signedin-username'><span className='signedin-div-span'></span>{this.props.username}</span> : <LoginForm /> }  
             </div>
           {/* </div> */}
       

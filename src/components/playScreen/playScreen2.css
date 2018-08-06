@@ -1,20 +1,21 @@
 .playscreen-container{
-  background-color: #FB9902;
+  background-color: rgb(216, 131, 3);
   background-image: url('../../images/commerce.png');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 170px;
+  background-size: 28vw;
   height: 14.5em;
-  height: 73vh;
+  height: 72vh;
   border: 2px solid #E4BD00;
 }
 .menu-button{
   padding: .8em;
-  width:85px;
+  /* width:85px; */
   position: fixed;
-  left: 50%;
-  margin-left: -42px;
+  left: 46%;
+  /* margin-left: -42px; */
   bottom: 0px;
+  font-size: 2vw;
 }
 .stage{
   float: right;
@@ -24,7 +25,7 @@
   margin-right: 1.25em;
 }
 .stage button{
-  font-size: .5em;
+  font-size: 1.2vw;
 }
 .logout-button{
   height: 3.5em;

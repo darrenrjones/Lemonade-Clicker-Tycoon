@@ -2,7 +2,6 @@ import {
   CLICK_MENU,
   CLICK_MAIN,
   AUTO_CLICK,
-  LOGOUT,
   PURCHASE_AUTO_CLICKER_EMPLOYEE,
   PURCHASE_AUTO_CLICKER_TRUCK,
   PURCHASE_AUTO_CLICKER_PLANE,
@@ -16,7 +15,11 @@ import {
   PURCHASE_UPGRADE_DOWNTOWN,
   PURCHASE_UPGRADE_NEWYORK, 
   CLICK_UPGRADE_MENU,
-  SAVE_SUCCESS_DISPLAY
+  SAVE_SUCCESS_DISPLAY,
+  SET_AUTH_TOKEN,
+  AUTH_SUCCESS,
+  CLEAR_AUTH,
+  AUTH_ERROR
 } from '../actions'
 
 const initialState = {
@@ -59,6 +62,8 @@ const initialState = {
   seenMessage: 0,
   seenClickMessage: 0,
   saveSuccess: null,
+  authToken: null,
+  user: null
 }
 
 const messageChecker = (state) => {
@@ -250,13 +255,34 @@ export default function mainReducer(state = initialState, action){
       saveSuccess: action.success   
     }
   }
-  if(action.type === LOGOUT){
-    console.log('logout clicked and this is from reducer');
-    
-    return {
-      ...state         
+  if(action.type === SET_AUTH_TOKEN){
+    return{
+      ...state,
+      authToken: action.authToken
     }
   }
+  if(action.type === AUTH_SUCCESS){
+    return {
+      ...state,
+      loading: false,
+      user: action.user
+    }
+  }
+  if(action.type === CLEAR_AUTH){
+    return {
+      ...state,
+      authToken: null,
+      user: null
+    }
+  }
+  if(action.type === AUTH_ERROR){
+    return {
+      ...state,
+      loading: false,
+      error: action.error
+    }
+  }
+
   
   return state;
 }

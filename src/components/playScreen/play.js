@@ -1,8 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { clickMain,logout } from '../../actions'
+import { clickMain, clearAuth } from '../../actions'
 
 import Audio from './audio'
+import { clearAuthToken } from '../../local-storage';
 
 
 
@@ -12,7 +13,8 @@ export class Play extends React.Component{
     this.props.dispatch(clickMain());   
   }
   logout(){
-    this.props.dispatch(logout())
+    this.props.dispatch(clearAuth());
+    clearAuthToken();
   }
 
   render(){

@@ -1,4 +1,7 @@
 import { API_BASE_URL } from '../config'
+import jwtDecode from 'jwt-decode';
+import { clearAuthToken, saveAuthToken } from '../local-storage';
+import { normalizeResponseErrors } from './utils';
 
 
 export const CLICK_MENU = 'CLICK_MENU';
@@ -82,7 +85,33 @@ export const LOGOUT = 'LOGOUT';
 export const logout = () => ({
   type: LOGOUT    
 })
+export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
+export const setAuthToken = authToken => ({ 
+  type: SET_AUTH_TOKEN, 
+  authToken 
+})
+export const AUTH_SUCCESS = 'AUTH_SUCCESS';
+export const authSuccess = user => ({ 
+  type: AUTH_SUCCESS, 
+  user 
+})
+export const AUTH_ERROR = 'AUTH_ERROR';
+export const authError = err => ({ 
+  type: AUTH_ERROR, 
+  err 
+})
+export const CLEAR_AUTH = 'CLEAR_AUTH';
+export const clearAuth = () => ({ 
+  type: CLEAR_AUTH 
+})
 
+
+export const storeAuthInfo = (authToken, dispatch) => {
+  const decodedToken = jwtDecode(authToken);
+  dispatch(setAuthToken(authToken));
+  dispatch(authSuccess(decodedToken.user));
+  saveAuthToken(authToken);
+};
 
 export const fetchSave = () => (dispatch, getState) => {
   const currentState = getState();
@@ -123,6 +152,42 @@ export const fetchSave = () => (dispatch, getState) => {
   
 }
 
+// export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {
+//   dispatch(fetchUserRequest())
+//   return fetch(`${API_BASE_URL}/api/auth/login`, {
+//     method: 'POST',
+//     body: JSON.stringify({
+//       username: credentials.username,
+//       password: credentials.password
+//       }),
+//       headers: {'Content-Type': 'application/json'}
+//   })   
+//   .then(res => {
+//     if (!res.ok) {
+//       if (res.headers.has('content-type') && res.headers
+//         .get('content-type')
+//         .startsWith('application/json')
+//       ){
+//         return res.json().then(err => Promise.reject(err));
+//       }
+//       return Promise.reject({
+//         code: res.status,
+//         message: res.statusText
+//         });
+//     }
+//     return;
+//   })
+//   .then(() => fetch(`${API_BASE_URL}/api/users/${credentials.username}`)
+//   .then(res => res.json()) 
+//   .then(user => {
+//     dispatch(fetchUserSuccess(user))
+//   }))
+//   .then(() => dispatch(toggleSignedinState()))
+//   .catch(err => {
+//     dispatch(fetchUserError(err))
+//   }) 
+
+// }
 export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {
   dispatch(fetchUserRequest())
   return fetch(`${API_BASE_URL}/api/auth/login`, {
@@ -133,21 +198,9 @@ export const fetchSubmitLogin = (credentials) => (dispatch, getState) => {
       }),
       headers: {'Content-Type': 'application/json'}
   })   
-  .then(res => {
-    if (!res.ok) {
-      if (res.headers.has('content-type') && res.headers
-        .get('content-type')
-        .startsWith('application/json')
-      ){
-        return res.json().then(err => Promise.reject(err));
-      }
-      return Promise.reject({
-        code: res.status,
-        message: res.statusText
-        });
-    }
-    return;
-  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => res.json())
+  .then(({authToken}) => storeAuthInfo(authToken, dispatch))
   .then(() => fetch(`${API_BASE_URL}/api/users/${credentials.username}`)
   .then(res => res.json()) 
   .then(user => {
@@ -194,3 +247,20 @@ export const fetchSubmitRegister = (credentials) => (dispatch, getState) => {
   }); 
 
 }
+
+export const refreshAuthToken = () => (dispatch, getState) => {
+  // dispatch(authRequest());
+  const authToken = getState().authToken;
+  return fetch(`${API_BASE_URL}/api/auth/refresh`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${authToken}` }
+  })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then(({authToken}) => storeAuthInfo(authToken, dispatch))
+    .catch(err => {      
+      dispatch(authError(err));
+      dispatch(clearAuth());
+      clearAuthToken(authToken);
+    });
+};
