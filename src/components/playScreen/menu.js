@@ -1,7 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import './menu.css'
-import './upgradesMenu.css'
+// import './menu.css'
+import './menu2.css'
+
+import './upgradesMenu2.css'
 import EmployeeTemplate from './employeeTemplate'
 import UpgradeTemplate from './upgradeTemplate'
 import {

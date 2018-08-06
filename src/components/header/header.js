@@ -1,8 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Employees from './employees'
-import './header.css'
+// import './header.css'
+
+import './header2.css'
+
 import LoginForm from '../modal/loginForm'
+
 import Save from'./save'
 import { fetchSave, saveSuccessDisplay } from '../../actions';
 
@@ -20,22 +24,34 @@ export class Header extends React.Component{
       <div className='header-container'>  
 
         <div className='employees-container'>
-          <Employees
-            empTypeName={'Employees'}
-            empCount={this.props.assets.employees}
-          />
-          <Employees
-            empTypeName={'Trucks'}
-            empCount={this.props.assets.trucks}
-          />
-          <Employees 
-            empTypeName={"Planes"}
-            empCount={this.props.assets.planes}            
-          />
+
+          <div className='employee-container'>
+            <Employees
+              empTypeName={'Employees'}
+              empCount={this.props.assets.employees}
+            />
+          </div>
+          <div className='employee-container'>
+            <Employees
+              empTypeName={'Trucks'}
+              empCount={this.props.assets.trucks}
+            />
+          </div>
+          <div className='employee-container'>
+            <Employees 
+              empTypeName={"Planes"}
+              empCount={this.props.assets.planes}            
+            />
+          </div>
+
         </div>      
     
         <section className='currentCashHeader'>        
-          <h1 role='banner'>Lemonade Clicker Tycoon!</h1>
+          <img 
+          className='banner' 
+            alt='Lemonade Clicker Tycoon banner in wood frame' 
+            src={require('../../images/bannernowood.png')} 
+          />
           <div className='current-cash-display'>
             <span>${this.props.currentCash.toLocaleString('en')}</span>
           </div>
@@ -43,15 +59,14 @@ export class Header extends React.Component{
 
         <div className='right-side-header'>
         
-          <div className='signedin-div'>
-            <div className={this.props.signedIn ? 'signedin signedin-green' : null}>Signed in: {
-              this.props.signedIn ? this.props.username : this.props.signedIn.toString()
-              }  
+          {/* <div className='login-button-container'> */}
+          {/* <div className='signedin-div'> */}
+            <div className={this.props.signedIn ? 'signedin-div signedin' : 'signedin-div'}>
+              { this.props.signedIn ? <span className='signedin-username'><span className='signedin-div-span'>Signed in: </span>{this.props.username}</span> : <LoginForm /> }  
             </div>
-          </div>
-    
-          <div className='login-save-div' >
-            <LoginForm />
+          {/* </div> */}
+      
+          <div className='save-div' >
             <Save
               saveSubmit={() => this.saveSubmit()}
               saveSuccess={this.props.saveSuccess}

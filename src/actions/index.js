@@ -78,6 +78,11 @@ export const saveSuccessDisplay = (success) => ({
   type: SAVE_SUCCESS_DISPLAY,
   success  
 })
+export const LOGOUT = 'LOGOUT';
+export const logout = () => ({
+  type: LOGOUT    
+})
+
 
 export const fetchSave = () => (dispatch, getState) => {
   const currentState = getState();

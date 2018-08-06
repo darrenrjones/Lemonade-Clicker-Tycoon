@@ -1,0 +1,62 @@
+.playscreen-container{
+  background-color: #FB9902;
+  background-image: url('../../images/commerce.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 170px;
+  height: 14.5em;
+  height: 73vh;
+  border: 2px solid #E4BD00;
+}
+.menu-button{
+  padding: .8em;
+  width:85px;
+  position: fixed;
+  left: 50%;
+  margin-left: -42px;
+  bottom: 0px;
+}
+.stage{
+  float: right;
+  display: flex;
+  flex-direction: column;
+  padding: .5em;
+  margin-right: 1.25em;
+}
+.stage button{
+  font-size: .5em;
+}
+.logout-button{
+  height: 3.5em;
+  font-size: .5em;  
+  margin-left: 87.5%;  
+  position: fixed;  
+  bottom: 0;
+  padding: .5em;  
+  margin-bottom: 1.4em;
+}
+.modal-message-container{
+  position: relative;
+  border: 5px solid #E4BD00;
+  width: 50%;
+  margin: 0 auto;
+  background-color: pink;
+  margin-top: 15%;
+}
+.modal-message-paragraph{
+  font-size: 1em;
+  margin: 0 auto;
+  padding: 27px;
+}
+.modal-closebutton{
+  position: absolute;
+  top: .3em;
+  right: .3em;
+  padding: .2em;
+  border: none;
+  border-radius: 10%;
+  background-color: red;
+  color: black;
+  font-size: 1.3em;
+}
+

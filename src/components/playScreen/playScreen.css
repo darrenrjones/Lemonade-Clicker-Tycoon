@@ -8,6 +8,7 @@
     left: 50%;
     margin-left: -42px;
     bottom: 0px;
+    border-radius: 5%;
   }
   .stage{
     float: right;

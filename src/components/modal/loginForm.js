@@ -10,7 +10,8 @@ import {Field, reduxForm, reset} from 'redux-form'
 
 import { fetchSubmitRegister, fetchSubmitLogin, toggleLoginFormVisible } from '../../actions'
 
-import './loginForm.css'
+// import './loginForm.css'
+import './loginForm3.css'
 
 import { required, passwordLength } from './validators'; 
 
@@ -84,13 +85,13 @@ export class LoginForm extends React.Component{
           }}>
 
           <h1 id='heading'>Log In or Register Below!</h1>
-          <div id="fulldescription" tabIndex="0" role="document">
+          {/* <div id="fulldescription" tabIndex="0" role="document"> */}
           <form 
             className='redux-form'
             onSubmit={this.props.handleSubmit(fields => this.onSubmit(fields))}
           >
             {errorMessage}
-            <label>Enter your credentials to login, or enter a unique Username and Password to create a new account</label>
+            <p>Enter your credentials to login, or enter a unique Username and Password to register a new account</p>
             <div className='form-input-div'>
               
               <Field 
@@ -116,23 +117,25 @@ export class LoginForm extends React.Component{
               />
 
             </div>
+            
+            <div className='login-form-buttons-container'>
               <button 
                 className='form-button-login' 
                 disabled={this.props.pristine || this.props.submitting}
                 onClick={() => this.submittedButton = "login"}>
                 LOGIN
               </button>
-              <p className='or-paragraph'>or</p>
+              <p>or</p>
               <button
                 className='form-button-register' 
                 disabled={this.props.pristine || this.props.submitting}
                 onClick={() => this.submittedButton = "register"}>
                 REGISTER
               </button>
-         
+            </div>         
           </form>
 
-          </div>
+          {/* </div> */}
         </Modal>
       </div>
     )

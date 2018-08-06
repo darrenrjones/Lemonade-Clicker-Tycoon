@@ -2,6 +2,7 @@ import {
   CLICK_MENU,
   CLICK_MAIN,
   AUTO_CLICK,
+  LOGOUT,
   PURCHASE_AUTO_CLICKER_EMPLOYEE,
   PURCHASE_AUTO_CLICKER_TRUCK,
   PURCHASE_AUTO_CLICKER_PLANE,
@@ -247,6 +248,13 @@ export default function mainReducer(state = initialState, action){
     return {
       ...state,
       saveSuccess: action.success   
+    }
+  }
+  if(action.type === LOGOUT){
+    console.log('logout clicked and this is from reducer');
+    
+    return {
+      ...state         
     }
   }
   

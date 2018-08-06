@@ -22,6 +22,8 @@
   .current-cash-display span {
     background-color: pink;
     font-size: 22px;
+    border-radius: 20%;
+    padding: .1em;
   }
 
   .currentCashHeader{
@@ -39,8 +41,21 @@
   }
   .employees-container{
     width: 25%;
+    display: flex;
+    align-items: flex-end;
   }
-  .signedin-div, .login-save-div{
+  .employee-container{
+    box-shadow: 0 0 4px 1px #555;
+    border: 1px solid black;
+    padding: 0px 5px;
+  }
+  .asset-header-display{
+    
+  }
+  .asset-header-count{
+    text-align: center;
+  }
+  .signedin-div, .save-div{
     height: 50%;
   }
   .right-side-header{
@@ -85,7 +100,7 @@
   .modal-form, .save-button-div{
     width: 50%;
   }
-  .login-save-div{
+  .save-div{
     display: flex;
     align-items: flex-end;
   }
@@ -106,7 +121,7 @@
     display: flex;
     flex-direction: column;
   }
-  .login-save-div {
+  .save-div {
     margin-left: 6px;
   }
 

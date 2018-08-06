@@ -1,0 +1,133 @@
+.header-container {
+  background-color: #E4BD00;
+  border: 2px #E4BD00 solid;
+  display: flex;
+  color: #343409;
+  height: 19vh;
+}
+
+.currentCashHeader{
+  width: 50%;
+}
+
+.currentCashHeader .banner{
+  width: 80%;
+  margin-left: 1.8em;
+}
+
+.current-cash-display{
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.current-cash-display span {
+  background-color: pink;
+  font-size: 2.5vw;
+  border-radius: 20%;
+  padding: .1em;
+}
+
+.save-button-div button {
+  width: 4.5em;
+  margin-left: 1.1em;  
+  border-radius: 4px;  
+  padding: .2em;
+}
+
+.employees-container{
+  width: 25%;
+  display: flex;
+  align-items: flex-end;
+}
+.employee-container{
+  box-shadow: 0 0 1px 1px #555;
+  border: 1px solid black;
+  padding: 0px 5px;
+  font-size: 2.2vw;
+}
+
+.asset-header-count{
+  text-align: center;
+}
+.signedin-div button{
+  margin-left: 1em;
+}
+.right-side-header{
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.signedin-div{
+  height: 50%;
+}
+
+.signedin-username{
+  padding-top: .5em;
+}
+.signedin-div-span{
+  padding-right: .2em;
+}
+.saveSuccess {
+  background-color: #E8E8E8;
+  animation: color-it-green 2s;
+}
+@keyframes color-it-green {
+  0% {
+    background: #E8E8E8;
+  }
+  50% {
+    background: green;
+  }
+  100% {
+    background: #E8E8E8;
+  }
+}
+.saveFail {
+  background-color: #E8E8E8;
+  animation: color-it-red 2s;
+}
+@keyframes color-it-red {
+  0% {
+    background: #E8E8E8;
+  }
+  50% {
+    background: red;
+  }
+  100% {
+    background: #E8E8E8;
+  }
+}
+
+@media screen and (orientation: portrait){
+  .currentCashHeader .banner{
+    width: 60vw;
+    margin-left: -4.5em;
+  }
+  .currentCashHeader{
+    margin-top: .5em;
+  }
+  .current-cash-display{
+    text-align: left;
+  }
+  .employees-container{
+    font-size: .9em;
+  }
+  .right-side-header{
+    width: 33%;
+  }
+  .signedin-div{
+    flex-direction: column;
+    text-align: center;
+  }
+  .save-button-div button {
+    margin-left: initial;
+  }
+  .signedin-div button, .signedin{
+    margin-left: initial;
+    margin-top: 1em;
+    font-size: .7em;
+  }
+  
+}
