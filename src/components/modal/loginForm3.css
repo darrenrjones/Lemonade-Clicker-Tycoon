@@ -1,0 +1,82 @@
+.modal-form-1{ 
+  max-width: 80%;
+  margin: 7% auto;
+  padding: 1em;
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  background-color: rgba(139, 126, 8, 0.75);
+  height: 72%;
+  width: 27em;
+}
+
+.modal-form-1 h1{
+  font-size: 1.5em;
+  text-align: center;
+  margin: 0 auto 0px auto;
+}
+.form-error, .form-warning {
+  /* margin: 0 6px; */
+  /* padding: 6px; */
+  display: inline-block;
+}
+.message {
+  padding: 12px 6px;
+}
+.message-success {
+  background-color: #5CB85C;
+  color: white;
+}
+.message-error, .form-error {
+  background-color: #d9534f;
+  color: white;
+}
+.message-error{
+  position: absolute;
+  top: 43px;
+}
+.redux-form{
+  display: flex;
+  flex-direction: column;
+}
+.redux-form p {
+  font-size: .75em;
+  width: 66%;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: .2em;
+}
+
+.login-form-buttons-container{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: .5em;
+}
+.login-form-buttons-container p {
+  margin: 0 auto;
+}
+
+.form-input-div{
+  margin-top: .5em;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.form-input{
+  margin-bottom: .5em;
+}
+.spinner{
+  margin-left: 20em;
+}
+
+@media screen and (min-width: 900px){
+  .modal-form-1{
+    width: 400px;
+  }
+}
+@media screen and (min-height: 500px){
+  .modal-form-1{
+    height: 400px;
+  }
+}

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import Menu from './menu'
 import Play from './play'
 import ModalNotice from './modalNotice'
-import './playScreen.css'
+import './playScreen2.css'
 
 import {
   clickMenu,
@@ -43,14 +43,12 @@ export class PlayScreen extends React.Component{
     let playScreenRender;
     if(!this.props.menuState){
       playScreenRender = (
-        <div>
           <Play />
-        </div>
       )
     }    
 
       return(
-        <div role='main' className='playscreen'>    
+        <div role='main'>    
 
           {menuRender}
 
