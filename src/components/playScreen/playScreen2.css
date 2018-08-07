@@ -1,0 +1,76 @@
+.playscreen-container{
+  background-color: rgb(216, 131, 3);
+  background-image: url('../../images/commerce.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 28vw;
+  height: 14.5em;
+  height: 72vh;
+  border: 2px solid #E4BD00;
+}
+.menu-button{
+  padding: .8em;
+  position: fixed;
+  left: 45%;
+  bottom: 0px;
+  font-size: 2vw;
+}
+.stage{
+  float: right;
+  display: flex;
+  flex-direction: column;
+  padding: .5em;
+  margin-right: 1.25em;
+}
+.stage button{
+  font-size: 1.2vw;
+}
+.logout-button{
+  height: 3.5em;
+  font-size: .5em;  
+  margin-left: 87.5%;  
+  position: fixed;  
+  bottom: 0;
+  padding: .5em;  
+  margin-bottom: 1.4em;
+}
+.modal-message-container{
+  position: relative;
+  border: 5px solid #E4BD00;
+  width: 50%;
+  margin: 15% auto;
+  background-color: pink;
+}
+.modal-message-paragraph{
+  font-size: 1em;
+  padding: 27px;
+}
+.modal-closebutton{
+  position: absolute;
+  top: .3em;
+  right: .3em;
+  padding: .2em;
+  border: none;
+  border-radius: 10%;
+  background-color: red;
+  color: black;
+  font-size: 1.3em;
+}
+
+@media screen and (orientation: portrait){
+  .stage button{
+    font-size: 2.2vw;
+  }
+  .menu-button{
+    left: 43%;
+    bottom: 6vw;
+    font-size: 3vw;
+  }
+  .modal-message-container{
+    margin-top: 25%;
+    width: 60%;
+  }
+  .playscreen-container{
+    background-size: 50vw;
+  }
+}

@@ -6,7 +6,7 @@ export default function EmployeeTemplate(props){
   return(
     <div className='employee-menu-container'>
 
-      <div>
+      <div className='asset-upgrade-display'>
         <h2 id='aria-{props.empTypeName}'>{props.empTypeName}</h2>
         <p> {props.empTypeName} sell {props.currentClickValue} lemonade{props.rate > 1 ? 's': null} every {props.rate} second{props.rate > 1 ? 's': null}</p>
       </div>

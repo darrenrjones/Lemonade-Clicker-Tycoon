@@ -9,11 +9,11 @@ describe('<PlayScreen />', function() {
     shallow(<PlayScreen />);
   });
 
-  it('Renders the MENU button initially', () => {
-    const wrapper = shallow(<PlayScreen />);
-    // console.log(wrapper.debug());    
-    expect(wrapper.hasClass('playscreen')).toEqual(true);
-  });
+  // it('Renders the MENU button initially', () => {
+  //   const wrapper = shallow(<PlayScreen />);
+  //   // console.log(wrapper.debug());    
+  //   expect(wrapper.hasClass('playscreen')).toEqual(true);
+  // });
 
   it('Renders the MENU button initially', () => {
     const wrapper = shallow(<PlayScreen />);
