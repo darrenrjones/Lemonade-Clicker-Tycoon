@@ -250,7 +250,7 @@ export const fetchSubmitRegister = (credentials) => (dispatch, getState) => {
 
 export const refreshAuthToken = () => (dispatch, getState) => {
   // dispatch(authRequest());
-  const authToken = getState().authToken;
+  const authToken = getState().mainReducer.authToken;
   return fetch(`${API_BASE_URL}/api/auth/refresh`, {
     method: 'POST',
     headers: { Authorization: `Bearer ${authToken}` }
