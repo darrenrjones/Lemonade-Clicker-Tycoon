@@ -37,7 +37,7 @@
 .modal-message-container{
   position: relative;
   border: 5px solid #E4BD00;
-  width: 50%;
+  width: 18em;
   margin: 15% auto;
   background-color: pink;
 }
@@ -74,3 +74,4 @@
     background-size: 50vw;
   }
 }
+
