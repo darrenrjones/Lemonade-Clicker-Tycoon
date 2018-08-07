@@ -3,9 +3,9 @@ import React from 'react'
 export default function Employees(props){
 
     return(
-      <div className='employee-container'>
-        <div id='aria-empTypeName'>{props.empTypeName}</div> 
-        <div aria-labelledby='aria-empTypeName'>count: {props.empCount}</div>       
+      <div>
+        <div className='asset-header-display asset-header' id='aria-empTypeName'>{props.empTypeName}</div> 
+        <div className='asset-header-count asset-header' aria-labelledby='aria-empTypeName'>{props.empCount}</div>       
       </div>
     );
   

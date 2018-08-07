@@ -5,7 +5,8 @@ import Modal from 'react-modal';
 import { toggleModalVisible } from '../../actions';
 
 
-// Modal.setAppElement('#root'); // this is COMMENTED OUT to appease tests
+// Modal.setAppElement('#root'); 
+// this is COMMENTED OUT to appease tests
 
 
 export class ModalNotice extends React.Component{
