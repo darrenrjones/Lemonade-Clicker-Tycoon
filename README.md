@@ -9,7 +9,7 @@ Go here to play: [Lemonade Clicker Tycoon!](https://lemonade-clicker-tycoon.netl
 ### Screenshots
 
 Here is the play screen. You can click anywhere in the orange section to sell lemonade.
-If the user is not signed in the top right "Signed in:" bar does not have a green background and says false.
+
 ![playscreen](screenshots/0.png)
 These are the modals that show up when you reach checkpoint of being able to purchase your first employee, truck or plane. A similar one appears upon landing at the game to welcome you and give instruction. 
 ![notice](screenshots/modal1.png)
@@ -75,8 +75,5 @@ project
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
-
-Zach, Casey, Kevin and Chris for helping at many different stages
 
 

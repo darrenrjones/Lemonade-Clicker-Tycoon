@@ -114,6 +114,7 @@
   .right-side-header{
     height: 60%;
     margin-top: 14vw;
+    margin-left: -5vw;
   }
   .current-cash-display span {
     font-size: 5.5vw;

@@ -57,7 +57,7 @@ const initialState = {
     100: 'Wow! You have clicked 100 times! You are a lemonade selling machine!',
     200: 'Wow! You have clicked 200 times! You are a lemonade selling beast!',
     500: 'Wow! You have clicked 500 times! What a hard working CEO!',
-    1000: '1000 clicks!?!?! Your work ethic is so impressive it\'s scary! Don\'t worry, you won\'t be reminded about your click count again. Carry on you lemonade selling fiend!',
+    1000: '1000 clicks!?!?! Your work ethic is so impressive it\'s scary! Don\'t worry, you won\'t be reminded about your click count again. Carry on, you lemonade selling fiend!',
   },
   seenMessage: 0,
   seenClickMessage: 0,

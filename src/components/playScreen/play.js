@@ -33,7 +33,7 @@ export class Play extends React.Component{
       <div className='playscreen-container' onClick={() => this.handleMainClick()}>   
     
         <Audio />
-        {logoutRender}        
+        {/* {logoutRender}         */}
 
       </div>
     )

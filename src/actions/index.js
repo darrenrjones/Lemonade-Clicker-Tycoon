@@ -81,10 +81,6 @@ export const saveSuccessDisplay = (success) => ({
   type: SAVE_SUCCESS_DISPLAY,
   success  
 })
-export const LOGOUT = 'LOGOUT';
-export const logout = () => ({
-  type: LOGOUT    
-})
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 export const setAuthToken = authToken => ({ 
   type: SET_AUTH_TOKEN, 
