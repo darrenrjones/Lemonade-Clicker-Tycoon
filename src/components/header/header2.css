@@ -2,7 +2,6 @@
   background-color: #E4BD00;
   border: 2px #E4BD00 solid;
   display: flex;
-  color: #343409;
   height: 20vh;
 }
 
@@ -45,30 +44,30 @@
   text-align: center;
 }
 .signedin-div button{
-  margin-left: 1em;
-  font-size: 2.8vw;
+  font-size: 2.5vw;
+  margin-top: .5em;
 }
 .save-button-div button {
   width: 4.5em;
-  margin-left: 1.1em;  
+  margin-left: 2.3em;  
   border-radius: 4px;  
   padding: .2em;
-  font-size: 2.2vw;
+  font-size: 1.7vw;
 }
 .right-side-header{
   width: 25%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
 }
 .signedin-div{
   height: 50%;
-  font-size: 3vw;
+  font-size: 2.5vw;
+  margin-top: .5em;
+  margin-left: 1.5em;
 }
 
-.signedin-username{
-  padding-top: .5em;
-}
 .signedin-div-span{
   padding-right: .2em;
 }
@@ -103,34 +102,34 @@
   }
 }
 
-/* @media screen and (orientation: portrait){
+@media screen and (orientation: portrait){
+  .employee-container{
+    /* padding: 0px 5px; */
+    font-size: 2.2vh;
+  }
   .currentCashHeader .banner{
-    width: 60vw;
-    margin-left: -4.5em;
-  }
-  .currentCashHeader{
-    margin-top: .5em;
-  }
-  .current-cash-display{
-    text-align: left;
-  }
-  .employees-container{
-    font-size: .9em;
+    width: 85vw;
+    margin-left: -18vw;
   }
   .right-side-header{
-    width: 33%;
+    height: 60%;
+    margin-top: 14vw;
   }
-  .signedin-div{
-    flex-direction: column;
-    text-align: center;
+  .current-cash-display span {
+    font-size: 5.5vw;
+  }
+  .signedin-div button{
+    font-size: 4.5vw;
+    margin-top: .5em;
   }
   .save-button-div button {
+    font-size: 3.7vw;
     margin-left: initial;
   }
-  .signedin-div button, .signedin{
+  .signedin-div{
+    height: initial;
+    font-size: 4.5vw;
+    margin-top: initial;
     margin-left: initial;
-    margin-top: 1em;
-    font-size: .7em;
   }
-  
-} */
+}

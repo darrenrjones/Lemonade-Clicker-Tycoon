@@ -10,10 +10,8 @@
 }
 .menu-button{
   padding: .8em;
-  /* width:85px; */
   position: fixed;
-  left: 46%;
-  /* margin-left: -42px; */
+  left: 45%;
   bottom: 0px;
   font-size: 2vw;
 }
@@ -40,13 +38,11 @@
   position: relative;
   border: 5px solid #E4BD00;
   width: 50%;
-  margin: 0 auto;
+  margin: 15% auto;
   background-color: pink;
-  margin-top: 15%;
 }
 .modal-message-paragraph{
   font-size: 1em;
-  margin: 0 auto;
   padding: 27px;
 }
 .modal-closebutton{
@@ -61,3 +57,20 @@
   font-size: 1.3em;
 }
 
+@media screen and (orientation: portrait){
+  .stage button{
+    font-size: 2.2vw;
+  }
+  .menu-button{
+    left: 43%;
+    bottom: 6vw;
+    font-size: 3vw;
+  }
+  .modal-message-container{
+    margin-top: 25%;
+    width: 60%;
+  }
+  .playscreen-container{
+    background-size: 50vw;
+  }
+}

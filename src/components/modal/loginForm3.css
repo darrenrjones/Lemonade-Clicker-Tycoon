@@ -1,14 +1,13 @@
 .modal-form-1{ 
   max-width: 80%;
-  margin: 0 auto;
+  margin: 7% auto;
   padding: 1em;
-  height: 60%;
   position: fixed;
-  top: 1em;
   left: 0px;
   right: 0px;
   background-color: rgba(139, 126, 8, 0.75);
-  height: 80%;
+  height: 72%;
+  width: 27em;
 }
 
 .modal-form-1 h1{
@@ -69,4 +68,15 @@
 }
 .spinner{
   margin-left: 20em;
+}
+
+@media screen and (min-width: 900px){
+  .modal-form-1{
+    width: 400px;
+  }
+}
+@media screen and (min-height: 500px){
+  .modal-form-1{
+    height: 400px;
+  }
 }

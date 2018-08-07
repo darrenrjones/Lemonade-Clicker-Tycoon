@@ -9,7 +9,7 @@ p{
   padding: 2px;
 }
 .upgrade-description-div{
-  width: 40%;
+  width: 43%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,7 +23,7 @@ p{
   justify-content: space-between;
   border: 2px solid #E4BD00;
   border-top: 1px solid #E4BD00;
-  padding: .8em;
+  padding: .75em;
   align-items: center;
 
 }
@@ -31,9 +31,11 @@ p{
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
+  font-size: 2vw;
 }
 .buy-upgrade-button-div button{
   height: 2.75em;
+  font-size: 2vw;
   
 }
 
@@ -43,13 +45,31 @@ p{
 .upgrades-button{
   padding: 2px;
   position: fixed;
-  left: 45.99%;
-  bottom: 6vw;
-  font-size: 1.6vw;
+  left: 44.75%;
+  bottom: 7.5vw;
+  font-size: 1.7vw
 }
 
 @media screen and (orientation: portrait){
+  .upgrades-button{
+    left: 42.5%;
+    bottom: 17.5vw;
+    font-size: 2.6vw;
+  }
+  h2{
+    font-size: 4.5vw;
+  }
+  p{
+    font-size: 3.5vw;
+    width: 77%
+  }
+  .buy-upgrade-button-div{
+    font-size: 4vw;
+  }
+  .buy-upgrade-button-div button{
+    font-size: 4vw;    
+  }
   .upgrade-description-div{
-    width: initial;
+    width: 55%;
   }
 }

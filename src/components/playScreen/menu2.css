@@ -1,29 +1,26 @@
-h2{
-  font-size: 14px;
-}
-p{
-  font-size: 10px;
-}
 .menu-container {
   background-color: rgb(124, 40, 202);    
+  border: 2px solid #E4BD00;
 }
 .employee-menu-container{
   display: flex;
   justify-content: space-between;
   border: 2px solid #E4BD00;
   border-top: 1px solid #E4BD00;
-  padding: 1.2em;
+  padding: .75em;
+  
   
 }
 .asset-upgrade-display{
   display: flex;
   justify-content: center;
   flex-direction: column;
+  width: 43%;
 }
 .buy-button-div{
   display: flex;
   flex-direction: row-reverse;
-  justify-content: center;
+  /* justify-content: center; */
   font-size: 2.5vw;
 
 }
@@ -32,10 +29,16 @@ p{
   margin-top: .5em;
 }
 .buy-button-div button {
-  font-size: 2.5vw;
+  font-size: 2vw;
 }
 @media screen and (orientation: portrait){
-  .buy-button-div span{
-    margin-top: .9em;
+  .buy-button-div{
+    font-size: 4.5vw;
+  }
+  .buy-button-div span {
+    margin-top: 1.1em;
+  }
+  .buy-button-div button {
+    font-size: 3.5vw;
   }
 }
