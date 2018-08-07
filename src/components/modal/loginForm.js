@@ -18,8 +18,9 @@ import { required, passwordLength } from './validators';
 import Input from './input.js'
 
 // COMMENT OUT TO APPEASE TEST
-Modal.setAppElement('#root'); 
+// Modal.setAppElement('#root'); 
 // COMMENT OUT TO APPEASE TEST
+
 
 
 export class LoginForm extends React.Component{
