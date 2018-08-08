@@ -9,7 +9,7 @@ Go here to play: [Lemonade Clicker Tycoon!](https://lemonade-clicker-tycoon.netl
 Server [repo](https://github.com/darrenrjones/Lemonade-Clicker-Server)
 
 ### Screenshots
-Responsive designn
+
 ![Responsive Mockup](https://image.ibb.co/dicwVe/smartmockups.jpg "responsive mockup")
 
 Here is the play screen. You can click anywhere in the orange section to sell lemonade.
