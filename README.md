@@ -10,7 +10,7 @@ Server [repo](https://github.com/darrenrjones/Lemonade-Clicker-Server)
 
 ### Screenshots
 
-![Responsive Mockup](https://image.ibb.co/dicwVe/smartmockups.jpg "responsive mockup")
+![Responsive Mockup](https://image.ibb.co/c47KGK/smartmockups.jpg "responsive mockup")
 
 Here is the play screen. You can click anywhere in the orange section to sell lemonade.
 ![playscreen](https://image.ibb.co/iyHDAe/playscreen.png "play screen")
